@@ -19,7 +19,7 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'capistrano'
-  gem 'capistrano-rails', '~> 3.0'
+  gem 'capistrano-rails'
 end
 
 group :production do
