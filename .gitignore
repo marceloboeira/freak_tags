@@ -10,4 +10,7 @@
 /tmp
 
 # Ignore bower_components
-app/assets/components
+/app/assets/components
+
+# Code coverage
+/coverage

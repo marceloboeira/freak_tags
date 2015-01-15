@@ -31,7 +31,6 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem "codeclimate-test-reporter", require: false
-  gem 'coveralls', require: false
 end
 
 group :production do

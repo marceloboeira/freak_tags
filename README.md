@@ -9,4 +9,3 @@ FreakTags
 
 [![Code Climate](https://codeclimate.com/github/freaktags/core/badges/gpa.svg)](https://codeclimate.com/github/freaktags/core)
 [![Test Coverage](https://codeclimate.com/github/freaktags/core/badges/coverage.svg)](https://codeclimate.com/github/freaktags/core)
-[![Test Coverage](https://codeclimate.com/github/freaktags/core/badges/coverage.svg)](https://codeclimate.com/github/freaktags/core)
