@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name, :username, :email
   validates_uniqueness_of :username, :email
-  validates_length_of :name, :username, :minimum => 3, :maximum => 50
-  validates_length_of :email, :minimum => 5, :maximum => 50
+  validates_length_of :name, :username, :minimum => 3, :maximum => 30
+  validates_length_of :email, :minimum => 5, :maximum => 30
 
   def age
     birthday_age
