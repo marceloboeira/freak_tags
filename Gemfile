@@ -18,10 +18,18 @@ gem 'validates_existence', '0.4'
 group :development, :test do
   gem 'spring'
   gem 'sqlite3'
-  gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'rspec-expectations'
+
   gem 'capistrano'
   gem 'capistrano-rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
 end
 
 group :production do
