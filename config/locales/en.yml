@@ -1,7 +1,7 @@
 en:
   hello: "Hello world"
 
-	enumerations:
-		sex: Sex
-		male: Male
-		female: Female
+  enumerations:
+    sex: Sex
+    male: Male
+    female: Female
