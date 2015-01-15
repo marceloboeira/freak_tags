@@ -3,10 +3,13 @@ class User < ActiveRecord::Base
   acts_as_birthday :birthday
   has_enumeration_for :sex, :with => Sex, :create_helpers => true
 
-  validates_presence_of :name, :username, :email
-  validates_uniqueness_of :username, :email
-  validates_length_of :name, :username, :minimum => 3, :maximum => 30
-  validates_length_of :email, :minimum => 5, :maximum => 30
+
+  validates :name, presence: true, length: { in: 3..30 }
+  validates :username, presence: true, uniqueness: true, length: { in: 3..30 }
+  validates :email, presence: true, uniqueness: true, length: { in: 5..30 }
+  validates :sex, presence: true
+  validates :description, length: { maximum: 500 }
+
 
   def age
     birthday_age
