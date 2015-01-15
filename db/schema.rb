@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150114195436) do
     t.string   "name"
     t.string   "username"
     t.string   "email"
+    t.string   "sex"
     t.text     "description"
     t.date     "birthday"
     t.datetime "created_at"
