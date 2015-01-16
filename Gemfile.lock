@@ -58,6 +58,8 @@ GEM
     coderay (1.1.0)
     colorize (0.7.5)
     connection_pool (2.1.0)
+    date_validator (0.7.1)
+      activemodel
     diff-lcs (1.2.5)
     docile (1.1.5)
     email_validator (1.5.0)
@@ -231,6 +233,7 @@ DEPENDENCIES
   capistrano-rails
   capybara
   codeclimate-test-reporter
+  date_validator
   email_validator
   enumerate_it (>= 1.2.3)
   factory_girl_rails
