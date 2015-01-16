@@ -33,6 +33,9 @@ GEM
       activesupport
     bower-rails (0.3.3)
     builder (3.2.2)
+    bullet (4.14.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (>= 1.6.0)
     capistrano (3.3.5)
       capistrano-stats (~> 1.1.0)
       i18n
@@ -219,6 +222,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uniform_notifier (1.6.2)
     validates_existence (0.4.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -229,6 +233,7 @@ PLATFORMS
 DEPENDENCIES
   birthday (~> 0.3.0)
   bower-rails (~> 0.3.0)
+  bullet
   capistrano
   capistrano-rails
   capybara

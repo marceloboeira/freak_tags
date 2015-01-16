@@ -17,13 +17,17 @@ gem 'date_validator'
 # gem 'validates_timeliness', '3.0'
 
 group :development, :test do
-  gem 'spring'
   gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'rspec-expectations'
   gem 'capistrano'
   gem 'capistrano-rails'
+end
+
+group :development do
+  gem 'spring'
+  gem 'bullet'
 end
 
 group :test do
@@ -38,4 +42,3 @@ group :production do
   gem 'unicorn'
   gem 'sidekiq'
 end
-
