@@ -22,7 +22,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'rspec-expectations'
-
   gem 'capistrano'
   gem 'capistrano-rails'
 end

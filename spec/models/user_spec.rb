@@ -7,9 +7,10 @@ describe User do
     @jack = FactoryGirl.create(:user)
     @chloe = FactoryGirl.create(:user)
     @chloe.female!
+
   end
 
-	it "has a valid factory" do
+  it "has a valid factory" do
     expect(@jack).to be_valid
     expect(@chloe).to be_valid
   end
