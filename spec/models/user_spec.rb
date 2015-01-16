@@ -71,7 +71,7 @@ describe User do
         @chloe.email = @jack.email
         expect(@chloe).to_not be_valid
       end
-      it "is not a valid email" do
+      it "is not a valid pattern" do
         addresses = %w[user@foo. THE_USER@fg_ ~@~.com my_email invalidA@dres 1@2.3]
         addresses.each do |email|
           @jack.email = email
