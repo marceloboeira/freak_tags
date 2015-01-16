@@ -6,10 +6,9 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, length: { in: 3..30 }
   validates :username, presence: true, uniqueness: true, length: { in: 3..30 }
-  validates :email, presence: true, uniqueness: true, length: { in: 5..30 }
+  validates :email, presence: true, uniqueness: true, email: true, length: { in: 5..30 }
   validates :sex, presence: true
   validates :description, length: { maximum: 500 }
-
 
   def age
     birthday_age

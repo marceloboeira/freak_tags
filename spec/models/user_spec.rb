@@ -67,11 +67,17 @@ describe User do
         @jack.email = Faker::Lorem.characters(51)
         expect(@jack).to_not be_valid
       end
-       it "is not unique" do
+      it "is not unique" do
         @chloe.email = @jack.email
         expect(@chloe).to_not be_valid
       end
-      #it "is not a valid email"
+      it "is not a valid email" do
+        addresses = %w[user@foo. THE_USER@fg_ ~@~.com my_email invalidA@dres 1@2.3]
+        addresses.each do |email|
+          @jack.email = email
+          expect(@jack).to_not be_valid
+        end
+      end
       #it "is not unique"
     end
   end

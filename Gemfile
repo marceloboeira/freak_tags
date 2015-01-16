@@ -8,7 +8,7 @@ gem 'bower-rails', '~> 0.3.0'
 gem 'birthday', '~> 0.3.0'
 gem 'enumerate_it', '>= 1.2.3'
 gem 'validates_existence', '0.4'
-
+gem 'email_validator'
 
 # To Implement
 # gem 'cancan', '1.6.10'
