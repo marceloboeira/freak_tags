@@ -21,12 +21,12 @@ describe User do
         @jack.name = nil
         expect(@jack).to_not be_valid
       end
-      it "it has less than 3 chars" do
-        @jack.name = Faker::Lorem.characters(2)
+      it "it has less than 2 chars" do
+        @jack.name = Faker::Lorem.characters(1)
         expect(@jack).to_not be_valid
       end
-      it "it has more than 30 chars" do
-        @jack.name = Faker::Lorem.characters(31)
+      it "it has more than 50 chars" do
+        @jack.name = Faker::Lorem.characters(51)
         expect(@jack).to_not be_valid
       end
     end
@@ -38,12 +38,12 @@ describe User do
         @jack.username = nil
         expect(@jack).to_not be_valid
       end
-      it "has less than 3 chars" do
-        @jack.username = Faker::Lorem.characters(2)
+      it "has less than 2 chars" do
+        @jack.username = Faker::Lorem.characters(1)
         expect(@jack).to_not be_valid
       end
-      it "has more than 30 chars" do
-        @jack.username = Faker::Lorem.characters(31)
+      it "has more than 50 chars" do
+        @jack.username = Faker::Lorem.characters(51)
         expect(@jack).to_not be_valid
       end
       it "is not unique" do
