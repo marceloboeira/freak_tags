@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :friendships
-  has_many :friends, :through => :friendships
+  has_many :friends, :foreign_key => :friend_id, :class_name => "Friendship", :through => :friendships
 
   acts_as_birthday :birthday
   has_enumeration_for :sex, :with => Sex, :create_helpers => true
