@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(:username=>'root', :email=>'root@freaktags.com', :name => 'FreakTags', :birthday => Date.parse('1994-03-07'), :sex => Sex::MALE)
-User.create(:username=>'test', :email=>'test@freaktags.com', :name => 'FreakTests', :birthday => Date.parse('1996-02-16'), :sex => Sex::FEMALE)
+User.create(:username=>'root', :email=>'root@freaktags.com', :name => 'FreakTags', :birthday => Date.parse('1994-03-07'), :gender => Gender::MALE)
+User.create(:username=>'test', :email=>'test@freaktags.com', :name => 'FreakTests', :birthday => Date.parse('1996-02-16'), :gender => Gender::FEMALE)

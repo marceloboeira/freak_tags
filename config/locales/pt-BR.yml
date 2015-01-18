@@ -1,7 +1,7 @@
 "pt-BR":
-  hello: "Olá mundo"
+  hello: "Olá"
 
   enumerations:
-    sex: "Sexo"
+    gender: "Gênero"
     male: "Masculino"
     female: "Feminino"

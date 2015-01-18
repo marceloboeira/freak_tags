@@ -82,7 +82,7 @@ describe User do
     end
   end
 
-  describe "sex" do
+  describe "gender" do
     describe "is valid if" do
       it "is male" do
         @jack.male! #just making sure of it
@@ -97,11 +97,11 @@ describe User do
     end
     describe "is invalid if" do
       it "not present" do
-        @jack.sex = nil
+        @jack.gender = nil
         expect(@jack).to_not be_valid
       end
       it "is out of enum pattern" do
-        @jack.sex = 'not-a-valid-sex'
+        @jack.gender = 'not-a-valid-gender'
         expect(@jack).to_not be_valid
       end
     end
