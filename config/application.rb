@@ -7,7 +7,9 @@ module FreakTags
   class Application < Rails::Application
 
   # Custom directories with classes and modules you want to be autoloadable.
-  config.autoload_paths << "#{Rails.root}/app/models/enumerations" #19 - Enumerations - https://github.com/freaktags/core/issues/19
+
+  #19 - Enumerations - https://github.com/freaktags/core/issues/19
+  config.autoload_paths << "#{Rails.root}/app/models/enumerations"
 
   # TimeZone
   config.time_zone = 'Brasilia'
