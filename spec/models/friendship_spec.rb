@@ -1,5 +1,6 @@
-require 'rails_helper'
+require 'spec_helper'
+require 'faker'
 
-RSpec.describe Friendship, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Friendship do
+
 end
