@@ -11,6 +11,8 @@ module FreakTags
   #19 - Enumerations - https://github.com/freaktags/core/issues/19
   config.autoload_paths << "#{Rails.root}/app/models/enumerations"
 
+  #35 - Personal Validators - https://github.com/freaktags/core/issues/35
+  config.autoload_paths += %W(#{config.root}/lib/validators/)
   # TimeZone
   config.time_zone = 'Brasilia'
 
