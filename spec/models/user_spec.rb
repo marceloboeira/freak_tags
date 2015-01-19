@@ -7,7 +7,6 @@ describe User do
     @jack = FactoryGirl.create(:user)
     @chloe = FactoryGirl.create(:user)
     @chloe.female!
-
   end
 
   it "has a valid factory" do
@@ -50,7 +49,13 @@ describe User do
         @chloe.username = @jack.username
         expect(@chloe).to_not be_valid
       end
-      #it "is in the pattern"
+      it "is not in the pattern" do
+        u = %w[jAcK. j@k j4.ck ?jac *ja*ck]
+        u.each do |username|
+          @jack.username = username
+          expect(@jack).to_not be_valid
+        end
+      end
     end
   end
 
