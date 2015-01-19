@@ -1,3 +1,5 @@
+# Ignore RubyMine
+/.idea
 # Ignore bundler config.
 /.bundle
 
