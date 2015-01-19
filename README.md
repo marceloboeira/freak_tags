@@ -5,6 +5,8 @@ FreakTags [![Codeship Status for freaktags/core](https://img.shields.io/codeship
 [![Stories in Ready](https://badge.waffle.io/freaktags/core.png?label=ready&title=Ready)](https://waffle.io/freaktags/core)
 [![Stories in Roadmap](https://badge.waffle.io/freaktags/core.png?label=roadmap&title=Roadmap)](https://waffle.io/freaktags/core)
 
+[![$$](http://img.shields.io/gratipay/marceloboeira.svg?style=flat)](https://gratipay.com/marceloboeira/)
+
 [![Throughput Graph](https://graphs.waffle.io/freaktags/core/throughput.svg)](https://waffle.io/freaktags/core/metrics)
 
 #### Coverage
