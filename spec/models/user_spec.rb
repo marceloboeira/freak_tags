@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'faker'
+
 
 describe User do
 
@@ -14,140 +14,59 @@ describe User do
     expect(@chloe).to be_valid
   end
 
-  describe "name" do
-    describe "is invalid if" do
-      it "not present" do
-        @jack.name = nil
-        expect(@jack).to_not be_valid
-      end
-      it "it has less than 2 chars" do
-        @jack.name = Faker::Lorem.characters(1)
-        expect(@jack).to_not be_valid
-      end
-      it "it has more than 50 chars" do
-        @jack.name = Faker::Lorem.characters(51)
-        expect(@jack).to_not be_valid
-      end
-    end
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:username) }
+  it { should validate_presence_of(:email) }
+  it { should validate_presence_of(:gender) }
+  it { should_not validate_presence_of(:birthday) }
+  it { should_not validate_presence_of(:description) }
+
+  it { should validate_uniqueness_of(:username) }
+  it { should validate_uniqueness_of(:email) }
+
+  it { should ensure_length_of(:name).is_at_least(2).is_at_most(50) }
+  it { should ensure_length_of(:username).is_at_least(2).is_at_most(50) }
+  it { should ensure_length_of(:email).is_at_least(5).is_at_most(50) }
+  it { should ensure_length_of(:description).is_at_most(500) }
+
+  it "validate username pattern" do
+    should_not allow_value("jAcK.", "j@k", "j4.ck", "?jac", "*ja*ck").for(:username)
   end
 
-  describe "username" do
-    describe "is invalid if" do
-     it "not present" do
-        @jack.username = nil
-        expect(@jack).to_not be_valid
-      end
-      it "has less than 2 chars" do
-        @jack.username = Faker::Lorem.characters(1)
-        expect(@jack).to_not be_valid
-      end
-      it "has more than 50 chars" do
-        @jack.username = Faker::Lorem.characters(51)
-        expect(@jack).to_not be_valid
-      end
-      it "is not unique" do
-        @chloe.username = @jack.username
-        expect(@chloe).to_not be_valid
-      end
-      it "is not in the pattern" do
-        u = %w[jAcK. j@k j4.ck ?jac *ja*ck]
-        u.each do |username|
-          @jack.username = username
-          expect(@jack).to_not be_valid
-        end
-      end
-    end
+  it "validate email pattern" do
+    should_not allow_value("user@foo..", "HE_USER@fg_", "e mail@a.com", "invalidA@dres", "1@2.3").for(:email)
   end
 
-  describe "email" do
-    describe "is invalid if" do
-      it "not present" do
-        @jack.email = nil
-        expect(@jack).to_not be_valid
-      end
-      it "has less than 5 chars" do
-        @jack.email = Faker::Lorem.characters(4)
-        expect(@jack).to_not be_valid
-      end
-      it "has more than 50 chars" do
-        @jack.email = Faker::Lorem.characters(51)
-        expect(@jack).to_not be_valid
-      end
-      it "is not unique" do
-        @chloe.email = @jack.email
-        expect(@chloe).to_not be_valid
-      end
-      it "is not a valid pattern" do
-        addresses = %w[user@foo. THE_USER@fg_ ~@~.com my_email invalidA@dres 1@2.3]
-        addresses.each do |email|
-          @jack.email = email
-          expect(@jack).to_not be_valid
-        end
-      end
-    end
+  it "validate gender enum defaults" do
+    should allow_value(Gender::MALE, Gender::FEMALE, Gender::OTHER).for(:gender)
   end
 
-  describe "gender" do
-    describe "is valid if" do
-      it "is male" do
-        @jack.male! #just making sure of it
-        expect(@jack).to be_valid
-        expect(@jack).to be_male
-      end
-      it "is female" do
-        @jack.female! #just making sure of it
-        expect(@jack).to be_valid
-        expect(@jack).to be_female
-      end
-    end
-    describe "is invalid if" do
-      it "not present" do
-        @jack.gender = nil
-        expect(@jack).to_not be_valid
-      end
-      it "is out of enum pattern" do
-        @jack.gender = 'not-a-valid-gender'
-        expect(@jack).to_not be_valid
-      end
-    end
+  it "validate gender invalid values" do
+    should_not allow_value("fremale", "___", "MALES", "9", "???").for(:gender)
   end
 
-  describe "birthday" do
-    describe "is valid if" do
-      it "is not present" do
-        @jack.birthday = nil
-        expect(@jack).to be_valid
-      end
-    end
-    describe "is invalid if" do
-      it "is not a date" do
-        @jack.birthday = 'not-a-valid-date'
-        expect(@jack).to_not be_valid
-      end
-      it "is less than 1 year" do
-        @jack.birthday = DateTime.now - 11.months
-        expect(@jack).to_not be_valid
-      end
-      it "is more than 100 years" do
-        @jack.birthday = DateTime.now - 101.years
-        expect(@jack).to_not be_valid
-      end
-      it "can't return valid date" do
-        @jack.birthday = DateTime.now - 30.years
-        expect(@jack.birthday_today?).to be(true)
-      end
-      it "can't return valid age" do
-        @jack.birthday = DateTime.now - 30.years
-        expect(@jack.age).to be(30)
-      end
-    end
+  it "validate birthday invalid values" do
+    should_not allow_value("not-a-date", "0000").for(:birthday)
   end
 
-  describe "age" do
-    it "is an alias of birthday_age" do
-      @jack.birthday = DateTime.now - 20.years
-      expect(@jack.age).to be(@jack.birthday_age)
-    end
+  it "validate birthday date range" do
+    should_not allow_value(DateTime.now - 11.months, DateTime.now - 101.years).for(:birthday)
   end
 
+  it "validate age as an alias of birthday_age" do
+    @jack.birthday = DateTime.now - 20.years
+    expect(@jack.age).to be(@jack.birthday_age)
+  end
+
+  it "validate birthday today" do
+    @jack.birthday = DateTime.now - 30.years
+    @chloe.birthday = DateTime.now - 20.years - 20.days
+    expect(@jack.birthday_today?).to be(true)
+    expect(@chloe.birthday_today?).to be(false)
+  end
+
+  it "validate birthday age number" do
+    @jack.birthday = DateTime.now - 30.years
+    expect(@jack.age).to be(30)
+  end
 end

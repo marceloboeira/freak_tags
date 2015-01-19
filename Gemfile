@@ -18,9 +18,6 @@ gem 'date_validator'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'rspec-expectations'
   gem 'capistrano'
   gem 'capistrano-rails'
 end
@@ -35,6 +32,10 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem "codeclimate-test-reporter", require: false
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'rspec-expectations'
 end
 
 group :production do
