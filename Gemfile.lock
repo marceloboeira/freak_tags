@@ -204,6 +204,8 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
     shellany (0.0.1)
+    shoulda-matchers (2.7.0)
+      activesupport (>= 3.0.0)
     sidekiq (3.3.0)
       celluloid (>= 0.16.0)
       connection_pool (>= 2.0.0)
@@ -274,6 +276,7 @@ DEPENDENCIES
   rspec-expectations
   rspec-rails
   sass-rails (~> 5.0.1)
+  shoulda-matchers
   sidekiq
   spring
   sqlite3
