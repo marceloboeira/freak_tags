@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :friendship do
     user ""
-friend ""
-status "MyString"
+    friend ""
+    status "MyString"
   end
-
 end
