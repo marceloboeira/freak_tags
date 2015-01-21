@@ -10,6 +10,7 @@ gem 'enumerate_it', '>= 1.2.3'
 gem 'validates_existence', '>= 0.9.2'
 gem 'email_validator'
 gem 'date_validator'
+gem 'amistad'
 
 # To Implement
 # gem 'cancan', '1.6.10'

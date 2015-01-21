@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    amistad (0.10.2)
     arel (6.0.0)
     birthday (0.3.1)
       activerecord
@@ -257,6 +258,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amistad
   birthday (~> 0.3.0)
   bower-rails (~> 0.9.2)
   bullet

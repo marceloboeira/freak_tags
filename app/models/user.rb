@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+  include Amistad::FriendModel
 
   acts_as_birthday :birthday
   has_enumeration_for :gender, :with => Gender, :create_helpers => true
@@ -14,13 +14,5 @@ class User < ActiveRecord::Base
 
   def age
     birthday_age
-  end
-
-  def has_friends?
-    !friends.empty?
-  end
-
-  def real_friends
-    friends.where(:status => FriendshipStatus::ACCEPTED)
   end
 end
