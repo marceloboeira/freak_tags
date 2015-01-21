@@ -46,6 +46,7 @@ GEM
     bullet (4.14.1)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
+    cancancan (1.10.1)
     capistrano (3.3.5)
       capistrano-stats (~> 1.1.0)
       i18n
@@ -262,6 +263,7 @@ DEPENDENCIES
   birthday (~> 0.3.0)
   bower-rails (~> 0.9.2)
   bullet
+  cancancan (~> 1.10)
   capistrano
   capistrano-rails
   capybara
