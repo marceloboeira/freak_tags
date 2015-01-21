@@ -8,4 +8,7 @@ FactoryGirl.define do
     u.birthday { Faker::Date.between(80.years.ago, 5.years.ago) }
     u.gender { Gender::MALE }
   end
+  factory :female_user, parent: :user do
+    gender { Gender::FEMALE }
+  end
 end

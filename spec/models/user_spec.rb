@@ -1,72 +1,124 @@
 require 'rails_helper'
 
-
 describe User do
 
+  let (:jack) { FactoryGirl.create(:user, username: "jack", birthday: 30.years.ago) }
+  let (:chloe) { FactoryGirl.create(:female_user, username: "chloe", birthday: (30.years + 20.days).ago) }
+
   before :each do
-    @jack = FactoryGirl.create(:user)
-    @chloe = FactoryGirl.create(:user)
-    @chloe.female!
+    # Keep it: shoulda needs this because of validate_uniqueness_of ->
+    FactoryGirl.create(:user)
   end
 
   it "has a valid factory" do
-    expect(@jack).to be_valid
-    expect(@chloe).to be_valid
+    expect(jack).to be_valid
+    expect(chloe).to be_valid
   end
 
-  it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:username) }
-  it { should validate_presence_of(:email) }
-  it { should validate_presence_of(:gender) }
-  it { should_not validate_presence_of(:birthday) }
-  it { should_not validate_presence_of(:description) }
+  it { expect(jack).to validate_presence_of(:name) }
+  it { expect(jack).to validate_presence_of(:username) }
+  it { expect(jack).to validate_presence_of(:email) }
+  it { expect(jack).to validate_presence_of(:gender) }
+  it { expect(jack).to_not validate_presence_of(:birthday) }
+  it { expect(jack).to_not validate_presence_of(:description) }
 
-  it { should validate_uniqueness_of(:username) }
-  it { should validate_uniqueness_of(:email) }
+  it { expect(jack).to validate_uniqueness_of(:username) }
+  it { expect(jack).to validate_uniqueness_of(:email) }
 
-  it { should ensure_length_of(:name).is_at_least(2).is_at_most(50) }
-  it { should ensure_length_of(:username).is_at_least(2).is_at_most(50) }
-  it { should ensure_length_of(:email).is_at_least(5).is_at_most(50) }
-  it { should ensure_length_of(:description).is_at_most(500) }
+  it { expect(jack).to ensure_length_of(:name).is_at_least(2).is_at_most(50) }
+  it { expect(jack).to ensure_length_of(:username).is_at_least(2).is_at_most(50) }
+  it { expect(jack).to ensure_length_of(:email).is_at_least(5).is_at_most(50) }
+  it { expect(jack).to ensure_length_of(:description).is_at_most(500) }
 
   it "validate username pattern" do
-    should_not allow_value("jAcK.", "j@k", "j4.ck", "?jac", "*ja*ck").for(:username)
+    expect(jack).to_not allow_value("jAcK.", "j@k", "j4.ck", "?jac", "*ja*ck").for(:username)
   end
 
   it "validate email pattern" do
-    should_not allow_value("user@foo..", "HE_USER@fg_", "e mail@a.com", "invalidA@dres", "1@2.3").for(:email)
+    expect(jack).to_not allow_value("user@foo..", "HE_USER@fg_", "e mail@a.com", "invalidA@dres", "1@2.3").for(:email)
   end
 
   it "validate gender enum defaults" do
-    should allow_value(Gender::MALE, Gender::FEMALE, Gender::OTHER).for(:gender)
+    expect(jack).to allow_value(Gender::MALE, Gender::FEMALE, Gender::OTHER).for(:gender)
   end
 
   it "validate gender invalid values" do
-    should_not allow_value("fremale", "___", "MALES", "9", "???").for(:gender)
+    expect(jack).to_not allow_value("fremale", "___", "MALES", "9", "???").for(:gender)
   end
 
-  it "validate birthday invalid values" do
-    should_not allow_value("not-a-date", "0000").for(:birthday)
+  describe "birthday" do
+    it "validate birthday invalid values" do
+      expect(jack).to_not allow_value("not-a-date", "0000").for(:birthday)
+    end
+
+    it "validate birthday date range" do
+      expect(jack).to_not allow_value(11.months.ago, 101.years.ago).for(:birthday)
+    end
+
+    it "validate age as an alias of birthday_age" do
+      expect(jack.age).to be(jack.birthday_age)
+    end
+
+    it "validate birthday today" do
+      expect(jack.birthday_today?).to be(true)
+      expect(chloe.birthday_today?).to be(false)
+    end
+
+    it "validate birthday age number" do
+      expect(jack.age).to be(30)
+    end
   end
 
-  it "validate birthday date range" do
-    should_not allow_value(DateTime.now - 11.months, DateTime.now - 101.years).for(:birthday)
-  end
+  describe "friendships" do
+    let (:jax) { FactoryGirl.create(:user, username: "jax") }
+    let (:chibs) { FactoryGirl.create(:user, username: "chibs") }
+    let (:bobby) { FactoryGirl.create(:user, username: "bobby") }
+    let (:tig) { FactoryGirl.create(:user, username: "tig") }
+    let (:juice) { FactoryGirl.create(:user, username: "juice") }
+    let (:cley) { FactoryGirl.create(:user, username: "cley") }
+    let (:gemma) { FactoryGirl.create(:female_user, username: "gemma") }
+    let (:tara) { FactoryGirl.create(:female_user, username: "tara") }
+    let (:friend_list) { [bobby, tig, juice, cley, gemma, tara] }
 
-  it "validate age as an alias of birthday_age" do
-    @jack.birthday = DateTime.now - 20.years
-    expect(@jack.age).to be(@jack.birthday_age)
-  end
+    it "validate a friendship request" do
+      jax.invite chibs
 
-  it "validate birthday today" do
-    @jack.birthday = DateTime.now - 30.years
-    @chloe.birthday = DateTime.now - 20.years - 20.days
-    expect(@jack.birthday_today?).to be(true)
-    expect(@chloe.birthday_today?).to be(false)
-  end
+      expect(jax.pending_invited).to include(chibs)
+      expect(chibs.pending_invited_by).to include(jax)
+      expect(jax.friends).to_not include(chibs)
+      expect(chibs.friends).to_not include(jax)
+      expect(jax.friend_with? chibs).to be(false)
+      expect(chibs.friend_with? jax).to be(false)
+    end
 
-  it "validate birthday age number" do
-    @jack.birthday = DateTime.now - 30.years
-    expect(@jack.age).to be(30)
+    it "validate an approved friendship" do
+      jax.invite bobby
+      bobby.approve jax
+
+      expect(jax.friends).to include(bobby)
+      expect(jax.invited).to include(bobby)
+      expect(bobby.friends).to include(jax)
+      expect(bobby.invited_by).to include(jax)
+      expect(jax.friend_with? bobby).to be(true)
+      expect(bobby.friend_with? jax).to be(true)
+    end
+
+    it "validate a removed friendship" do
+      tig.invite cley
+      cley.approve tig
+      tig.remove_friendship cley
+
+      expect(tig.friends).to_not include(cley)
+      expect(cley.friends).to_not include(tig)
+    end
+
+    it "validate a friend list" do
+      friend_list.each do |c|
+        chibs.invite c
+        c.approve chibs
+      end
+
+      expect(chibs.friends).to match(friend_list)
+    end
   end
 end
