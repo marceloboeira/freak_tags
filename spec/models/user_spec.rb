@@ -15,10 +15,8 @@ describe User do
     expect(chloe).to be_valid
   end
 
-  it { expect(jack).to validate_presence_of(:name) }
   it { expect(jack).to validate_presence_of(:username) }
   it { expect(jack).to validate_presence_of(:email) }
-  it { expect(jack).to validate_presence_of(:gender) }
   it { expect(jack).to_not validate_presence_of(:birthday) }
   it { expect(jack).to_not validate_presence_of(:description) }
 
@@ -29,6 +27,12 @@ describe User do
   it { expect(jack).to ensure_length_of(:username).is_at_least(2).is_at_most(50) }
   it { expect(jack).to ensure_length_of(:email).is_at_least(5).is_at_most(50) }
   it { expect(jack).to ensure_length_of(:description).is_at_most(500) }
+
+  it "validate name default value" do
+    kim = FactoryGirl.create(:user, name: nil, username: "kim")
+    expect(kim.name).to eq(kim.username)
+    expect(kim).to be_valid
+  end
 
   it "validate username pattern" do
     expect(jack).to_not allow_value("jAcK.", "j@k", "j4.ck", "?jac", "*ja*ck").for(:username)
@@ -44,6 +48,26 @@ describe User do
 
   it "validate gender invalid values" do
     expect(jack).to_not allow_value("fremale", "___", "MALES", "9", "???").for(:gender)
+  end
+
+  it "validate gender default value" do
+    kim = FactoryGirl.create(:user, gender: nil)
+    expect(kim.gender).to eq(Gender::OTHER)
+    expect(kim).to be_valid
+  end
+
+  it "validate role enum defaults" do
+    expect(jack).to allow_value(Role::GUEST, Role::REGULAR, Role::CONTRIBUTOR, Role::MODERATOR, Role::DEVELOPER, Role::ROOT).for(:role)
+  end
+
+  it "validate role invalid values" do
+    expect(jack).to_not allow_value("master", "deve)_", "28282", "null", "none").for(:role)
+  end
+
+  it "validate role default value" do
+    kim = FactoryGirl.create(:user, role: nil)
+    expect(kim.role).to eq(Role::REGULAR)
+    expect(kim).to be_valid
   end
 
   describe "birthday" do
