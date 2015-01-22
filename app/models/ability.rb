@@ -2,11 +2,11 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new # guest user
+    user ||= current_user
 
-    can :manage, :all
-    if user.username == 'root'
-      can :edit, User
+    can :read, User
+    if user.root?
+      can :manage, :all
     end
   end
 end
