@@ -17,6 +17,8 @@ describe User do
 
   it { expect(jack).to validate_presence_of(:username) }
   it { expect(jack).to validate_presence_of(:email) }
+  it { expect(jack).to validate_presence_of(:password) }
+
   it { expect(jack).to_not validate_presence_of(:birthday) }
   it { expect(jack).to_not validate_presence_of(:description) }
 
@@ -24,6 +26,7 @@ describe User do
   it { expect(jack).to validate_uniqueness_of(:email) }
 
   it { expect(jack).to ensure_length_of(:name).is_at_least(2).is_at_most(50) }
+  it { expect(jack).to ensure_length_of(:password).is_at_least(8).is_at_most(128) }
   it { expect(jack).to ensure_length_of(:username).is_at_least(2).is_at_most(50) }
   it { expect(jack).to ensure_length_of(:email).is_at_least(5).is_at_most(50) }
   it { expect(jack).to ensure_length_of(:description).is_at_most(500) }

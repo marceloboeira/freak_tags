@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, length: { in: 2..50 }
   validates :username, presence: true, uniqueness: {case_sensitive: false}, username: true, length: { in: 2..50 }
+  validates :password, presence: true
   validates :email, presence: true, uniqueness: {case_sensitive: false}, email: true, length: { in: 5..50 }
   validates :gender, presence: true
   validates :role, presence: true
