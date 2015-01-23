@@ -1,22 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :user_signed_in?
 
-  private
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    rescue ActiveRecord::RecordNotFound
-      session.delete(:user_id)
-      nil
-  end
 
-  def user_signed_in?
-    !current_user.nil?
-  end
-
-  def authenticate!
-    user_signed_in? || redirect_to(root_url, notice: t(:must_be_authenticated))
+  def after_sign_in_path_for(resource)
+    sign_in_url = url_for(:action => 'new', :controller => 'sessions', :only_path => false, :protocol => 'http')
+    if request.referer == sign_in_url
+      super
+    else
+      dashboard_path
+    end
   end
 end
 

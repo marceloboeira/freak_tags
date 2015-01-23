@@ -15,10 +15,6 @@ gem 'cancancan', '~> 1.10'
 gem 'therubyracer'
 gem 'devise'
 
-# To Implement
-# gem 'kaminary', '0.16.1'
-# gem 'validates_timeliness', '3.0'
-
 group :development, :test do
   gem 'sqlite3'
   gem 'capistrano'
@@ -28,6 +24,7 @@ end
 group :development do
   gem 'spring'
   gem 'bullet'
+  gem "letter_opener"
 end
 
 group :test do

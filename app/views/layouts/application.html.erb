@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav><h3>FreakTags</h3></nav>
+<nav><h3>FreakTags</h3> <p stlye="text-align:right"> <%= current_user.username if current_user.present? %></p> </nav>
 <hr />
 <%= yield %>
 <footer>

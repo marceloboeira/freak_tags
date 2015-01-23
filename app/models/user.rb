@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include Amistad::FriendModel
 
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
   acts_as_birthday :birthday
   has_enumeration_for :gender, :with => Gender, :create_helpers => true
   has_enumeration_for :role, :with => Role, :create_helpers => true
