@@ -1,7 +1,9 @@
 "pt-BR":
   hello: "Olá"
+  must_be_authenticated: "Você deve estar autenticado"
 
   enumerations:
     gender: "Gênero"
     male: "Masculino"
     female: "Feminino"
+    other: "Outro"

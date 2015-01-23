@@ -1,5 +1,6 @@
 en:
   hello: "Hello"
+  must_be_authenticated: "You must be authenticated"
 
   enumerations:
     gender: Gender

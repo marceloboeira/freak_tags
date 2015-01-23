@@ -23,10 +23,11 @@ ActiveRecord::Schema.define(version: 20150121023927) do
   add_index "friendships", ["friendable_id", "friend_id"], name: "index_friendships_on_friendable_id_and_friend_id", unique: true
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                         null: false
-    t.string   "username",                     null: false
-    t.string   "email",                        null: false
-    t.string   "gender",      default: "male", null: false
+    t.string   "name",                            null: false
+    t.string   "username",                        null: false
+    t.string   "email",                           null: false
+    t.string   "gender",      default: "other",   null: false
+    t.string   "role",        default: "regular", null: false
     t.text     "description"
     t.date     "birthday"
     t.datetime "created_at"

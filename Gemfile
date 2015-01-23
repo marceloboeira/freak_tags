@@ -11,9 +11,11 @@ gem 'validates_existence', '>= 0.9.2'
 gem 'email_validator'
 gem 'date_validator'
 gem 'amistad'
+gem 'cancancan', '~> 1.10'
+gem 'therubyracer'
+gem 'devise'
 
 # To Implement
-# gem 'cancan', '1.6.10'
 # gem 'kaminary', '0.16.1'
 # gem 'validates_timeliness', '3.0'
 

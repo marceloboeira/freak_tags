@@ -1,0 +1,5 @@
+<ul>
+<% @users.each do |u| %>
+  <li><%= link_to u.username, profile_path(u.username) %></li>
+<% end %>
+</ul>
