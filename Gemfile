@@ -12,6 +12,8 @@ gem 'email_validator'
 gem 'date_validator'
 gem 'amistad'
 gem 'cancancan', '~> 1.10'
+gem 'therubyracer'
+gem 'devise'
 
 # To Implement
 # gem 'kaminary', '0.16.1'
