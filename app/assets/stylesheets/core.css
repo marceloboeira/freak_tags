@@ -1,0 +1,88 @@
+/*
+ *= require bootstrap/dist/css/bootstrap
+ *= require animate.css/animate.min.css
+ *= require_self
+ */
+
+img.logo{
+  max-height:100% !important;
+}
+.navbar > div.container-fluid, ul.dropdown-menu{
+  background-color: #0080B6;
+}
+li.open a.dropdown-toggle{
+  background-color:#0080B6 !important;
+}
+
+li.open a:hover, .navbar-toggle{
+  background-color:#0080B6 !important;
+  border: none;
+}
+.navbar *,
+.navbar a,
+.navbar a:link,
+.navbar a:hover,
+.navbar a:visited{
+  text-decoration:none;
+  color:white !important;
+}
+.navbar-default .navbar-toggle .icon-bar{
+  background:white !important;
+}
+div.bgModal{
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  z-index:100;
+  background: rgba(0,0,0,0.6);
+}
+div.sectionModal{
+  position:fixed;
+  top:50%;
+  left:50%;
+  width:600px;
+  height:400px;
+  margin-top:-200px;
+  margin-left:-300px;
+  background:white;
+  z-index:150;
+}
+div.sectionModalHeader{
+  color:white;
+  padding-top:2px;
+  padding-bottom:2px;
+  padding-left:10px;
+  padding-right:2px;
+  background:#0080B6;
+  float:left;height:14%;width:100%;
+}
+div.sectionModalBody{
+  height:72%;
+  padding-top:10px;
+  float:left;
+}
+div.sectionModalBody > div{
+  overflow-y:auto;
+  max-height:100%;
+  width:100%;
+}
+div.sectionModalFooter{
+  height:14%;
+  width:100%;
+  background:#0080B6;
+  padding:10px;
+  float:left;
+  color:white;
+}
+.closeModal{
+  cursor:pointer;
+}
+i.closeModal{
+  position:absolute;right:10px;top:20px;font-size:21px;
+}
+.buttonModal{
+  float:right;
+  margin-left:10px
+}

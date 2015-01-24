@@ -1,3 +1,8 @@
+//= require jquery/dist/jquery.min.js
+//= require bootstrap/dist/js/bootstrap.min.js
+//= require moment/min/moment-with-locales.min.js
+//= require_self
+
 /**
  * [pageObj description]
  * @return {[type]} [description]
@@ -260,7 +265,7 @@ function pageObj() {
           }
         }
         else{
-          respo nseObj.push({
+          responseObj.push({
             status: true,
             name: self.modal.fields[i].name,
             value: value,

@@ -1,4 +1,5 @@
 en:
+  freaktags: "FreakTags"
   hello: "Hello"
   must_be_authenticated: "You must be authenticated"
 
