@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   include Amistad::FriendModel
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
-
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :trackable, :validatable, :confirmable, :authentication_keys => [:login]
   acts_as_birthday :birthday
   has_enumeration_for :gender, :with => Gender, :create_helpers => true
   has_enumeration_for :role, :with => Role, :create_helpers => true
@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   validates :role, presence: true
   validates :birthday, allow_blank: true, date: { after: 100.years.ago, before: 01.years.ago }
   validates :description, length: { maximum: 500 }
+
+  attr_accessor :login
 
   def age
     birthday_age
@@ -34,4 +36,8 @@ class User < ActiveRecord::Base
     self.role ||= Role::REGULAR
   end
 
+  # 48 - Devise: e-mail or username to sign-in
+  def self.find_for_database_authentication(conditions={})
+    find_by(username: conditions[:login]) || find_by(email: conditions[:login])
+  end
 end

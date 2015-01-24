@@ -5,10 +5,6 @@ Rails.application.routes.draw do
 
   # Devise
   devise_for :users,
-    controllers: {
-      registrations: "account/registrations",
-      sessions: "account/sessions"
-    },
     path: "account",
     path_names: {
       sign_up: 'sign-up',
