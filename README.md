@@ -13,3 +13,25 @@ FreakTags [![Codeship Status for freaktags/core](https://img.shields.io/codeship
 
 [![Code Climate](https://codeclimate.com/github/freaktags/core/badges/gpa.svg)](https://codeclimate.com/github/freaktags/core)
 [![Test Coverage](https://codeclimate.com/github/freaktags/core/badges/coverage.svg)](https://codeclimate.com/github/freaktags/core)
+
+
+
+### Let's run it
+
+#### Preparing environment
+
+* Install rvm, ruby(2.2), rails(4.2), nodejs(>0.10), bower
+* Get inside the project folder and run:
+  * `bundle` -> It will install all packages (Gems), check the Gemfile
+  * `rake db:create` -> It will create the database, check the credentials at `config/database.yml`
+  * `rake db:migrate` -> It will run all migrations placed at `db/migrate`
+  * `rake db:seed` -> It will create the database records basic needs to run, check `db/seeds.rb` for more info
+  * `bower install` -> It will download all front-end resources, check `bower.json` for more info
+
+#### Showtime
+Now that you successfuylly
+
+  * rails s -> To start the server
+  * Open `http://localhost:3000` on your favorite browser and see the magic.
+
+
