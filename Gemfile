@@ -24,14 +24,14 @@ end
 group :development do
   gem 'spring'
   gem 'bullet'
-  gem "letter_opener"
+  gem 'letter_opener'
 end
 
 group :test do
   gem 'faker'
   gem 'capybara'
   gem 'guard-rspec'
-  gem "codeclimate-test-reporter", require: false
+  gem 'codeclimate-test-reporter', require: false
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'rspec-rails'

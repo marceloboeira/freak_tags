@@ -34,7 +34,7 @@
                   <li><a href="#" openModal="loginForm"><i class="fa fa-sign-in"></i> <span><%= t(:profile) %></span></a></li>
                   <li><a href="#" openModal="signUpForm"><i class="fa fa-users"></i> <%= t(:settings) %> </a></li>
                   <li class="divider"></li>
-                  <li><i class="fa fa-lock"></i><%= link_to t(:sign_out), "/account/sign-out" %></a></li>
+                  <li><%= link_to t(:sign_out), "/account/sign-out" %></a></li>
                 </ul>
               </li>
             <% else %>
@@ -57,6 +57,7 @@
       </div>
     </nav>
 
+   <div id="body">
     <div class="container-fluid">
       <div class="col-lg-3" style="background:red;height:200px">
       </div>
@@ -64,6 +65,7 @@
         <%= yield %>
       </div>
       <div class="col-lg-3" style="background:blue;height:200px">
+      </div>
       </div>
     </div>
   </body>

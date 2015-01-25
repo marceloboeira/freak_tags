@@ -4,6 +4,9 @@
  *= require font-awesome/css/font-awesome.min.css
  *= require_self
  */
+#yield {
+  margin-top:30px;
+}
 
 img.logo{
   max-height:100% !important;
