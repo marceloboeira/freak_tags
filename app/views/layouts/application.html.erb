@@ -11,15 +11,19 @@
     <nav class="navbar navbar-default navbar-static">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <span class="sr-only"><%= t(:toggle_navigation) %></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+<<<<<<< HEAD
           <a class="navbar-brand" href="/"><%= image_tag('/assets/images/logo/navbar-top.png', :class => "logo") %></a>
+=======
+          <%= link_to image_tag('/assets/images/logo/navbar-top.png', :class => "logo"), root_path, {:class => "navbar-brand"} %></a>
+>>>>>>> 7819eb58735fa72616ba4e7e857e1cecd6231cbc
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
           <% if !current_user.present? %>
             <li><%= link_to "Log in", new_session_path(resource_name) %></li>
@@ -38,7 +42,24 @@
                   <li><%= link_to t(:sign_out), "/account/sign-out" %></a></li>
                 </ul>
               </li>
+<<<<<<< HEAD
 
+=======
+            <% else %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                  <i class="fa fa-user"></i>
+                  <span>Your Account</span>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#"><i class="fa fa-sign-in"></i> <span><%= t(:sign_in) %></span></a></li>
+                  <li><a href="#"><i class="fa fa-users"></i> <%= t(:join_us) %> </a></li>
+                  <li class="divider"></li>
+                  <li><a href="#" openModal="forgotPasswordForm"><i class="fa fa-lock"></i> <%= t(:forgot_password) %></a></li>
+                </ul>
+              </li>
+>>>>>>> 7819eb58735fa72616ba4e7e857e1cecd6231cbc
             <% end %>
           </ul>
         </div>
