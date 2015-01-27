@@ -8,7 +8,7 @@
 </head>
 <body>
   <body>
-    <nav class="navbar navbar-default navbar-static">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -41,9 +41,10 @@
         </div>
       </div>
    </nav>
+
    <div class="container">
-    <% if current_user.present? %>
-      <div class="col-lg-2 col-lg-offset-1" style="height:100%; ">
+<% if current_user.present? %>
+      <div class="col-lg-2  col-lg-offset-1 col-md-2 col-xs-2" style="height:100%; border-right:1px solid rgb(244,244,244);position:fixed;top:60px;left:0px;">
         <div class="col-xs-12">
           <div class="row">
             <img src="/assets/images/users/default.jpg" class="img-circle col-xs-12"/>
@@ -54,15 +55,15 @@
           </div>
           <div class="row">
             <ul class="nav nav-stacked">
-              <li role="presentation" class="active btn btn-link"><a href="#">Home</a></li>
-              <li role="presentation" class="btn btn-link"><a href="#">Profile</a></li>
-              <li role="presentation" class="btn btn-link"><a href="#"><%= fa("chat") %></a></li>
+              <li role="presentation" class=" btn btn-default">Home</li>
+              <li role="presentation" class="btn btn-default">Profile</li>
+              <li role="presentation" class="btn btn-default">Chat</li>
             </ul>
           </div>
         </div>
       </div>
     <% end %>
-    <div id="yield" class="col-lg-6 <%= "col-lg-offset-3" unless current_user.present? %>">
+    <div id="yield" class="col-lg-6 col-lg-offset-3 col-md-5 col-md-offset-3 col-xs-offset-2">
       <%= yield %>
     </div>
   </div>
