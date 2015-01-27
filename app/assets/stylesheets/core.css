@@ -11,7 +11,7 @@
 img.logo{
   max-height:100% !important;
 }
-.navbar > div.container-fluid, ul.dropdown-menu{
+.navbar > div.container, ul.dropdown-menu, ul.dropdown-menu > *, .navbar{
   background-color: #0080B6;
 }
 li.open a.dropdown-toggle{
