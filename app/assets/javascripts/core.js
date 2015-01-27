@@ -2,8 +2,3 @@
 //= require bootstrap/dist/js/bootstrap.min.js
 //= require moment/min/moment-with-locales.min.js
 //= require_self
-
-/**
- * [pageObj description]
- * @return {[type]} [description]
- */
