@@ -17,85 +17,55 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-<<<<<<< HEAD
-          <a class="navbar-brand" href="/"><%= image_tag('/assets/images/logo/navbar-top.png', :class => "logo") %></a>
-=======
-          <%= link_to image_tag('/assets/images/logo/navbar-top.png', :class => "logo"), root_path, {:class => "navbar-brand"} %></a>
->>>>>>> 7819eb58735fa72616ba4e7e857e1cecd6231cbc
+          <%= link_to image_tag('/assets/images/logo/navbar-top.png', :class => "logo"), root_path, {:class => "navbar-brand"} %>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-          <% if !current_user.present? %>
-            <li><%= link_to "Log in", new_session_path(resource_name) %></li>
-            <li><%= link_to "Sign up", new_registration_path(resource_name) %></li>
-            <% else %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                  <i class="fa fa-wrench"></i>
-                  <span>Account Settings</span>
-                  <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#" openModal="loginForm"><i class="fa fa-sign-in"></i> <span><%= t(:profile) %></span></a></li>
-                  <li><a href="#" openModal="signUpForm"><i class="fa fa-users"></i> <%= t(:settings) %> </a></li>
-                  <li class="divider"></li>
-                  <li><%= link_to t(:sign_out), "/account/sign-out" %></a></li>
+          <% if current_user.present? %>
+            <li class="dropdown">
+              <%= link_to fa("wrench"), "#", { :class => "dropdown-toggle",
+                                               :"data-toggle" => "dropdown",
+                                               :role => "button",
+                                               :"aria-expanded" => "false" } %>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to fa("user", {:text => t(:profile)}), profile_path(current_user.username) %></li>
+                <li class="divider"></li>
+                <li><%= link_to fa("sign-out", {:text => t(:sign_out)}), "/account/sign-out" %></a></li>
                 </ul>
-              </li>
-<<<<<<< HEAD
-
-=======
+            </li>
             <% else %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                  <i class="fa fa-user"></i>
-                  <span>Your Account</span>
-                  <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#"><i class="fa fa-sign-in"></i> <span><%= t(:sign_in) %></span></a></li>
-                  <li><a href="#"><i class="fa fa-users"></i> <%= t(:join_us) %> </a></li>
-                  <li class="divider"></li>
-                  <li><a href="#" openModal="forgotPasswordForm"><i class="fa fa-lock"></i> <%= t(:forgot_password) %></a></li>
-                </ul>
-              </li>
->>>>>>> 7819eb58735fa72616ba4e7e857e1cecd6231cbc
+              <li><%= link_to fa("sign-in", {:text => t(:sign_in)}), new_session_path(:user) %></li>
+              <li><%= link_to fa("sign-in", {:text => t(:sign_up)}), new_registration_path(:user) %></li>
             <% end %>
           </ul>
         </div>
       </div>
-    </nav>
-
-   <div id="body" class="container">
+   </nav>
+   <div class="container">
     <% if current_user.present? %>
-    <div class="col-lg-2 col-lg-offset-1" style="background:rgb(225,225,225); height:100%; padding:30px 0px 30px 0px">
-      <div class="col-xs-12">
-        <div class="row">
+      <div class="col-lg-2 col-lg-offset-1" style="height:100%; ">
+        <div class="col-xs-12">
+          <div class="row">
             <img src="/assets/images/users/default.jpg" class="img-circle col-xs-12"/>
-        </div>
-        <div class="row">
-          <h3><center><%= current_user.name.titleize %></center></h3>
-        </div>
-        <div class="row">
-
-
-          <div class="btn-group-vertical col-lg-12" role="group" aria-label="...">
-              <button type="button" class="btn btn-primary">Perfil</button>
-              <button type="button" class="btn btn-primary">Configurações</button>
-              <button type="button" class="btn btn-primary">Minhas Séries</button>
-              <button type="button" class="btn btn-primary">Meus Filmes</button>
-              <button type="button" class="btn btn-primary">Artistas</button>
           </div>
-
-
+          <div class="row">
+            <h3><center><%= current_user.name %></center></h3>
+            <hr>
+          </div>
+          <div class="row">
+            <ul class="nav nav-stacked">
+              <li role="presentation" class="active btn btn-link"><a href="#">Home</a></li>
+              <li role="presentation" class="btn btn-link"><a href="#">Profile</a></li>
+              <li role="presentation" class="btn btn-link"><a href="#"><%= fa("chat") %></a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
-      <div id="yield" class="col-lg-6 <% if !current_user.present? %> col-lg-offset-3 <% end %>" style="background:rgb(255,244,244)">
-        <%= yield %>
-      </div>
+    <div id="yield" class="col-lg-6 <%= "col-lg-offset-3" unless current_user.present? %>">
+      <%= yield %>
     </div>
-  </body>
+  </div>
+</body>
 </body>
 </html>
