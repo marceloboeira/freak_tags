@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "home#index" # TODO: Make signed-in root as Dashboard
+  root 'home#index' # TODO: Make signed-in root as Dashboard
   get 'dashboard', to: 'dashboard#index', as: 'dashboard'
 
   # Devise

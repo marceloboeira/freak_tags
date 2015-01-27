@@ -11,15 +11,15 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <span class="sr-only"><%= t(:toggle_navigation) %></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><%= image_tag('/assets/images/logo/navbar-top.png', :class => "logo") %></a>
+          <%= link_to image_tag('/assets/images/logo/navbar-top.png', :class => "logo"), root_path, {:class => "navbar-brand"} %></a>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to t(:about), '/about' %></li>
 
@@ -45,8 +45,8 @@
                   <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#" openModal="loginForm"><i class="fa fa-sign-in"></i> <span><%= t(:sign_in) %></span></a></li>
-                  <li><a href="#" openModal="signUpForm"><i class="fa fa-users"></i> <%= t(:join_us) %> </a></li>
+                  <li><a href="#"><i class="fa fa-sign-in"></i> <span><%= t(:sign_in) %></span></a></li>
+                  <li><a href="#"><i class="fa fa-users"></i> <%= t(:join_us) %> </a></li>
                   <li class="divider"></li>
                   <li><a href="#" openModal="forgotPasswordForm"><i class="fa fa-lock"></i> <%= t(:forgot_password) %></a></li>
                 </ul>
