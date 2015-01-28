@@ -11,14 +11,9 @@ Rails.application.routes.draw do
       sign_in: 'sign-in',
       sign_out: 'sign-out',
       password: 'password',
-      confirmation: 'verify'
+      confirmation: 'verify',
+      edit: 'settings'
   }
-
-
-  # Account
-  get '/account', to: 'account#settings'
-  get '/account/settings', to: 'account#settings', as: 'account_settings'
-  post '/account/settings', to: 'account#update', as: 'account_update'
 
   # Profile
   get '/profile/:username', to: 'users#show', as: 'profile'
