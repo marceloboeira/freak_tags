@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   get '/profile/:username', to: 'users#show', as: 'profile'
 
 
-  resources :users
+  # resources :users
 end
