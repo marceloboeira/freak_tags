@@ -1,0 +1,42 @@
+<h2><%= t(:account_settings) %></h2>
+
+<%= form_for(:user, as: :user, url: account_update_path, html: { method: :post }) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.email_field :name, autofocus: true, value: @user.name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.email_field :username, value: @user.username %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, value: @user.email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h4>Cancel my account</h4>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
