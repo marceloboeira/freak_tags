@@ -4,89 +4,56 @@
  *= require font-awesome/css/font-awesome.min.css
  *= require_self
  */
-#yield {
-  margin-top:30px;
-}
 
-img.logo{
-  max-height:100% !important;
+content.container {
+
 }
-.navbar > div.container, ul.dropdown-menu, ul.dropdown-menu > *, .navbar{
-  background-color: #0080B6;
+yield {
+  margin-top: 30px;
 }
-li.open a.dropdown-toggle{
+nav#navbar-top img.logo{
+  height: 100%
+}
+nav#navbar-top.navbar > div.container, ul.dropdown-menu, ul.dropdown-menu > *, .navbar{
+  background: #008cd8; /* Old browsers */
+  background: -moz-linear-gradient(top, #008cd8 0%, #0080b6 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#008cd8), color-stop(100%,#0080b6)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #008cd8 0%,#0080b6 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #008cd8 0%,#0080b6 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #008cd8 0%,#0080b6 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #008cd8 0%,#0080b6 100%); /* W3C */
+}
+nav#navbar-top li.open a.dropdown-toggle{
   background-color:#0080B6 !important;
 }
-
-li.open a:hover, .navbar-toggle{
+nav#navbar-top li.open a:hover, .navbar-toggle{
   background-color:#0080B6 !important;
   border: none;
 }
-.navbar *,
-.navbar a,
-.navbar a:link,
-.navbar a:hover,
-.navbar a:visited{
+nav#navbar-top.navbar *,
+nav#navbar-top.navbar a,
+nav#navbar-top.navbar a:link,
+nav#navbar-top.navbar a:hover,
+nav#navbar-top.navbar a:visited{
   text-decoration:none;
   color:white !important;
 }
-.navbar-default .navbar-toggle .icon-bar{
+nav#navbar-top.navbar-default .navbar-toggle .icon-bar{
   background:white !important;
 }
-div.bgModal{
-  position:fixed;
-  top:0px;
-  left:0px;
-  width:100%;
+nav#navbar-left {
   height:100%;
-  z-index:100;
-  background: rgba(0,0,0,0.6);
-}
-div.sectionModal{
+  border-right:1px solid rgb(244,244,244);
   position:fixed;
-  top:50%;
-  left:50%;
-  width:600px;
-  height:400px;
-  margin-top:-200px;
-  margin-left:-300px;
-  background:white;
-  z-index:150;
+  left: -50px;
+  top: 55px;
 }
-div.sectionModalHeader{
-  color:white;
-  padding-top:2px;
-  padding-bottom:2px;
-  padding-left:10px;
-  padding-right:2px;
-  background:#0080B6;
-  float:left;height:14%;width:100%;
+ul#navbar-left-links li  {
+  color: gray;
 }
-div.sectionModalBody{
-  height:72%;
-  padding-top:10px;
-  float:left;
+#navbar-left-user-img {
+  height: 60px;
+  text-align: center;
+  align: center;
 }
-div.sectionModalBody > div{
-  overflow-y:auto;
-  max-height:100%;
-  width:100%;
-}
-div.sectionModalFooter{
-  height:14%;
-  width:100%;
-  background:#0080B6;
-  padding:10px;
-  float:left;
-  color:white;
-}
-.closeModal{
-  cursor:pointer;
-}
-i.closeModal{
-  position:absolute;right:10px;top:20px;font-size:21px;
-}
-.buttonModal{
-  float:right;
-  margin-left:10px
-}
+
