@@ -17,9 +17,11 @@ describe User do
 
   it { expect(jack).to validate_presence_of(:username) }
   it { expect(jack).to validate_presence_of(:email) }
-  it { expect(jack).to validate_presence_of(:password) }
 
+  it { expect(jack).to_not validate_presence_of(:password) }
   it { expect(jack).to_not validate_presence_of(:birthday) }
+  it { expect(jack).to_not validate_presence_of(:gender) }
+
   it { expect(jack).to_not validate_presence_of(:description) }
 
   it { expect(jack).to validate_uniqueness_of(:username) }
@@ -87,6 +89,7 @@ describe User do
     end
 
     it "validate birthday today" do
+      jack.birthday = DateTime.now
       expect(jack.birthday_today?).to be(true)
       expect(chloe.birthday_today?).to be(false)
     end

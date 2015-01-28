@@ -1,10 +1,31 @@
 en:
-  freaktags: "FreakTags"
+  freaktags: "FreakTags™"
   hello: "Hello"
-  must_be_authenticated: "You must be authenticated"
+  must_be_authenticated: "You must be authenticated!"
+  updated_successfully: "Updated sucessfully!"
+  something_went_wrong: "Something went wrong!"
+
+  user: "Usuário"
+  name: "Name"
+  username: "Username"
+  email: "Email"
+  sign_up: "Sign-up"
+  sign_in: "Sign-in"
+  password: "Password"
+  current_password: "Current password"
+  password_confirmation: "Password confirmation"
+  update: "Update"
+  leave_blank_if_dont_want_to_change: "Leave blank if you don't want to change it"
 
   enumerations:
-    gender: Gender
-    male: Male
-    female: Female
-    other: Other
+    gender: "Gender"
+    male: "Male"
+    female: "Female"
+    other: "Other"
+
+  devise:
+    confirmations:
+      waiting: "Currently waiting for confirmation to: %{email}"
+    passwords:
+      leave_blank: "Leave black if you don't want to change"
+      current_confirmation: "We need your current password to confirm your changes"
