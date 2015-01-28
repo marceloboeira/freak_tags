@@ -39,7 +39,7 @@
             <center><h5><%= link_to current_user.name, profile_path(current_user.name) %></h5></center>
             <ul id="navbar-left-links"class="nav nav-stacked">
               <li><%= link_to fa("dashboard"), dashboard_path %></li>
-              <li><%= link_to fa("wrench"), account_settings_path %></li>
+              <li><%= link_to fa("wrench"), "/account/settings" %></li>
               <li><%= link_to fa("sign-out"), "/account/sign-out" %></a></li>
             </ul>
           </div>
