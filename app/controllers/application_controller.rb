@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
+  layout 'default'
   protect_from_forgery with: :exception
   before_filter :authenticate_user!
   before_filter :devise_filter, if: :devise_controller?
-  layout 'default'
 
   def after_sign_in_path_for(resource)
     sign_in_url = url_for(:action => 'new', :controller => 'sessions', :only_path => false, :protocol => 'http')
