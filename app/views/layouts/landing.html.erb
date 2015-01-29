@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t(:freaktags) %></title>
+  <%= stylesheet_link_tag 'core', media: 'all' %>
+  <%= stylesheet_link_tag 'landing', media: 'all' %>
+  <%= javascript_include_tag 'core' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="intro-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="intro-message">
+            <h1><%= fa "tags" %> <%= t :freaktags %></h1>
+            <h3><%= t :slug_line %></h3>
+            <hr class="intro-divider">
+            <ul class="list-inline intro-social-buttons">
+              <li>
+                <a href="https://twitter.com/freaktags" class="btn btn-default">
+                  <%= fa "twitter" %>
+                  <span class="network-name">Twitter</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://fb.com/freaktags" class="btn btn-default">
+                  <%= fa "facebook" %>
+                  <span class="network-name">Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/freaktags" class="btn btn-default">
+                  <%= fa "github" %>
+                  <span class="network-name">GitHub</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</body>
+</html>

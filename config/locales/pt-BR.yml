@@ -1,6 +1,6 @@
 "pt-BR":
   freaktags: "FreakTags™"
-  hello: "Olá"
+  slug_line: "What have you been watching?"
   must_be_authenticated: "Você deve estar autenticado!"
   updated_successfully: "Atualizado com sucesso!"
   something_went_wrong: "Alguma coisa deu errado!"

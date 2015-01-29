@@ -1,6 +1,6 @@
 en:
   freaktags: "FreakTags™"
-  hello: "Hello"
+  slug_line: "What have you been watching?"
   must_be_authenticated: "You must be authenticated!"
   updated_successfully: "Updated sucessfully!"
   something_went_wrong: "Something went wrong!"
