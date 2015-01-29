@@ -20,7 +20,7 @@ module FreakTags
   config.i18n.default_locale = config.i18n.locale = :en
 
   # Assets
-  config.assets.paths << Rails.root.join('app', 'assets', 'components')
+  config.assets.paths << Rails.root.join('app', 'assets')
 
   config.generators do |g|
     g.test_framework :rspec,

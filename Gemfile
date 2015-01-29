@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
+gem 'bundler', '>= 1.7.0'
 gem 'sass-rails', '~> 5.0.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'
@@ -42,4 +43,13 @@ group :production do
   gem 'newrelic_rpm'
   gem 'unicorn'
   gem 'sidekiq'
+end
+
+## Assets
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-font-awesome'
+  gem 'rails-assets-animate.css'
+  gem 'rails-assets-moment'
 end

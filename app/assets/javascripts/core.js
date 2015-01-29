@@ -1,4 +1,4 @@
-//= require jquery/dist/jquery.min.js
-//= require bootstrap/dist/js/bootstrap.min.js
-//= require moment/min/moment-with-locales.min.js
+//= require jquery
+//= require bootstrap
+//= require moment
 //= require_self
