@@ -15,12 +15,7 @@ gem 'amistad'
 gem 'cancancan', '~> 1.10'
 gem 'therubyracer'
 gem 'devise'
-
-group :development, :test do
-  gem 'sqlite3'
-  gem 'capistrano'
-  gem 'capistrano-rails'
-end
+gem 'pg'
 
 group :development do
   gem 'spring'
@@ -29,14 +24,18 @@ group :development do
 end
 
 group :test do
+  gem 'sqlite3'
   gem 'faker'
   gem 'capybara'
+  gem 'poltergeist'
   gem 'guard-rspec'
   gem 'codeclimate-test-reporter', require: false
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'rspec-expectations'
+  gem 'database_cleaner'
+
 end
 
 group :production do
