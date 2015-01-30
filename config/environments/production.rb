@@ -3,9 +3,9 @@ Rails.application.configure do
   config.eager_load = true
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.serve_static_files = false
+  config.serve_static_files = true
   config.assets.js_compressor = :uglifier
-  config.assets.compile = false
+  config.assets.compile = true
   config.assets.digest = true
   config.log_level = :info
   config.i18n.fallbacks = true
