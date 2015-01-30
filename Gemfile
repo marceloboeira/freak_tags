@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.0'
 
 gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0.1'
@@ -14,6 +15,7 @@ gem 'amistad'
 gem 'cancancan', '~> 1.10'
 gem 'therubyracer'
 gem 'devise'
+gem 'pg'
 
 group :development, :test do
   gem 'sqlite3'
@@ -38,7 +40,7 @@ group :test do
   gem 'rspec-expectations'
 end
 
-group :production do
+group :production, :beta do
   gem 'newrelic_rpm'
   gem 'unicorn'
   gem 'sidekiq'
