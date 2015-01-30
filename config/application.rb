@@ -9,11 +9,10 @@ module FreakTags
   # Custom directories with classes and modules you want to be autoloadable.
 
   #19 - Enumerations - https://github.com/freaktags/core/issues/19
-  config.autoload_paths << "#{Rails.root}/app/models/enumerations"
+  config.autoload_paths << "#{Rails.root}/app/models/enumerations/"
 
   #35 - Personal Validators - https://github.com/freaktags/core/issues/35
-  config.autoload_paths << "#{Rails.root}/app/lib/validators"
-
+  config.autoload_paths << "#{Rails.root}/lib/validators/"
   # TimeZone
   config.time_zone = 'Brasilia'
 
