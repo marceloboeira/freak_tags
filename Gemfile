@@ -44,4 +44,5 @@ group :production, :beta do
   gem 'newrelic_rpm'
   gem 'unicorn'
   gem 'sidekiq'
+  gem 'rails_12factor'
 end
