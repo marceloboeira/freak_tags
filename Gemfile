@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'rails', '4.2.0'
+gem 'bundler', '>= 1.7.0'
 gem 'sass-rails', '~> 5.0.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'
@@ -17,12 +18,6 @@ gem 'therubyracer'
 gem 'devise'
 gem 'pg'
 
-group :development, :test do
-  gem 'sqlite3'
-  gem 'capistrano'
-  gem 'capistrano-rails'
-end
-
 group :development do
   gem 'spring'
   gem 'bullet'
@@ -30,14 +25,17 @@ group :development do
 end
 
 group :test do
+  gem 'sqlite3'
   gem 'faker'
   gem 'capybara'
+  gem 'poltergeist'
   gem 'guard-rspec'
   gem 'codeclimate-test-reporter', require: false
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'rspec-expectations'
+  gem 'database_cleaner'
 end
 
 group :production, :beta do
@@ -45,4 +43,13 @@ group :production, :beta do
   gem 'unicorn'
   gem 'sidekiq'
   gem 'rails_12factor'
+end
+
+## Assets
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-font-awesome'
+  gem 'rails-assets-animate.css'
+  gem 'rails-assets-moment'
 end
