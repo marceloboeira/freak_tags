@@ -12,7 +12,8 @@ module FreakTags
   config.autoload_paths << "#{Rails.root}/app/models/enumerations"
 
   #35 - Personal Validators - https://github.com/freaktags/core/issues/35
-  config.autoload_paths += %W(#{config.root}/lib/validators/)
+  config.autoload_paths << "#{Rails.root}/app/lib/validators"
+
   # TimeZone
   config.time_zone = 'Brasilia'
 
@@ -20,7 +21,7 @@ module FreakTags
   config.i18n.default_locale = config.i18n.locale = :en
 
   # Assets
-  config.assets.paths << Rails.root.join('app', 'assets', 'components')
+  config.assets.paths << Rails.root.join('app', 'assets')
 
   config.generators do |g|
     g.test_framework :rspec,
