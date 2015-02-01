@@ -40,7 +40,7 @@ end
 
 group :production, :beta do
   gem 'newrelic_rpm'
-  gem 'unicorn'
+  gem 'puma'
   gem 'sidekiq'
   gem 'rails_12factor'
 end
