@@ -12,8 +12,8 @@
 /log/*.log
 /tmp
 
-# Ignore bower_components
-/app/assets/components
-
 # Code coverage
 /coverage
+
+# Env
+.env
