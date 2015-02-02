@@ -11,7 +11,7 @@ require 'factory_girl_rails'
 require 'faker'
 
 include Warden::Test::Helpers
-CodeClimate::TestReporter.start
+CodeClimate::TestReporter.start if ENV['CODECLIMATE_REPO_TOKEN'].present?
 Warden.test_mode!
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
