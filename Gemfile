@@ -38,6 +38,11 @@ group :test do
   gem 'database_cleaner'
 end
 
+group :development, :test do
+  gem 'dotenv-rails'
+end
+
+
 group :production, :beta do
   gem 'newrelic_rpm'
   gem 'puma'
