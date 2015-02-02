@@ -2,7 +2,6 @@ module FontAwesomeHelper
 
   # Based on: https://github.com/bokmann/font-awesome-rails/blob/master/app/helpers/font_awesome/rails/icon_helper.rb
   # Font-Awesome icon generator helper - https://github.com/freaktags/core/issues/51
-  #
   def fa(names = "question", options = {})
     classes = ["fa"]
     classes.concat fa_array_value(names).map { |n| "fa-#{n}" }

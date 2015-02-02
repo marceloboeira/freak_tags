@@ -13,6 +13,7 @@ module FreakTags
 
   #35 - Personal Validators - https://github.com/freaktags/core/issues/35
   config.autoload_paths << "#{Rails.root}/lib/validators/"
+
   # TimeZone
   config.time_zone = 'Brasilia'
 
@@ -26,9 +27,9 @@ module FreakTags
     g.test_framework :rspec,
       :fixtures => true,
       :view_specs => false,
-      :helper_specs => false,
+      :helper_specs => true,
       :routing_specs => false,
-      :controller_specs => true,
+      :controller_specs => false,
       :request_specs => true
     g.fixture_replacement :factory_girl, :dir => "spec/factories"
   end
