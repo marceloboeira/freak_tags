@@ -19,4 +19,8 @@ FactoryGirl.define do
   factory :root_user, parent: :user do
     role { Role::ROOT }
   end
+  factory :confirmed_user, parent: :user do
+    confirmed_at { DateTime.now }
+    role { Role::ROOT }
+  end
 end
