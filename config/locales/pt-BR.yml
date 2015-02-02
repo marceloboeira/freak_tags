@@ -15,11 +15,12 @@
   current_password: "Senha atual"
   password_confirmation: "Confirmação de senha"
   update: "Atualizar"
+
   enumerations:
-    gender: "Gênero"
-    male: "Masculino"
-    female: "Feminino"
-    other: "Outro"
+    gender:
+      male: "Masculino"
+      female: "Feminino"
+      other: "Outro"
 
   errors:
     messages:
