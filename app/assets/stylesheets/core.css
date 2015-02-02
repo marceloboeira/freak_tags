@@ -14,6 +14,12 @@ yield {
 nav#navbar-top img.logo{
   height: 100%
 }
+nav#navbar-top a.logo {
+  font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-size: 18 px;
+}
+
 nav#navbar-top.navbar > div.container, ul.dropdown-menu, ul.dropdown-menu > *, .navbar{
   background: #008cd8; /* Old browsers */
   background: -moz-linear-gradient(top, #008cd8 0%, #0080b6 100%); /* FF3.6+ */

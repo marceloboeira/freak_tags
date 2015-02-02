@@ -7,9 +7,8 @@ module ApplicationHelper
     t :freaktags
   end
 
-  # TODO: Make it a real helper
   def navbar_logo
-    image_tag('/assets/images/logo/navbar-top.png', {:class => "logo"})
+    link_to (fa "tags", {text: t(:freaktags)}), (signed_in? ? dashboard_path : root_path), {:class => "navbar-brand logo"}
   end
 
 end
