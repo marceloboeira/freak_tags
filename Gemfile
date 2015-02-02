@@ -6,7 +6,6 @@ gem 'bundler', '>= 1.7.0'
 gem 'sass-rails', '~> 5.0.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'
-gem 'bower-rails', '~> 0.9.2'
 gem 'birthday', '~> 0.3.0'
 gem 'enumerate_it', '>= 1.2.3'
 gem 'validates_existence', '>= 0.9.2'
@@ -41,7 +40,6 @@ end
 group :development, :test do
   gem 'dotenv-rails'
 end
-
 
 group :production, :beta do
   gem 'newrelic_rpm'
