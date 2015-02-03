@@ -20,7 +20,7 @@ FreakTags [![Codeship Status for freaktags/core](https://img.shields.io/codeship
 
 ### Preparing environment
 
-* Install rvm, ruby(2.2), rails(4.2), nodejs(>0.10), bower
+* Install rvm, Ruby(2.2), Rails(4.2), PostgreSQL
 * Get inside the project folder and run:
   * `bundle`
   * `rake db:create db:migrate`
