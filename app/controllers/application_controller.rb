@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   before_filter :devise_filter, if: :devise_controller?
 
+
+  private
   def after_sign_in_path_for(resource)
     sign_in_url = url_for(:action => 'new', :controller => 'sessions', :only_path => false, :protocol => 'http')
     if request.referer == sign_in_url
@@ -11,6 +13,14 @@ class ApplicationController < ActionController::Base
     else
       dashboard_path
     end
+  end
+
+  def after_inactive_sign_up_path_for(resource)
+    new_user_session_path
+  end
+
+  def after_sign_up_path_for(resource)
+    new_user_session_path
   end
 
   protected

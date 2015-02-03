@@ -5,33 +5,30 @@ Bundler.require(*Rails.groups)
 
 module FreakTags
   class Application < Rails::Application
+    #19 - Enumerations - https://github.com/freaktags/core/issues/19
+    config.autoload_paths << "#{Rails.root}/app/models/enumerations/"
 
-  # Custom directories with classes and modules you want to be autoloadable.
+    #35 - Personal Validators - https://github.com/freaktags/core/issues/35
+    config.autoload_paths << "#{Rails.root}/lib/validators/"
 
-  #19 - Enumerations - https://github.com/freaktags/core/issues/19
-  config.autoload_paths << "#{Rails.root}/app/models/enumerations/"
+    # TimeZone
+    config.time_zone = 'Brasilia'
 
-  #35 - Personal Validators - https://github.com/freaktags/core/issues/35
-  config.autoload_paths << "#{Rails.root}/lib/validators/"
+    # Locales
+    config.i18n.default_locale = config.i18n.locale = :"en"
 
-  # TimeZone
-  config.time_zone = 'Brasilia'
+    # Assets
+    config.assets.paths << Rails.root.join('app', 'assets')
 
-  # Locales
-  config.i18n.default_locale = config.i18n.locale = :en
-
-  # Assets
-  config.assets.paths << Rails.root.join('app', 'assets')
-
-  config.generators do |g|
-    g.test_framework :rspec,
-      :fixtures => true,
-      :view_specs => false,
-      :helper_specs => true,
-      :routing_specs => false,
-      :controller_specs => false,
-      :request_specs => true
-    g.fixture_replacement :factory_girl, :dir => "spec/factories"
-  end
+    config.generators do |g|
+      g.test_framework :rspec,
+        :fixtures => true,
+        :view_specs => false,
+        :helper_specs => true,
+        :routing_specs => false,
+        :controller_specs => false,
+        :request_specs => true
+      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+    end
 	end
 end
