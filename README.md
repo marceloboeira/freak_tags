@@ -15,7 +15,6 @@ FreakTags [![Codeship Status for freaktags/core](https://img.shields.io/codeship
 [![Test Coverage](https://codeclimate.com/github/freaktags/core/badges/coverage.svg)](https://codeclimate.com/github/freaktags/core)
 
 
-
 ## Let's run it
 
 ### Preparing environment

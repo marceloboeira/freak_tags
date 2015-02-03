@@ -30,5 +30,19 @@ module FreakTags
         :request_specs => true
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
-	end
+
+    #44 - Mail settings - https://github.com/freaktags/core/issues/44
+    config.action_mailer.default_url_options = { :host => ENV['FT_HOST'] }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address   => ENV['FT_MAIL_SERVER'],
+      :port      => ENV['FT_MAIL_PORT'],
+      :enable_starttls_auto => ENV['FT_MAIL_TTLS'],
+      :user_name => ENV['FT_MAIL_USERNAME'],
+      :password  => ENV['FT_MAIL_PASSWORD'],
+      :authentication => ENV['FT_MAIL_AUTH'],
+      :domain => ENV['FT_MAIL_DOMAIN']
+    }
+
+  end
 end

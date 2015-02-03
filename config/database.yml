@@ -14,10 +14,10 @@ test:
 
 beta:
   adapter: postgresql
-  url: <%= ENV['FT_BETA_DATABASE_URL'] %>
+  url: <%= ENV['FT_DATABASE_URL'] %>
   pool: 30
 
 production:
   adapter: postgresql
-  url: <%= ENV['FT_PROD_DATABASE_URL'] %>
+  url: <%= ENV['FT_DATABASE_URL'] %>
   pool: 30
