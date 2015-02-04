@@ -38,8 +38,14 @@ describe User do
     expect(kim).to be_valid
   end
 
+  it "validate name pattern" do
+    expect(jack).to_not allow_value("J$ack Bauer", "J4CK", "Chloe O&brien!", "Mr. JACK!", "#JACK").for(:name)
+    expect(jack).to allow_value("Jack Bauer", "Jack", "Dr. Jack Bauer", "Jack Baüer", "Chloe O'Brian").for(:name)
+  end
+
   it "validate username pattern" do
     expect(jack).to_not allow_value("jAcK.", "j@k", "j4.ck", "?jac", "*ja*ck").for(:username)
+    expect(jack).to allow_value("jack", "jack_bauer", "jack-bauer", "j4ck-", "jac").for(:username)
   end
 
   it "validate email pattern" do
