@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe "Authentication", :type => :feature, :js => true  do
-  let (:petter) { FactoryGirl.create(:confirmed_user, username: "petter", password: 'side-boobs', name: "Petter Griffin") }
-  let (:louis) { FactoryGirl.create(:female_user, username: "louis", password: 'i-feel-alive', name: "Louis Griffin") }
+  let (:petter) { create(:confirmed_user, username: "petter", password: 'side-boobs', name: "Petter Griffin") }
+  let (:louis) { create(:female_user, username: "louis", password: 'i-feel-alive', name: "Louis Griffin") }
   let (:chris) { User.new(username: "chris-griffin", email: "chris.griffin@gmail.com", password: "everybody-hates-meg")}
 
   describe "sign-up" do

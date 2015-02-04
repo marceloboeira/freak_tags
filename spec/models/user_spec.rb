@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe User do
 
-  let (:jack) { FactoryGirl.create(:user, username: "jack", birthday: 30.years.ago) }
-  let (:chloe) { FactoryGirl.create(:female_user, username: "chloe", birthday: (30.years + 20.days).ago) }
+  let (:jack) { create(:user, username: "jack", birthday: 30.years.ago) }
+  let (:chloe) { create(:female_user, username: "chloe", birthday: (30.years + 20.days).ago) }
 
   before :each do
     # Keep it: shoulda needs this because of validate_uniqueness_of ->
-    FactoryGirl.create(:user)
+    create(:user)
   end
 
   it "has a valid factory" do
@@ -34,7 +34,7 @@ describe User do
   it { expect(jack).to ensure_length_of(:description).is_at_most(500) }
 
   it "validate name default value" do
-    kim = FactoryGirl.create(:user, name: nil, username: "kim")
+    kim = create(:user, name: nil, username: "kim")
     expect(kim.name).to eq(kim.username)
     expect(kim).to be_valid
   end
@@ -56,7 +56,7 @@ describe User do
   end
 
   it "validate gender default value" do
-    kim = FactoryGirl.create(:user, gender: nil)
+    kim = create(:user, gender: nil)
     expect(kim.gender).to eq(Gender::OTHER)
     expect(kim).to be_valid
   end
@@ -70,7 +70,7 @@ describe User do
   end
 
   it "validate role default value" do
-    kim = FactoryGirl.create(:user, role: nil)
+    kim = create(:user, role: nil)
     expect(kim.role).to eq(Role::REGULAR)
     expect(kim).to be_valid
   end
@@ -100,14 +100,14 @@ describe User do
   end
 
   describe "friendships" do
-    let (:jax) { FactoryGirl.create(:user, username: "jax") }
-    let (:chibs) { FactoryGirl.create(:user, username: "chibs") }
-    let (:bobby) { FactoryGirl.create(:user, username: "bobby") }
-    let (:tig) { FactoryGirl.create(:user, username: "tig") }
-    let (:juice) { FactoryGirl.create(:user, username: "juice") }
-    let (:cley) { FactoryGirl.create(:user, username: "cley") }
-    let (:gemma) { FactoryGirl.create(:female_user, username: "gemma") }
-    let (:tara) { FactoryGirl.create(:female_user, username: "tara") }
+    let (:jax) { create(:user, username: "jax") }
+    let (:chibs) { create(:user, username: "chibs") }
+    let (:bobby) { create(:user, username: "bobby") }
+    let (:tig) { create(:user, username: "tig") }
+    let (:juice) { create(:user, username: "juice") }
+    let (:cley) { create(:user, username: "cley") }
+    let (:gemma) { create(:female_user, username: "gemma") }
+    let (:tara) { create(:female_user, username: "tara") }
     let (:friend_list) { [bobby, tig, juice, cley, gemma, tara] }
 
     it "validate a friendship request" do
