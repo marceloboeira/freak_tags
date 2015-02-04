@@ -3,7 +3,7 @@ class News < ActiveRecord::Base
   belongs_to :author, :class_name => "User"
 
   validates :title, presence: true
-  validates :slug, presence: true
+  validates :slug, presence: true, uniqueness: {case_sensitive: false}
   validates :slug_line, presence: true
   validates :content, presence: true
   validates :author, presence: true
