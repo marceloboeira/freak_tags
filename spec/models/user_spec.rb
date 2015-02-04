@@ -6,7 +6,6 @@ describe User do
   let (:chloe) { create(:female_user, username: "chloe", birthday: (30.years + 20.days).ago) }
 
   before :each do
-    # Keep it: shoulda needs this because of validate_uniqueness_of ->
     create(:user)
   end
 
