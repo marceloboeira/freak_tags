@@ -1,17 +1,17 @@
-ENV["RAILS_ENV"] ||= 'test'
+ENV["RAILS_ENV"] ||= "test"
 
-require 'codeclimate-test-reporter'
+require "codeclimate-test-reporter"
 require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
-require 'capybara/rails'
-require 'capybara/rspec'
-require 'capybara/poltergeist'
-require 'shoulda/matchers'
-require 'factory_girl_rails'
-require 'faker'
+require "rspec/rails"
+require "capybara/rails"
+require "capybara/rspec"
+require "capybara/poltergeist"
+require "shoulda/matchers"
+require "factory_girl_rails"
+require "faker"
 
 include Warden::Test::Helpers
-CodeClimate::TestReporter.start if ENV['CODECLIMATE_REPO_TOKEN'].present?
+CodeClimate::TestReporter.start if ENV["CODECLIMATE_REPO_TOKEN"].present?
 Warden.test_mode!
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
