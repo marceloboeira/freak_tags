@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Friendships" do
+describe "Friendship" do
 
   let (:jax) { create(:user, username: "jax") }
   let (:chibs) { create(:user, username: "chibs") }
@@ -16,7 +16,9 @@ describe "Friendships" do
     create(:user)
   end
 
-  it "validate a friendship request" do
+  describe "validates"
+
+  it "friendship request" do
     jax.invite chibs
 
     expect(jax.pending_invited).to include(chibs)
@@ -27,7 +29,7 @@ describe "Friendships" do
     expect(chibs.friend_with? jax).to be(false)
   end
 
-  it "validate an approved friendship" do
+  it "approved friendship" do
     jax.invite bobby
 
     bobby.approve jax
@@ -39,7 +41,7 @@ describe "Friendships" do
     expect(bobby.friend_with? jax).to be(true)
   end
 
-  it "validate a removed friendship" do
+  it "removed friendship" do
     tig.invite cley
     cley.approve tig
     tig.remove_friendship cley
@@ -48,7 +50,7 @@ describe "Friendships" do
     expect(cley.friends).to_not include(tig)
   end
 
-  it "validate a friend list" do
+  it "friends list" do
     friend_list.each do |c|
       chibs.invite c
       c.approve chibs
