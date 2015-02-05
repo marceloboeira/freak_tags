@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe "Authentication", :type => :feature, :js => true  do
   let (:petter) { create(:confirmed_user, username: "petter", password: 'side-boobs', name: "Petter Griffin") }

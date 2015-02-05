@@ -1,0 +1,25 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+
+LineLength:
+  Max: 150
+
+LeadingCommentSpace:
+  Enabled: false
+
+Style/AlignParameters:
+  Enabled: false
+
+Style/AlignHash:
+  Enabled: false
+
+Style/AlignArray:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+

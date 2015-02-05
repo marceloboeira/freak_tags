@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe User do
 
@@ -51,6 +51,11 @@ describe User do
 
   it "validate email pattern" do
     expect(jack).to_not allow_value("user@foo..", "HE_USER@fg_", "e mail@a.com", "invalidA@dres", "1@2.3").for(:email)
+  end
+
+  it "downcases email" do
+    kim = create(:user, email: "KiM.bauer@gmail.com")
+    expect(kim.email).to eq("kim.bauer@gmail.com")
   end
 
   it "validate gender enum defaults" do
