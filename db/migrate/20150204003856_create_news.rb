@@ -9,5 +9,6 @@ class CreateNews < ActiveRecord::Migration
       t.string :state, :null => false, :default => "active"
       t.timestamps
     end
+    add_index :news, :slug, unique: true
   end
 end
