@@ -52,6 +52,11 @@ describe User do
     expect(jack).to_not allow_value("user@foo..", "HE_USER@fg_", "e mail@a.com", "invalidA@dres", "1@2.3").for(:email)
   end
 
+  it "downcases email" do
+    kim = create(:user, email: "KiM.bauer@gmail.com")
+    expect(kim.email).to eq("kim.bauer@gmail.com")
+  end
+
   it "validate gender enum defaults" do
     expect(jack).to allow_value(Gender::MALE, Gender::FEMALE, Gender::OTHER).for(:gender)
   end
