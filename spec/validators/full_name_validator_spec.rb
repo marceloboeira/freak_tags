@@ -1,9 +1,9 @@
-require 'spec_helper'
+require "spec_helper"
 
 class FakeModel
   include ActiveModel::Validations
   attr_accessor :name
-  validates :name, :full_name => true
+  validates :name, full_name: true
 end
 
 describe FullNameValidator do
