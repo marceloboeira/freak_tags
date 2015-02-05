@@ -21,6 +21,7 @@ group :development do
   gem 'spring'
   gem 'bullet'
   gem 'letter_opener'
+  gem 'rubocop', require: false
 end
 
 group :test do

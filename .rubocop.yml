@@ -1,0 +1,12 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+
+LineLength:
+  Max: 120
+
+Style/Encoding:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
