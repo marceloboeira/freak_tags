@@ -6,7 +6,6 @@ describe User do
   let (:chloe) { create(:female_user, username: "chloe", birthday: (30.years + 20.days).ago) }
 
   before :each do
-    # Keep it: shoulda needs this because of validate_uniqueness_of ->
     create(:user)
   end
 
@@ -73,7 +72,7 @@ describe User do
   end
 
   it "validate role enum defaults" do
-    expect(jack).to allow_value(Role::GUEST, Role::REGULAR, Role::CONTRIBUTOR, Role::MODERATOR, Role::DEVELOPER, Role::ROOT).for(:role)
+    expect(jack).to allow_value(UserRole::GUEST, UserRole::REGULAR, UserRole::CONTRIBUTOR, UserRole::MODERATOR, UserRole::DEVELOPER, UserRole::ROOT).for(:role)
   end
 
   it "validate role invalid values" do
@@ -82,7 +81,7 @@ describe User do
 
   it "validate role default value" do
     kim = create(:user, role: nil)
-    expect(kim.role).to eq(Role::REGULAR)
+    expect(kim.role).to eq(UserRole::REGULAR)
     expect(kim).to be_valid
   end
 
@@ -107,59 +106,6 @@ describe User do
 
     it "validate birthday age number" do
       expect(jack.age).to be(30)
-    end
-  end
-
-  describe "friendships" do
-    let (:jax) { create(:user, username: "jax") }
-    let (:chibs) { create(:user, username: "chibs") }
-    let (:bobby) { create(:user, username: "bobby") }
-    let (:tig) { create(:user, username: "tig") }
-    let (:juice) { create(:user, username: "juice") }
-    let (:cley) { create(:user, username: "cley") }
-    let (:gemma) { create(:female_user, username: "gemma") }
-    let (:tara) { create(:female_user, username: "tara") }
-    let (:friend_list) { [bobby, tig, juice, cley, gemma, tara] }
-
-    it "validate a friendship request" do
-      jax.invite chibs
-
-      expect(jax.pending_invited).to include(chibs)
-      expect(chibs.pending_invited_by).to include(jax)
-      expect(jax.friends).to_not include(chibs)
-      expect(chibs.friends).to_not include(jax)
-      expect(jax.friend_with? chibs).to be(false)
-      expect(chibs.friend_with? jax).to be(false)
-    end
-
-    it "validate an approved friendship" do
-      jax.invite bobby
-      bobby.approve jax
-
-      expect(jax.friends).to include(bobby)
-      expect(jax.invited).to include(bobby)
-      expect(bobby.friends).to include(jax)
-      expect(bobby.invited_by).to include(jax)
-      expect(jax.friend_with? bobby).to be(true)
-      expect(bobby.friend_with? jax).to be(true)
-    end
-
-    it "validate a removed friendship" do
-      tig.invite cley
-      cley.approve tig
-      tig.remove_friendship cley
-
-      expect(tig.friends).to_not include(cley)
-      expect(cley.friends).to_not include(tig)
-    end
-
-    it "validate a friend list" do
-      friend_list.each do |c|
-        chibs.invite c
-        c.approve chibs
-      end
-
-      expect(chibs.friends).to match(friend_list)
     end
   end
 end

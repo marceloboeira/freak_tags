@@ -6,19 +6,19 @@ FactoryGirl.define do
     u.password { Faker::Internet.password }
     u.birthday { Faker::Date.between(80.years.ago, 5.years.ago) }
     u.gender { Gender::MALE }
-    u.role { Role::REGULAR }
+    u.role { UserRole::REGULAR }
   end
   factory :female_user, parent: :user do
     gender { Gender::FEMALE }
   end
   factory :guest_user, parent: :user do
-    role { Role::GUEST }
+    role { UserRole::GUEST }
   end
   factory :root_user, parent: :user do
-    role { Role::ROOT }
+    role { UserRole::ROOT }
   end
   factory :confirmed_user, parent: :user do
     confirmed_at { DateTime.now }
-    role { Role::ROOT }
+    role { UserRole::ROOT }
   end
 end

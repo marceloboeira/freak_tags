@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :trackable, :validatable, :confirmable, authentication_keys: [:login]
   acts_as_birthday :birthday
   has_enumeration_for :gender, with: Gender, create_helpers: true
-  has_enumeration_for :role, with: Role, create_helpers: true
+  has_enumeration_for :role, with: UserRole, create_helpers: true
 
   before_validation :normalize_values, :default_values
 
@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   def default_values
     self.name ||= username
     self.gender ||= Gender::OTHER
-    self.role ||= Role::REGULAR
+    self.role ||= UserRole::REGULAR
   end
 
   # 48 - Devise: e-mail or username to sign-in
