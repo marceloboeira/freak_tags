@@ -4,7 +4,10 @@ module ApplicationHelper
 
   # TODO: Make it get a controller translated name
   def page_title
-    t :freaktags
+    title = t(:freaktags)
+    if Rails.env.development?
+      "#{title} (#{FreakTags::Application::VERSION})"
+    end
   end
 
   def navbar_logo
