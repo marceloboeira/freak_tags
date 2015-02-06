@@ -4,7 +4,6 @@ describe "Landing page", :type => :feature  do
 
    it "is the root_path" do
     visit root_path
-
     within "div.intro-message h1" do
       expect(page).to have_content(I18n.t :freaktags)
     end
@@ -12,7 +11,6 @@ describe "Landing page", :type => :feature  do
       expect(page).to have_content(I18n.t :slug_line)
     end
   end
-
   it "visible only for non-logged users" do
     # Todo englobe this on a helper
     user = create(:confirmed_user)

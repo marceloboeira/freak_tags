@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   before_filter :devise_filter, if: :devise_controller?
 
-  private
+  protected
   def after_sign_in_path_for(resource)
     sign_in_url = url_for(:action => 'new', :controller => 'sessions', :only_path => false, :protocol => 'http')
     if request.referer == sign_in_url
@@ -19,10 +19,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_up_path_for(resource)
+    puts "MERDA"
     new_user_session_path
   end
 
-  protected
   def devise_filter
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
