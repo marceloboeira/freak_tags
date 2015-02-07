@@ -101,7 +101,7 @@ describe User do
         expect(jack.age).to be(jack.birthday_age)
       end
 
-      it "birthday today" do
+      it "is today" do
         jack.birthday = DateTime.now
         expect(jack.birthday_today?).to be(true)
         expect(chloe.birthday_today?).to be(false)

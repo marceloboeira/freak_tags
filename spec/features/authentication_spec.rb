@@ -9,9 +9,9 @@ describe "Authentication", :type => :feature, :js => true  do
     it "allows normal params" do
       sign_up_with(chris_hash[:username], chris_hash[:email], chris_hash[:password], chris_hash[:password])
 
-      # TODO: Find out why the page is redirecting to home
-      # expect(page).to have_content(I18n.t(:"devise.registrations.signed_up"))
+      expect(page).to have_content(I18n.t(:"devise.registrations.signed_up_but_unconfirmed"))
       expect(User.find_by_username(chris_hash[:username]).created_at).to be_between(5.minutes.ago, DateTime.now)
+      expect(current_path).to eq(new_user_session_path)
     end
     describe "don't allow" do
       it "null params" do
