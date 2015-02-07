@@ -36,7 +36,7 @@
         <nav id="navbar-left" class="col-lg-1 col-lg-offset-1 col-md-1 col-xs-1" >
           <div class="row">
             <center><%= user_image_tag %></center>
-            <center><h5><%= link_to current_user.name, profile_path(current_user.username) %></h5></center>
+            <center><h5><%= link_to current_user.username, profile_path(current_user.username) %></h5></center>
             <ul id="navbar-left-links"class="nav nav-stacked">
               <li><%= link_to fa("dashboard"), dashboard_path %></li>
               <li><%= link_to fa("wrench"), edit_registration_path(:user) %></li>
