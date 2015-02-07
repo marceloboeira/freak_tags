@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150123190100) do
   add_index "friendships", ["friendable_id", "friend_id"], name: "index_friendships_on_friendable_id_and_friend_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                                       null: false
+    t.string   "name"
     t.string   "username",                                   null: false
     t.string   "email",                                      null: false
     t.string   "gender",                 default: "other",   null: false

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   before_validation :normalize_values, :default_values
 
-  validates :name, presence: true, length: { in: 2..50 }, full_name: true
+  validates :name, length: { maximum: 50 }, full_name: true, allow_blank: true
   validates :username, presence: true, uniqueness: { case_sensitive: false }, username: true, length: { in: 2..50 }
   validates :password, presence: true, on: :update, allow_blank: true
   validates :email, presence: true, uniqueness: { case_sensitive: false }, email: true, length: { in: 5..50 }
@@ -25,13 +25,11 @@ class User < ActiveRecord::Base
   end
 
   private
-
   def normalize_values
     self.email = email.downcase if email.present?
   end
 
   def default_values
-    self.name ||= username
     self.gender ||= Gender::OTHER
     self.role ||= UserRole::REGULAR
   end
