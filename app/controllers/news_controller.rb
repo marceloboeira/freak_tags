@@ -2,20 +2,26 @@ class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
 
   def index
-    @news = User.all
+    @news = News.all
   end
 
   def show
 
   end
 
-  def create
-    @news = news.new(news_params)
 
+  def new
+    @news = News.new
+  end
+
+  def create
+    @news = News.new(news_params)
+
+    @news.author = current_user
     if @news.save
       redirect_to(@news, notice: t(:created_successfully))
     else
-      render :news
+      render :new
     end
   end
 
@@ -38,6 +44,6 @@ class NewsController < ApplicationController
     end
 
     def news_params
-      params.require(:news).permit(:title, :slug)
+      params.require(:news).permit(:title, :slug, :slug_line, :content)
     end
 end
