@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 20150204003856) do
     t.datetime "updated_at"
   end
 
+  add_index "news", ["slug"], name: "index_news_on_slug", unique: true, using: :btree
+
   create_table "users", force: :cascade do |t|
-    t.string   "name",                                       null: false
+    t.string   "name"
     t.string   "username",                                   null: false
     t.string   "email",                                      null: false
     t.string   "gender",                 default: "other",   null: false
