@@ -1,4 +1,6 @@
 
-
-
 <h1> <%= @news.title %></h1>
+<hr>
+<news-content>
+  <%= @news.content.html_safe %>
+</news-content>
