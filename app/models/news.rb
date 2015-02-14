@@ -1,4 +1,9 @@
+require 'friendly_id'
+
 class News < ActiveRecord::Base
+  include FriendlyId
+
+  friendly_id :title, use: [:slugged, :finders]
 
   belongs_to :author, class_name: "User"
 
@@ -9,16 +14,4 @@ class News < ActiveRecord::Base
   validates :author, presence: true
 
   has_enumeration_for :state, create_helpers: true, create_scopes: true, required: true
-
-  before_validation :default_values, :normalize_values
-
-  private
-
-  def default_values
-    self.slug = self.title.parameterize
-  end
-
-  def normalize_values
-    self.slug = self.slug.parameterize
-  end
 end

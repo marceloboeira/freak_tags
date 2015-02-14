@@ -9,7 +9,6 @@ class NewsController < ApplicationController
 
   end
 
-
   def new
     @news = News.new
   end
@@ -40,7 +39,7 @@ class NewsController < ApplicationController
 
   private
     def set_news
-      @news = News.find_by_slug(params[:slug])
+      @news = News.find(params[:id])
     end
 
     def news_params

@@ -13,6 +13,5 @@ Rails.application.routes.draw do
 
   get "/profile/:username", to: "users#show", as: "profile"
 
-  resources :news, :except => :show
-  get "news/:slug" => "news#show", :as => :news_show
+  resources :news
 end

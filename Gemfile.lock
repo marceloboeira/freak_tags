@@ -82,7 +82,7 @@ GEM
       dotenv (= 1.0.2)
     email_validator (1.5.0)
       activemodel
-    enumerate_it (1.2.3)
+    enumerate_it (1.2.4)
       activesupport (>= 3.0.0)
     erubis (2.7.0)
     execjs (2.2.2)
@@ -95,6 +95,8 @@ GEM
       i18n (~> 0.5)
     ffi (1.9.6)
     formatador (0.2.5)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     guard (2.11.1)
@@ -244,7 +246,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
     shellany (0.0.1)
-    shoulda-matchers (2.7.0)
+    shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
     sidekiq (3.3.1)
       celluloid (>= 0.16.0)
@@ -312,6 +314,7 @@ DEPENDENCIES
   enumerate_it (>= 1.2.3)
   factory_girl_rails
   faker
+  friendly_id
   guard-rspec
   jbuilder (~> 2.0)
   letter_opener
