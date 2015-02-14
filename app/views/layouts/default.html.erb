@@ -39,6 +39,7 @@
             <center><h5><%= link_to current_user.name, profile_path(current_user.username) %></h5></center>
             <ul id="navbar-left-links"class="nav nav-stacked">
               <li><%= link_to fa("dashboard", text: t(:dashboard)), dashboard_path %></li>
+              <li><%= link_to fa("newspaper-o", text: t(:news)), news_index_path %></li>
               <li><%= link_to fa("wrench", text: t(:account)), edit_registration_path(:user) %></li>
               <li><%= link_to fa("sign-out", text: t(:sign_out)), destroy_session_path(:user) %></li>
             </ul>
