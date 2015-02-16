@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   end
 
   private
+
   def default_values
     self.gender ||= Gender::OTHER
     self.role ||= UserRole::REGULAR

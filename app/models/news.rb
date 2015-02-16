@@ -1,4 +1,3 @@
-
 class News < ActiveRecord::Base
   include FriendlyId
 
