@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_enumeration_for :gender, with: Gender, create_helpers: true
   has_enumeration_for :role, with: UserRole, create_helpers: true
 
-  before_validation :normalize_values, :default_values
+  before_validation :default_values, :normalize_values
 
   validates :name, length: { maximum: 50 }, full_name: true, allow_blank: true
   validates :username, presence: true, uniqueness: { case_sensitive: false }, username: true, length: { in: 2..50 }
@@ -25,16 +25,16 @@ class User < ActiveRecord::Base
   end
 
   private
-  def normalize_values
-    self.email = email.downcase if email.present?
-  end
-
   def default_values
     self.gender ||= Gender::OTHER
     self.role ||= UserRole::REGULAR
   end
 
-  # 48 - Devise: e-mail or username to sign-in
+  def normalize_values
+    self.email = email.downcase if email.present?
+  end
+
+  # Devise: e-mail or username to sign-in - https://github.com/freaktags/core/issues/48
   def self.find_for_database_authentication(conditions = {})
     find_by(username: conditions[:login]) || find_by(email: conditions[:login])
   end
