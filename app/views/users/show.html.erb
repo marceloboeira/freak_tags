@@ -1,4 +1,5 @@
-<%= @user.name %>
+<h1><%= @user.name %></h1>
+<hr>
 
 <% if can? :edit, @user %>
   <%= link_to "Edit", edit_user_path(@user) %>

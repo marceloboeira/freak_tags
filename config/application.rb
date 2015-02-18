@@ -7,10 +7,10 @@ module FreakTags
   class Application < Rails::Application
     VERSION = "0.0.0"
 
-    #19 - Enumerations - https://github.com/freaktags/core/issues/19
+    # Enumerations - https://github.com/freaktags/core/issues/19
     config.autoload_paths << "#{Rails.root}/app/models/enumerations/"
 
-    #35 - Personal Validators - https://github.com/freaktags/core/issues/35
+    # Validators - https://github.com/freaktags/core/issues/35
     config.autoload_paths << "#{Rails.root}/lib/validators/"
 
     # TimeZone
