@@ -1,0 +1,12 @@
+<h1> <%= @news.title %> </h1>
+<hr>
+<h5><i><%= @news.slug_line %></i></h5>
+
+<ul class="actions" style="align:right; list-style:none; display: inline;">
+  <li><%= fa("wrench") if can? :update, @news %></li>
+  <li><%= fa("trash") %></li>
+</ul>
+<hr>
+<news-content>
+  <%= @news.content.html_safe %>
+</news-content>

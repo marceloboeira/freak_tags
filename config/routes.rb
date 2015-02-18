@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       confirmation: 'verify',
       edit: 'settings'
     }
-
-  # Profile
   get '/profile/:username', to: 'users#show', as: 'profile'
+
+  resources :news
 end

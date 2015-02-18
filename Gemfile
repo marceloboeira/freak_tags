@@ -15,6 +15,7 @@ gem 'amistad'
 gem 'cancancan', '~> 1.10'
 gem 'therubyracer'
 gem 'devise'
+gem 'friendly_id', :require => "friendly_id"
 gem 'pg'
 
 group :development do
@@ -49,7 +50,6 @@ group :production, :beta do
   gem 'rails_12factor'
 end
 
-## Assets
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery'
   gem 'rails-assets-bootstrap'
