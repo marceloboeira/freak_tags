@@ -1,11 +1,12 @@
 <h1> <%= @news.title %> </h1>
+<div class="btn-group" role="group" style="  float: right;" aria-label="...">
+  <%= link_to fa("wrench", :text => t(:edit)), edit_news_path(@news), class: "btn btn-primary" if can? :update, @news %>
+  <%= link_to fa("trash", :text => t(:destroy)), news_path(@news), method: :delete, class: "btn btn-danger" if can? :destroy, @news %>
+</div>
 <hr>
 <h5><i><%= @news.slug_line %></i></h5>
-
-<ul class="actions" style="align:right; list-style:none; display: inline;">
-  <li><%= fa("wrench") if can? :update, @news %></li>
-  <li><%= fa("trash") %></li>
-</ul>
+<hr>
+<%= fa("calendar") %> <%= datetime_ago @news.created_at %>
 <hr>
 <news-content>
   <%= @news.content.html_safe %>

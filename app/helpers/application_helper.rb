@@ -15,4 +15,8 @@ module ApplicationHelper
   def navbar_logo
     link_to (fa "tags", {text: t(:freaktags)}), (signed_in? ? dashboard_path : root_path), {:class => "navbar-brand logo"}
   end
+
+  def datetime_ago date
+    content_tag :date, nil, "data-source": date.to_formatted_s(:db)
+  end
 end
