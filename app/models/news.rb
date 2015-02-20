@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> d19caa3836cc00408554d0a330d3d356f88d982c
 class News < ActiveRecord::Base
   include FriendlyId
 

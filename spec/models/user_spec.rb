@@ -22,11 +22,11 @@ describe User do
     it { expect(jack).to_not validate_presence_of(:description) }
     it { expect(jack).to validate_uniqueness_of(:username) }
     it { expect(jack).to validate_uniqueness_of(:email) }
-    it { expect(jack).to ensure_length_of(:name).is_at_most(50) }
-    it { expect(jack).to ensure_length_of(:password).is_at_least(8).is_at_most(128) }
-    it { expect(jack).to ensure_length_of(:username).is_at_least(2).is_at_most(50) }
-    it { expect(jack).to ensure_length_of(:email).is_at_least(5).is_at_most(50) }
-    it { expect(jack).to ensure_length_of(:description).is_at_most(500) }
+    it { expect(jack).to validate_length_of(:name).is_at_most(50) }
+    it { expect(jack).to validate_length_of(:password).is_at_least(8).is_at_most(128) }
+    it { expect(jack).to validate_length_of(:username).is_at_least(2).is_at_most(50) }
+    it { expect(jack).to validate_length_of(:email).is_at_least(5).is_at_most(50) }
+    it { expect(jack).to validate_length_of(:description).is_at_most(500) }
     it "name pattern" do
       expect(jack).to_not allow_value("J$ack Bauer", "J4CK", "Chloe O&brien!", "Mr. JACK!", "#JACK").for(:name)
       expect(jack).to allow_value("Jack Bauer", "Jack", "Dr. Jack Bauer", "Jack Baüer", "Chloe O'Brian").for(:name)
