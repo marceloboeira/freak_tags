@@ -2,7 +2,7 @@
 <% @news.each do |news| %>
   <h2><%= link_to news.title, news %></h2>
   <% if news.created_at.present? %>
-    <div class="info">created on <%= news.created_at.strftime('%b %d, %Y') %></div>
+    <div class="info">created <%= datetime_ago news.created_at %></div>
   <% end %>
   <div class="slug-line"><%= news.slug_line %></div>
 <% end %>
