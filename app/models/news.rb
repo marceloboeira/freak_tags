@@ -1,4 +1,3 @@
-require 'friendly_id'
 
 class News < ActiveRecord::Base
   include FriendlyId
