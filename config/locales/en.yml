@@ -2,7 +2,10 @@ en:
   freaktags: "FreakTags™"
   slug_line: "What have you been watching?"
   must_be_authenticated: "You must be authenticated!"
+
+  created_successfully: "Created sucessfully!"
   updated_successfully: "Updated sucessfully!"
+  destroyed_successfully: "Destroyed sucessfully!"
   something_went_wrong: "Something went wrong!"
 
   user: "Usuário"
