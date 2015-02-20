@@ -14,7 +14,7 @@ gem 'amistad'
 gem 'cancancan', '~> 1.10'
 gem 'therubyracer'
 gem 'devise'
-gem 'friendly_id', :require => "friendly_id"
+gem 'friendly_id', require: 'friendly_id'
 gem 'pg'
 
 group :development do
@@ -55,4 +55,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-font-awesome'
   gem 'rails-assets-animate.css'
   gem 'rails-assets-moment'
+  gem 'rails-assets-bootbox'
 end
