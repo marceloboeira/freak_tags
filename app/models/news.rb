@@ -5,8 +5,8 @@ class News < ActiveRecord::Base
   belongs_to :author, class_name: "User"
 
   acts_as_paranoid
-  before_destroy :before_destroy
-  before_restore :before_restore
+  after_destroy :after_destroy
+  after_restore :after_restore
 
   validates :title, presence: true, length: { in: 5..150 }
   validates :slug_line, presence: true, length: { in: 20..150 }
@@ -17,11 +17,13 @@ class News < ActiveRecord::Base
 
   private
 
-  def before_destroy
+  def after_destroy
     deleted!
+    save!
   end
 
-  def before_restore
+  def after_restore
     inactive!
+    save!
   end
 end

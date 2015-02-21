@@ -34,10 +34,9 @@ describe News do
       expect(news).to be_deleted
       News.restore(id)
       news = News.find(id)
-
       expect(news).to_not be_deleted
-      expect(news).to be_inactive
       expect(news.deleted_at).to be_nil
+      expect(news).to be_inactive
     end
   end
 end
