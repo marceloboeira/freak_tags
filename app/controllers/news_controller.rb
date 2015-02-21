@@ -1,8 +1,8 @@
 class NewsController < ApplicationController
-  before_action :set_news, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
-    @news = News.all
+    @news = News.all.includes(:author).order(created_at: :desc)
   end
 
   def show
@@ -38,12 +38,7 @@ class NewsController < ApplicationController
   end
 
   private
-
-    def set_news
-      @news = News.find(params[:id])
-    end
-
     def news_params
-      params.require(:news).permit(:title, :slug, :slug_line, :content)
+      params.require(:news).permit(:title, :slug_line, :content)
     end
 end
