@@ -8,17 +8,36 @@ describe News do
     create(:news)
   end
 
-  it "has a valid factory" do
-    expect(news).to be_valid
+  describe "validates" do
+    it "has a valid factory" do
+      expect(news).to be_valid
+    end
+    it { expect(news).to validate_presence_of(:title) }
+    it { expect(news).to validate_presence_of(:slug_line) }
+    it { expect(news).to validate_presence_of(:content) }
+    it { expect(news).to validate_presence_of(:author) }
+    it { expect(news).to validate_presence_of(:state) }
+    it { expect(news).to validate_length_of(:title).is_at_least(5).is_at_most(150) }
+    it { expect(news).to validate_length_of(:slug_line).is_at_least(20).is_at_most(150) }
+    it { expect(news).to validate_length_of(:content).is_at_least(1).is_at_most(1000) }
   end
+  describe "paranoid" do
+    it "soft destroy a record" do
+      expect(news.deleted_at).to be_nil
+      news.destroy
+      expect(news).to be_deleted
+      expect(news.deleted_at).to be_between(5.seconds.ago, DateTime.now)
+    end
+    it "let restore a record" do
+      id = news.id
+      news.destroy
+      expect(news).to be_deleted
+      News.restore(id)
+      news = News.find(id)
 
-  it { expect(news).to validate_presence_of(:title) }
-  it { expect(news).to validate_presence_of(:slug_line) }
-  it { expect(news).to validate_presence_of(:content) }
-  it { expect(news).to validate_presence_of(:author) }
-  it { expect(news).to validate_presence_of(:state) }
-
-  it { expect(news).to validate_length_of(:title).is_at_least(5).is_at_most(150) }
-  it { expect(news).to validate_length_of(:slug_line).is_at_least(20).is_at_most(150) }
-  it { expect(news).to validate_length_of(:content).is_at_least(1).is_at_most(1000) }
+      expect(news).to_not be_deleted
+      expect(news).to be_inactive
+      expect(news.deleted_at).to be_nil
+    end
+  end
 end

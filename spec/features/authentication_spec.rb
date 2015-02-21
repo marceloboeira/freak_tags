@@ -15,7 +15,7 @@ describe "Authentication", :type => :feature, :js => true  do
     end
     describe "don't allow" do
       it "null params" do
-        sign_up_with('', '', '', '')
+        sign_up_with("", "", "", "")
         expect(page).to have_content("Username can't be blank")
         expect(page).to have_content("Email can't be blank")
         expect(page).to have_content("Password can't be blank")
@@ -65,19 +65,19 @@ describe "Authentication", :type => :feature, :js => true  do
   def sign_in_with(login, password)
     visit new_user_session_path
     within("form#new_user") do
-      fill_in 'Login', with: login
-      fill_in 'Password', with: password
-      click_on 'Sign in'
+      fill_in "Login", with: login
+      fill_in "Password", with: password
+      click_on "Sign in"
     end
   end
   def sign_up_with(username, email, password, confirmation)
     visit new_user_registration_path
     within("form#new_user") do
-      fill_in 'Username', with: username
-      fill_in 'Email', with: email
-      fill_in 'Password', with: password
-      fill_in 'Password confirmation', with: confirmation
-      click_on 'Sign up'
+      fill_in "Username", with: username
+      fill_in "Email", with: email
+      fill_in "Password", with: password
+      fill_in "Password confirmation", with: confirmation
+      click_on "Sign up"
     end
   end
 end
