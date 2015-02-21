@@ -1,5 +1,6 @@
 <h1> <%= @news.title %> </h1>
-<div class="btn-group" role="group" style="  float: right;" aria-label="...">
+<div class="btn-group btn-group-sm" role="group" style="  float: right;" aria-label="...">
+  <%= link_to fa("plus", :text => t(:new)), new_news_path, class: "btn btn-success" if can? :create, @news %>
   <%= link_to fa("wrench", :text => t(:edit)), edit_news_path(@news), class: "btn btn-primary" if can? :update, @news %>
   <%= link_to fa("trash", :text => t(:destroy)), news_path(@news), method: :delete, class: "btn btn-danger" if can? :destroy, @news %>
 </div>

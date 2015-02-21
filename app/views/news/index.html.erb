@@ -1,8 +1,16 @@
+<h1><%= t :news %></h1>
+<div class="btn-group btn-group-sm" role="group" style="  float: right;" aria-label="...">
+  <%= link_to fa("plus", :text => t(:new)), new_news_path, class: "btn btn-success" if can? :create, @news %>
+</div>
+<hr>
 <div>
 <% @news.each do |news| %>
   <h2><%= link_to news.title, news %></h2>
   <% if news.created_at.present? %>
-    <div class="info">created <%= datetime_ago news.created_at %></div>
+    <div class="info">
+      <%= fa("calendar", text: t(:created)) %> <%= datetime_ago news.created_at %>
+      | <%= fa("user") %> <%= link_to news.author.username, profile_path(news.author.username) %>
+    </div>
   <% end %>
   <div class="slug-line"><%= news.slug_line %></div>
 <% end %>

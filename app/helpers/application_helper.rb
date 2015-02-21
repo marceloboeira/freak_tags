@@ -17,6 +17,6 @@ module ApplicationHelper
   end
 
   def datetime_ago date
-    content_tag :date, nil, "data-source": date.to_formatted_s(:db)
+    content_tag :date, nil, "data-source": date.to_s(:rfc822)
   end
 end
