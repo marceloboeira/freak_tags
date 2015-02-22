@@ -1,7 +1,7 @@
 class News < ActiveRecord::Base
   include FriendlyId
 
-  friendly_id :title, use: :history
+  friendly_id :title
   belongs_to :author, class_name: "User"
 
   acts_as_paranoid
@@ -25,5 +25,9 @@ class News < ActiveRecord::Base
   def after_restore
     inactive!
     save!
+  end
+
+  def should_generate_new_friendly_id?
+    title_changed?
   end
 end
