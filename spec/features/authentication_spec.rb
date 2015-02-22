@@ -8,7 +8,6 @@ describe "Authentication", :type => :feature, :js => true  do
   describe "sign-up" do
     it "allows normal params" do
       sign_up_with(chris_hash[:username], chris_hash[:email], chris_hash[:password], chris_hash[:password])
-
       expect(page).to have_content(I18n.t(:"devise.registrations.signed_up_but_unconfirmed"))
       expect(User.find_by_username(chris_hash[:username]).created_at).to be_between(5.minutes.ago, DateTime.now)
       expect(current_path).to eq(new_user_session_path)
@@ -62,6 +61,7 @@ describe "Authentication", :type => :feature, :js => true  do
   end
 
   private
+
   def sign_in_with(login, password)
     visit new_user_session_path
     within("form#new_user") do
@@ -70,6 +70,7 @@ describe "Authentication", :type => :feature, :js => true  do
       click_on "Sign in"
     end
   end
+
   def sign_up_with(username, email, password, confirmation)
     visit new_user_registration_path
     within("form#new_user") do
