@@ -2,7 +2,7 @@
 
 Some problems that we've been throught.
 
-## PostgreSQL error
+## PostgreSQL
 
 * Make sure you installed PostgreSQL on you computer
   * OSX: `brew install postgresql`
