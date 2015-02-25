@@ -14,6 +14,10 @@ FreakTags [![Codeship Status for freaktags/core](https://img.shields.io/codeship
 [![Code Climate](https://codeclimate.com/github/freaktags/core/badges/gpa.svg)](https://codeclimate.com/github/freaktags/core)
 [![Test Coverage](https://codeclimate.com/github/freaktags/core/badges/coverage.svg)](https://codeclimate.com/github/freaktags/core)
 
+### Contribute
+
+* [Triage](http://www.codetriage.com/freaktags/core)
+* Contributor Guide - Coming soon
 
 ## Let's run it
 
@@ -22,8 +26,7 @@ FreakTags [![Codeship Status for freaktags/core](https://img.shields.io/codeship
 * Install rvm, Ruby(2.2), Rails(4.2), PostgreSQL
 * Get inside the project folder and run:
   * `bundle`
-  * `rake db:create db:migrate`
-  * `rake db:seed`
+  * `rake db:create db:migrate rake db:seed`
 
 Problems? see our [FAQ.md](https://github.com/freaktags/core/blob/master/FAQ.md)
 
@@ -42,7 +45,10 @@ Now that everything is set, lets start the server:
       * [rvm](http://rvm.io) - Ruby version manager
     * [Rails](http://rubyonrails.org) - an Open-source web framework optimized for programmer happiness and sustainable productivity
       * Models
-        * [enumarate_it](https://github.com/cassiomarques/enumerate_it) - Awesome enum support gem
+        * [enumerate_it](https://github.com/cassiomarques/enumerate_it) - Awesome enum support gem
+        * [friendly_id](https://github.com/norman/friendly_id) - Create slugs like a boss
+        * [paranoia](https://github.com/radar/paranoia) - act_as_paranoid for rails 4
+        * [birthday](https://github.com/railslove/birthday) - look for birthdays without a hassle.
     * [PostgreSQL](http://www.postgresql.org) -  A powerful, open source object-relational database system.
     * Server
       * [Puma](http://puma.io) - A modern, concurrent ruby web server
