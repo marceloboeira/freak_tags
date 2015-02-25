@@ -4,7 +4,6 @@ describe "MomentJS", :type => :feature, :js => true  do
   let (:piper) { create(:confirmed_user, username: "piper") }
   let (:news) { create(:news) }
 
-
   before :each do
     login_as(piper, :scope => :user, :run_callbacks => false)
   end

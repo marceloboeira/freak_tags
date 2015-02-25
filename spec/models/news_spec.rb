@@ -21,14 +21,15 @@ describe News do
     it { expect(news).to validate_length_of(:slug_line).is_at_least(20).is_at_most(150) }
     it { expect(news).to validate_length_of(:content).is_at_least(1).is_at_most(1000) }
   end
-  describe "paranoid" do
-    it "soft destroy a record" do
+  describe "paranoid validates state for" do
+    it "soft destroy" do
       expect(news.deleted_at).to be_nil
       news.destroy
       expect(news).to be_deleted
+      expect(news.state).to eq State::DELETED
       expect(news.deleted_at).to be_between(5.seconds.ago, DateTime.now)
     end
-    it "let restore a record" do
+    it "restore" do
       id = news.id
       news.destroy
       expect(news).to be_deleted
