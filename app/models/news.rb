@@ -18,13 +18,11 @@ class News < ActiveRecord::Base
   private
 
   def after_destroy
-    deleted!
-    save!
+    deleted! && save! unless destroyed?
   end
 
   def after_restore
-    inactive!
-    save!
+    inactive! && save!
   end
 
   def should_generate_new_friendly_id?

@@ -11,19 +11,20 @@ describe "Paranoid" do
     expect(paranoid.deleted_at).to be_between(5.seconds.ago, DateTime.now)
   end
   it "restore a record" do
-    id = paranoid.id
+    id = paranoid.id.to_i
     paranoid.destroy
     expect(paranoid).to be_deleted
-    paranoid.restore(id)
-    paranoid = paranoid.find(id)
+    News.restore(id)
+    paranoid = News.find(id)
     expect(paranoid).to_not be_deleted
     expect(paranoid.deleted_at).to be_nil
     expect(paranoid).to be_inactive
   end
   it "really destroy a record" do
-    id = paranoid.id
+    id = paranoid.id.to_i
     paranoid.really_destroy!
-    paranoid = paranoid.find(id)
-    expect(paranoid).to be_nil
+    expect{
+      News.with_deleted.find(id)
+    }.to raise_error ActiveRecord::RecordNotFound
   end
 end
