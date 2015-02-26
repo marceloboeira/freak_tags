@@ -1,0 +1,24 @@
+<nav id="navbar-top" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only"><%= t(:toggle_navigation) %></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= navbar_logo %>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <li><%= link_to fa("sign-out"), destroy_session_path(:user) %></a></li>
+        <% else %>
+          <li><%= link_to fa("sign-in", {:text => t(:sign_in)}), new_session_path(:user) %></li>
+          <li><%= link_to fa("sign-in", {:text => t(:sign_up)}), new_registration_path(:user) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+

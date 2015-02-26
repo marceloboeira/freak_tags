@@ -18,7 +18,7 @@ class NewsController < ApplicationController
 
     @news.author = current_user
     if @news.save
-      redirect_to(@news, success: t(:created_successfully))
+      redirect_to(@news, notice: t(:created_successfully))
     else
       render :new
     end
@@ -26,7 +26,7 @@ class NewsController < ApplicationController
 
   def update
     if @news.update(news_params)
-      redirect_to(@news, success: t(:updated_successfully))
+      redirect_to(@news, notice: t(:updated_successfully))
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class NewsController < ApplicationController
 
   def destroy
     @news.destroy
-    redirect_to(news_index_path, success: t(:destroyed_successfully))
+    redirect_to(news_index_path, notice: t(:destroyed_successfully))
   end
 
   private
