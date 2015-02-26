@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   get '/profile/:username', to: 'users#show', as: 'profile'
 
   resources :news
+  get '/news/:id/destroy', to: 'news#destroy', as: 'destroy_news'
 end
