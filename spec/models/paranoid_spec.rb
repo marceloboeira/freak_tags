@@ -18,7 +18,6 @@ describe "Paranoid" do
     paranoid = News.find(id)
     expect(paranoid).to_not be_deleted
     expect(paranoid.deleted_at).to be_nil
-    expect(paranoid).to be_inactive
   end
   it "really destroy a record" do
     id = paranoid.id.to_i
