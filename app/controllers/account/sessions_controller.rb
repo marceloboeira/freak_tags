@@ -1,7 +1,6 @@
 class Account::SessionsController < Devise::SessionsController
   before_filter :devise_filter
 
-
   protected
 
   def after_sign_in_path_for(resource)

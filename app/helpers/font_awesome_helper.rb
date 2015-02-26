@@ -16,6 +16,8 @@ module FontAwesomeHelper
     safe_join(elements, " ")
   end
 
+  private
+
   def fa_array_value(value = [])
     value.is_a?(Array) ? value : value.to_s.split(/\s+/)
   end
