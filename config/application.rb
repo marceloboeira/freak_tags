@@ -17,7 +17,7 @@ module FreakTags
     config.time_zone = "Brasilia"
 
     # Locales
-    config.i18n.default_locale = config.i18n.locale = :"en"
+    config.i18n.default_locale = config.i18n.locale = ENV["FT_LOCALE"] || :"en"
 
     # Assets
     config.assets.paths << Rails.root.join("app", "assets")

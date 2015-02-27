@@ -2,7 +2,9 @@
   freaktags: "FreakTags™"
   slug_line: "What have you been watching?"
   must_be_authenticated: "Você deve estar autenticado!"
+  created_successfully: "Criado com sucesso!"
   updated_successfully: "Atualizado com sucesso!"
+  destroyed_successfully: "Deletado com sucesso!"
   something_went_wrong: "Alguma coisa deu errado!"
 
   user: "Usuário"
@@ -16,6 +18,11 @@
   current_password: "Senha atual"
   password_confirmation: "Confirmação de senha"
   update: "Atualizar"
+
+  dashboard: "Painel"
+  news: "Notícias"
+  account: "Conta"
+  created: "Criado há"
 
   enumerations:
     gender:

@@ -2,21 +2,51 @@
 //= require bootstrap
 //= require bootbox
 //= require moment
+//= require moment/locale/pt-br.js
 //= require_self
 
-$(function(){
-  var RFC822 = "ddd, DD MMM YYYY HH:mm:ss ZZ";
+/**
+ * [FreakTags Front-end Core]
+ * @type {Object}
+ */
+var FreakTags = {
+  version: $("#freaktags-version").val(),
+  locale: $("#freaktags-locale").val(),
+  dateFormat: "ddd, DD MMM YYYY HH:mm:ss ZZ", //RFC822
+
   /**
-   * MomentJS Live update on date/time inputs
-   * @return self
+   * [Booting up front-end core]
+   * @return {[type]} [description]
    */
-  var momentLiveUpdate = function() {
-    $('date, time').each(function(i, e) {
-      var d = moment($(e).data('source'), RFC822);
+  init: function() {
+    this._momentInit()
+  },
+
+  /**
+   * [MomentJS Locale and live update settings]
+   * @return {[function]}
+   */
+  _momentInit: function() {
+    moment.locale(FreakTags.locale);
+    FreakTags._momentUpdate();
+    setInterval(FreakTags._momentUpdate, 60000);
+  },
+
+  /**
+   * [MomentJS Live update on date/time inputs]
+   * @return {[function]}
+   */
+  _momentUpdate: function(){
+    $("date, time").each(function(i, e) {
+      var d = moment($(e).data("source"), FreakTags.dateFormat);
       $(e).html(d.fromNow());
     });
-  };
-  momentLiveUpdate();
-  setInterval(momentLiveUpdate, 60000);
+  }
+};
+
+$(function(){
+
+  // Booting up core
+  FreakTags.init();
 });
 
