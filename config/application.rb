@@ -17,7 +17,7 @@ module FreakTags
     config.time_zone = "Brasilia"
 
     # Locales
-    config.i18n.default_locale = config.i18n.locale = ENV["FT_LOCALE"] || :"en"
+    config.i18n.default_locale = config.i18n.locale = ENV["FT_LOCALE"] || :en
 
     # Assets
     config.assets.paths << Rails.root.join("app", "assets")
@@ -34,7 +34,7 @@ module FreakTags
     end
 
     if Rails.env.production? || Rails.env.beta?
-      #44 - Mail settings - https://github.com/freaktags/core/issues/44
+      #Mail settings - https://github.com/freaktags/core/issues/44
       config.action_mailer.default_url_options = { host: ENV["FT_HOST"] }
       config.action_mailer.delivery_method = :smtp
       config.action_mailer.smtp_settings = {

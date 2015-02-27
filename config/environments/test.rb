@@ -41,5 +41,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Forcing Locale on test environment
-  config.i18n.locale = :en
+  config.i18n.default_locale = config.i18n.locale = :en
 end
