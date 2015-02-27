@@ -38,6 +38,29 @@ Now that everything is set, lets start the server:
   * Open `http://localhost:3000` on your favorite browser and see the magic
 
 
+### .env
+
+In order to create non-hard-coded use of params we use environment variables to manage several stuff, if you need to setup a server or test a specific feature please remember to set the .env file.
+
+Check out the environment params you can set:
+
+* RAILS_ENV - Rails environment. Ex.:`development`, `test`, `beta`, `production`.
+* CODECLIMATE_REPO_TOKEN - Code Climate token.
+* FT_LOCALE - Locale to language and currencies. Currently support: `en`, `pt-BR`.
+* FT_NEWRELIC_KEY - NewRelic API Key to monitor the app.
+* FT_DEVISE_SECRET - Devise unique secret to generate secure tokens.
+* FT_HOST - Server host domain or ip address.
+* FT_MAIL_SENDER - Default address to send email from. Ex.: `noreply@yourhost.com`
+* FT_MAIL_SERVER - Default mail server. Ex.: `mail.yourhost.com`
+* FT_MAIL_PORT - Default mail port. Ex.: `587`
+* FT_MAIL_TTLS - Use TTLS. Ex.: `true`, `false`
+* FT_MAIL_USERNAME - Default mail username. Ex.: `root@yourhost.com`
+* FT_MAIL_PASSWORD - Default mail password. Ex.: `my$ecureP4$$w0rd`
+* FT_MAIL_AUTH - Default mail authentication style. Ex.: `text`, `login`
+* FT_MAIL_DOMAIN - Default mail domain. Ex.: `beta.yourhost.com`, `yourhost.com`
+* FT_DATABSE_URL - Database URL to connect with your DB.
+
+
 ## Open source stack
 
   * Core - App's main base
