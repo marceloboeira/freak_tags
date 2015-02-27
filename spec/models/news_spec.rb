@@ -1,13 +1,11 @@
 require "spec_helper"
 
 describe News do
-
   let (:news) { create(:news) }
 
   before :each do
     create(:news)
   end
-
   describe "validates" do
     it "a valid factory" do
       expect(news).to be_valid

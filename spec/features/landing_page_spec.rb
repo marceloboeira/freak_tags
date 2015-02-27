@@ -13,7 +13,7 @@ describe "Landing page", :type => :feature  do
   it "visible only for non-logged users" do
     # Todo englobe this on a helper
     user = create(:confirmed_user)
-    login_as(user, :scope => :user, :run_callbacks => false)
+    login_as(user)
     visit root_path
     expect(current_path).to eq(dashboard_path)
   end
