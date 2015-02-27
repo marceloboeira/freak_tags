@@ -65,7 +65,6 @@ GEM
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     connection_pool (2.1.1)
-    database_cleaner (1.4.0)
     date_validator (0.7.1)
       activemodel
     devise (3.4.1)
@@ -307,7 +306,6 @@ DEPENDENCIES
   cancancan (~> 1.10)
   capybara
   codeclimate-test-reporter
-  database_cleaner
   date_validator
   devise
   dotenv-rails
