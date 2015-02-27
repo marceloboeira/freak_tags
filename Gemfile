@@ -36,7 +36,6 @@ group :test do
   gem "factory_girl_rails"
   gem "rspec-rails"
   gem "rspec-expectations"
-  gem "database_cleaner"
 end
 
 group :development, :test do
