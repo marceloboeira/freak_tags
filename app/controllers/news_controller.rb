@@ -15,7 +15,6 @@ class NewsController < ApplicationController
 
   def create
     @news = News.new(news_params)
-
     @news.author = current_user
     if @news.save
       redirect_to(@news, notice: t(:created_successfully))

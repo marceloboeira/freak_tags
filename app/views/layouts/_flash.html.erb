@@ -1,4 +1,4 @@
-<flash id="#flash-messages">
+<flash id="flash-messages">
   <% flash.each do |key, value| %>
     <% key = (key == 'alert') ? 'danger' : key %>
     <% key = (key == 'notice') ? 'info' : key %>
