@@ -43,6 +43,26 @@ describe "News", :type => :feature, :js => true  do
       end
     end
   end
+  describe "friendly-id" do
+    before :each do
+      login_as(dexter)
+    end
+    it "updates slug when the title changes" do
+      new_title = "Another Killer title"
+      old_path = news_path(killer_news)
+      visit edit_news_path(killer_news)
+      within("form.edit_news") do
+        fill_in "Title", with: new_title
+        click_on "Update"
+      end
+      killer_news.reload
+      [news_path(killer_news), old_path].each do |this_path|
+        visit this_path
+        expect(page).to have_content(new_title)
+      end
+    end
+  end
+
 
   private
 
@@ -56,6 +76,7 @@ describe "News", :type => :feature, :js => true  do
     end
     news = News.all.last
     expect(news.created_at).to be_between(5.seconds.ago, DateTime.now)
+    expect(news.slug).to eq("the-icetruck-killer-strikes-again")
     expect(news.title).to have_content("IceTruck Killer")
     expect(news.author).to eq(user)
     expect(current_path).to eq(news_path(news))
