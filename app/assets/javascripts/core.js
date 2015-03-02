@@ -14,13 +14,16 @@ $(function(){
     version: $("#freaktags-version").val(),
     locale: $("#freaktags-locale").val(),
     dateFormat: "ddd, DD MMM YYYY HH:mm:ss ZZ", //RFC822
+    CSRF: $('meta[name=csrf-token]').attr('content'),
 
     /**
      * [Booting up front-end core]
      * @return {[type]} [description]
      */
     init: function() {
-      this._momentInit()
+
+      this._momentInit();
+      this._bootboxInit();
     },
 
     /**
@@ -42,6 +45,26 @@ $(function(){
         var d = moment.utc($(e).data("source"), FreakTags.dateFormat);
         $(e).html(d.fromNow());
       });
+    },
+
+    _bootboxInit: function() {
+      $("a[data-destroy]").on("click", function (e){
+        e.preventDefault();
+        var self = $(this);
+        var message = self.data("destroy-message");
+
+        bootbox.confirm(message, function(result){
+          if (result) {
+            $.ajax({
+              url: self.href,
+              method: "DELETE",
+              header: {'X-XSRF-TOKEN': FreakTags.CRSF}
+            }).done(function() {
+              alert("OK")
+            });
+          }
+        })
+      })
     }
   };
 
