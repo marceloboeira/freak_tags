@@ -1,8 +1,8 @@
-//= require jquery
-//= require bootstrap
-//= require bootbox
-//= require moment
-//= require moment/locale/pt-br.js
+//= require jquery/jquery
+//= require bootstrap/bootstrap
+//= require bootbox/bootbox
+//= require moment/moment
+//= require moment/locale/pt-br
 //= require_self
 
 $(function(){
