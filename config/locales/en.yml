@@ -1,34 +1,38 @@
 en:
-  freaktags: "FreakTags™"
-  slug_line: "What have you been watching?"
-  must_be_authenticated: "You must be authenticated!"
+  freaktags: FreakTags™
+  slug_line: What have you been watching?
 
-  created_successfully: "Created sucessfully!"
-  updated_successfully: "Updated sucessfully!"
-  destroyed_successfully: "Destroyed sucessfully!"
-  something_went_wrong: "Something went wrong!"
+  controllers:
+    flash:
+      created_successfully: Created sucessfully!
+      updated_successfully: Updated sucessfully!
+      destroyed_successfully: Destroyed sucessfully!
+      something_went_wrong: Something went wrong!
+      must_be_authenticated: You must be authenticated!
 
-  user: "Usuário"
-  name: "Name"
-  username: "Username"
-  email: "Email"
-  sign_up: "Sign-up"
-  sign_in: "Sign-in"
-  password: "Password"
-  current_password: "Current password"
-  password_confirmation: "Password confirmation"
-  update: "Update"
-  leave_blank_if_dont_want_to_change: "Leave blank if you don't want to change it"
+    account:
+      sign_up: Sign-up
+      sign_in: Sign-in
+      password: Password
+      update: Update
+      leave_blank_if_dont_want_to_change: Leave blank if you don't want to change it
+      are_you_sure_destroy: "Are you sure you want to delete %{title} ?"
+
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        username: Username
+        name: Name
+        email: Email
+        password: Password
+        gender: Gender
+        current_password: Current password
+        password_confirmation: Password confirmation
 
   enumerations:
-    gender:
-      male: "Male"
-      female: "Female"
-      other: "Other"
-
-  devise:
-    confirmations:
-      waiting: "Currently waiting for confirmation to: %{email}"
-    passwords:
-      leave_blank: "Leave black if you don't want to change"
-      current_confirmation: "We need your current password to confirm your changes"
+    gender: Gender
+      male: Male
+      female: Female
+      other: Other
