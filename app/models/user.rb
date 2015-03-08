@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
   def self.find_for_database_authentication(conditions = {})
     find_by(username: conditions[:login]) || find_by(email: conditions[:login])
   end
+
+  def devise_mailer
+    DeviseCustomMailer
+  end
 end
