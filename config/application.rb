@@ -34,7 +34,7 @@ module FreakTags
     end
 
     if Rails.env.production? || Rails.env.beta?
-      #Mail settings - https://github.com/freaktags/core/issues/44
+      # Mail settings - https://github.com/freaktags/core/issues/44
       config.action_mailer.default_url_options = { host: ENV["FT_HOST"] }
       config.action_mailer.delivery_method = :smtp
       config.action_mailer.smtp_settings = {
