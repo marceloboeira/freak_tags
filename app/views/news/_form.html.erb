@@ -10,14 +10,15 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :slug_line, class: "html-editor-inline", placeholder: "Type the slug-line"  %>
+    <%= f.text_field :title, class: 'input-title', placeholder: :title %>
   </div>
   <hr/>
   <div class="field">
-    <%= f.hidden_field :content, class: "html-editor", placeholder: "Type the content" %>
+    <%= f.text_field :slug_line, class: 'input-slugline', placeholder: :"Slug-line"  %>
+  </div>
+  <hr/>
+  <div class="field">
+    <%= f.hidden_field :content, class: "html-editor", placeholder: "Content" %>
   </div>
   <hr/>
   <div class="actions">
