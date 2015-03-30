@@ -23,6 +23,7 @@ $(function(){
     init: function() {
       this._momentInit()
       this._mediumInit();
+      this._tooltipInit();
     },
 
     /**
@@ -76,6 +77,14 @@ $(function(){
           });
         });
       });
+    },
+
+    /**
+     * Bootstrap tooltip ini
+     * @return {function}
+     */
+    _tooltipInit: function() {
+       $("[title]").tooltip();
     }
   };
 

@@ -3,10 +3,10 @@
     <center><%= user_image_tag %></center>
     <hr/>
     <ul id="navbar-left-links"class="nav nav-stacked">
-      <li><%= link_to fa("dashboard"), dashboard_path %></li>
-      <li><%= link_to fa("newspaper-o"), news_index_path %></li>
-      <li><%= link_to fa("wrench"), edit_registration_path(:user) %></li>
-      <li><%= link_to fa("sign-out"), destroy_session_path(:user) %></li>
+      <li><%= link_to fa("dashboard"), dashboard_path, title: :dashboard.to_s.titleize, "data-placement": "right" %></li>
+      <li><%= link_to fa("newspaper-o"), news_index_path, title: :news.to_s.titleize, "data-placement": "right" %></li>
+      <li><%= link_to fa("wrench"), edit_registration_path(:user), title: :account.to_s.titleize, "data-placement": "right" %></li>
+      <li><%= link_to fa("sign-out"), destroy_session_path(:user), title: :"sign-out".to_s.titleize, "data-placement": "right" %></li>
     </ul>
   </nav>
 <% end %>
