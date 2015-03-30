@@ -69,9 +69,9 @@ describe "News", :type => :feature, :js => true  do
   def create_news(user)
     visit new_news_path
     within("form.new_news") do
-      fill_in "Title", with: "The IceTruck Killer strikes again"
-      fill_in "Slug line", with: "Miami police confirm that the IceTruck Killer, AKA ICT, has killed again"
-      fill_in "Content", with: "<b> Kill'em All </b>"
+      first("input#news_title").set("The IceTruck Killer strikes again")
+      first("input#news_slug_line").set("Miami police confirm that the IceTruck Killer, AKA ICT, has killed again")
+      first("input#news_content", visible: false).set("<b> Kill'em All </b>")
       click_on "Create"
     end
     news = News.all.last
@@ -88,10 +88,10 @@ describe "News", :type => :feature, :js => true  do
   end
 
   def update_news
-    new_slug_line = "tonight is the night, and is going to happen again, it has to happen..."
+    new_slug_line = "Tonight's the night. And it's going to happen again and again. It has to happen."
     visit edit_news_path(killer_news)
     within("form.edit_news") do
-      fill_in "Slug line", with: new_slug_line
+      first("input#news_slug_line").set(new_slug_line)
       click_on "Update"
     end
     killer_news.reload
