@@ -56,4 +56,5 @@ source "https://rails-assets.org" do
   gem "rails-assets-animate.css"
   gem "rails-assets-moment"
   gem "rails-assets-bootbox"
+  gem "rails-assets-medium-editor"
 end
