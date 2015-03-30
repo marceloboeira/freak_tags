@@ -68,24 +68,31 @@ nav#navbar-top.navbar-default .navbar-toggle .icon-bar{
 
 /* navbar-left */
 nav#navbar-left {
-  z-index: 1040;
+  z-index: 1020;
   height: 100%;
   position: fixed;
-  top: 0px;
+  top: 50px;
   width: 80px;
   background: white;
   border-right: 1px solid rgb(244,244,244);
   padding: 0px;
-
 }
-ul#navbar-left-links li  {
+nav#navbar-left hr {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+nav#navbar-left p#navbar-left-logo {
+  text-align: center !important;
+  font-size: 40px;
+}
+nav#navbar-left ul#navbar-left-links li  {
   color: gray;
 }
-ul#navbar-left-links li a {
+nav#navbar-left ul#navbar-left-links li a {
   font-size: 25px;
   text-align: center !important;
 }
-#navbar-left-user-img {
+nav#navbar-left #navbar-left-user-img {
   margin-top: 5px;
   height: 60px;
   text-align: center;
@@ -104,6 +111,7 @@ ul#navbar-left-links li a {
   max-height: 30px;
 }
 
+/* inputs */
 input.input-title {
   border: 0px;
   min-width: 100%;
