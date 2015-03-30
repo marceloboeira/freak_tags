@@ -51,10 +51,21 @@ $(function(){
      * @return {Function}
      */
     _mediumInit: function() {
-      var elements = $(".html-editor"),
-      editor = new MediumEditor(elements, {
-        delay: 150,
-        buttonLabels: 'fontawesome'
+      var i = 0;
+      $('input.html-editor').each(function(){
+          var editorId = i++;
+          $(this).attr('data-editor-id', editorId);
+          var params = {
+            placeholder: $(this).attr('placeholder')
+          };
+          $(this).after('<div class="html-editor">' + $(this).val() + '</div>');
+          var editor = new MediumEditor('div.html-editor', params);
+          $('div.html-editor').each(function(){
+            $(this).on('input', function (){
+              console.log($(this).html());
+              $("input.html-editor[data-editor-id='" + editorId +"']").val($(this).html());
+            });
+          });
       });
     },
   };
