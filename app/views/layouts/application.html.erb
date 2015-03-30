@@ -9,9 +9,9 @@
   <body>
     <%= render "layouts/application/constants" %>
     <%= render "layouts/application/navbar_top" %>
-    <content class="container">
+    <content class="container-fluid">
       <%= render "layouts/application/navbar_left" %>
-      <yield class="col-lg-10 col-lg-offset-2 col-md-10 ">
+      <yield class="col-lg-11 col-lg-offset-1 col-md-11 col-md-offset-1 col-md-11 col-md-11 col-sm-offset-1 col-sm-11">
         <%= render "layouts/application/flash" %>
         <%= yield %>
       </yield>

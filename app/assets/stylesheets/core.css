@@ -11,7 +11,8 @@ content.container {
 
 }
 yield {
-  margin-top: 35px;
+  padding: 0px;
+  top: 30px;
   left: -50px;
 }
 pre {
@@ -32,7 +33,9 @@ blockquote {
   font-style: italic;
   color: #555;
 }
-
+h1 {
+  margin-top: 1px;
+}
 /* navbar-top */
 nav#navbar-top a.logo {
   font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -69,15 +72,50 @@ nav#navbar-left {
   height: 100%;
   position: fixed;
   top: 0px;
-  width: 150px;
+  width: 80px;
   background: white;
   border-right: 1px solid rgb(244,244,244);
+  padding: 0px;
+
 }
 ul#navbar-left-links li  {
   color: gray;
+}
+ul#navbar-left-links li a {
+  font-size: 25px;
+  text-align: center !important;
 }
 #navbar-left-user-img {
   margin-top: 5px;
   height: 60px;
   text-align: center;
+}
+
+/* html-editor */
+.html-editor {
+  min-width: 100%;
+  min-height: 400px;
+}
+.html-editor:focus, .html-editor:active {
+  border: none !important;
+}
+.html-inline-editor {
+  min-width: 100%;
+  max-height: 30px;
+}
+
+input.input-title {
+  border: 0px;
+  min-width: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  height: 45px;
+  line-height: 40px;
+}
+
+input.input-slugline {
+  border: 0px;
+  min-width: 100%;
+  font-size:14px;
 }
