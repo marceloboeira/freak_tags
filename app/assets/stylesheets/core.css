@@ -3,7 +3,7 @@
  *= require animate.css
  *= require font-awesome
  *= require medium-editor
- *= require medium-editor/themes/flat
+ *= require medium-editor/themes/bootstrap
  *= require_self
  */
 
@@ -35,6 +35,9 @@ blockquote {
 }
 h1 {
   margin-top: 1px;
+}
+div, textarea, input {
+  outline: none;
 }
 /* navbar-top */
 nav#navbar-top a.logo {
