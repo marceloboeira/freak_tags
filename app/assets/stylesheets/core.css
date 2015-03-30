@@ -13,7 +13,15 @@ content.container {
 yield {
   padding: 0px;
   top: 30px;
-  left: -50px;
+}
+yield.col-lg* {
+  left: -40px;
+}
+yield.col-md* {
+  left: -25px;
+}
+yield.col-sm* {
+  left: -15px;
 }
 pre {
   font-family: 'Menlo', monospace;
@@ -28,7 +36,6 @@ blockquote {
   display: block;
   padding-left: 20px;
   border-left: 6px solid #df0d32;
-  margin-left: -15px;
   padding-left: 15px;
   font-style: italic;
   color: #555;
