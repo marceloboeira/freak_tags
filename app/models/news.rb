@@ -8,7 +8,7 @@ class News < ActiveRecord::Base
 
   validates :title, presence: true, length: { in: 5..150 }
   validates :slug_line, presence: true, length: { in: 20..150 }
-  validates :content, presence: true, length: { in: 1..1000 }
+  validates :content, presence: true, length: { in: 1..100000 }
   validates :author, presence: true
 
   private

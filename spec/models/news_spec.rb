@@ -16,7 +16,7 @@ describe News do
     it { expect(news).to validate_presence_of(:author) }
     it { expect(news).to validate_length_of(:title).is_at_least(5).is_at_most(150) }
     it { expect(news).to validate_length_of(:slug_line).is_at_least(20).is_at_most(150) }
-    it { expect(news).to validate_length_of(:content).is_at_least(1).is_at_most(1000) }
+    it { expect(news).to validate_length_of(:content).is_at_least(1).is_at_most(100000) }
   end
   describe "friendly_id" do
     it "updates the slug when the title changes" do
