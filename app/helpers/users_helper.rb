@@ -1,7 +1,12 @@
 module UsersHelper
 
-  # TODO: Make it a real helper
-  def user_image_tag
-    image_tag "/assets/images/users/default.jpg", {id: "navbar-left-user-img", class: "img-circle "}
+  ## While paperclip isn't ready, let get it from gravatar
+  def gravatar_for(user, options = {})
+    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
+    classes = options.delete(:class)
+    classes << " gravatar"
+    id = options.delete(:id)
+    image_tag(gravatar_url, title: user.username, class: classes.to_s, id: id)
   end
 end
