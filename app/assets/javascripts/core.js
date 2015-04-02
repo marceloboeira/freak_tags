@@ -67,7 +67,9 @@ $(function(){
         $(this).attr('data-editor-id', editorId);
         var params = {
           placeholder: $(this).attr('placeholder'),
-          buttonLabels: 'fontawesome'
+          buttonLabels: 'fontawesome',
+          cleanPastedHTML: false,
+          forcePlainText: false
         };
         $(this).after('<div class="' + baseClass + '">' + $(this).val() + '</div>');
         var editor = new MediumEditor('div.' + baseClass, params);
