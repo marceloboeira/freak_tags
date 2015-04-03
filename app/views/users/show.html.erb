@@ -1,6 +1,58 @@
-<h1><%= @user.name %></h1>
-<hr>
+<div class="row">
+  <div class="col-sm-3">
+    <%= gravatar_for(@user, class: "img-circle img-responsive pull-left") %>
+    <div style="margin-left: 100px; margin-bottom: 20px;">
+      <h2 ><%= @user.name %></h2>
+      <div class="btn-group" role="group">
+        <%= link_to fa("user-plus"), dashboard_path, title: :add.to_s.titleize, class: "btn btn-default" %>
+        <%= link_to fa("comment-o"), dashboard_path, title: :message.to_s.titleize, class: "btn btn-default" %>
+      </div>
+    </div>
 
-<% if can? :edit, @user %>
-  <%= link_to "Edit", edit_registration_path(@user) %>
-<% end %>
+    <ul class="list-group">
+      <li class="list-group-item text-muted">
+        <%= fa('user', text: 'Profile') %>
+      </li>
+      <li class="list-group-item text-right">
+        <span class="pull-left">
+          <strong><%= t('Joined') %> </strong>
+        </span>
+        <%= datetime_ago @user.created_at %>
+      </li>
+      <li class="list-group-item text-right">
+        <span class="pull-left">
+          <strong><%= t('Last Seen') %></strong>
+        </span>
+        <%= datetime_ago @user.current_sign_in_at %>
+      </li>
+      <li class="list-group-item text-right">
+        <span class="pull-left">
+          <strong><%= t('Username') %></strong>
+        </span>
+        <%= @user.username %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-9">
+    <ul class="nav nav-tabs" id="user-profile-tabs">
+      <li class="active">
+        <a href="#tab-user-activity" data-toggle="tab">
+          <%= fa('rss', text: 'Activity') %>
+        </a>
+      </li>
+      <li>
+        <a href="#tab-user-friends" data-toggle="tab">
+        <%= fa('users', text: 'Friends') %>
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab-user-activity">
+
+      </div>
+      <div class="tab-pane " id="tab-user-friends">
+        <%= render 'users/friends_tab', friends: @user.friends  %>
+      </div>
+  </div>
+</div>
