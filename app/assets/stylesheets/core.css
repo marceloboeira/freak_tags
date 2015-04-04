@@ -138,3 +138,23 @@ input.input-slugline {
   min-width: 100%;
   font-size:14px;
 }
+
+/* Public Activity */
+activity {
+  padding: 20px 0px 20px 2px;
+  text-align: left;
+  vertical-align: center;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  display: block;
+}
+activity img {
+  width: 30px;
+}
+activity i {
+  font-size: 20px !important;
+  color: grey;
+}
+activity a {
+}
+

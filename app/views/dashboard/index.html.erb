@@ -1,2 +1,7 @@
 <h1><%= t :dashboard %></h1>
 <hr>
+<div class="container-fluid">
+  <% @activities.each do |activity| %>
+    <%= render_activity activity %>
+  <% end %>
+</div>
