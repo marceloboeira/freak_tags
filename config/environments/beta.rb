@@ -12,4 +12,7 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.default_url_options = { host: ENV['FT_HOST'], only_path: false }
+  config.action_controller.asset_host = ENV['FT_HOST']
+  config.action_mailer.asset_host = config.action_controller.asset_host
 end

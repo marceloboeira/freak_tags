@@ -1,0 +1,17 @@
+<% if signed_in? %>
+  <nav id="navbar-left" class="col-lg-1 col-md-1 col-xs-1" >
+    <center><%= link_to gravatar_for(current_user, class: "img-circle", id: "navbar-left-user-img"), profile_path(current_user.username), title: current_user.name, "data-placement": "right" %></center>
+    <hr/>
+    <ul id="navbar-left-links"class="nav nav-stacked">
+      <li><%= link_to fa("dashboard"), dashboard_path, title: :dashboard.to_s.titleize, "data-placement": "right" %></li>
+      <li><%= link_to fa("newspaper-o"), news_index_path, title: :news.to_s.titleize, "data-placement": "right" %></li>
+      <% if Rails.env.development? %>
+        <li><%= link_to fa("tags"), news_index_path, title: :my_tags.to_s.titleize, "data-placement": "right" %></li>
+        <li><%= link_to fa("list"), news_index_path, title: :lists.to_s.titleize, "data-placement": "right" %></li>
+      <% end %>
+      <li><%= link_to fa("wrench"), edit_registration_path(:user), title: :account.to_s.titleize, "data-placement": "right" %></li>
+      <li><%= link_to fa("sign-out"), destroy_session_path(:user), title: :"sign-out".to_s.titleize, "data-placement": "right" %></li>
+    </ul>
+  </nav>
+<% end %>
+

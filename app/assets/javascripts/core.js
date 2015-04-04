@@ -1,34 +1,36 @@
-//= require jquery
-//= require bootstrap
-//= require bootbox
-//= require moment
-//= require moment/locale/pt-br.js
+//= require jquery/jquery
+//= require bootstrap/bootstrap
+//= require bootbox/bootbox
+//= require moment/moment
+//= require moment/locale/pt-br
+//= require medium-editor
 //= require_self
 
 $(function(){
   /**
-   * [FreakTags Front-end Core]
+   * FreakTags Front-end Core
    * @type {Object}
    */
   var FreakTags = {
     version: $("#freaktags-version").val(),
     locale: $("#freaktags-locale").val(),
-    dateFormat: "ddd, DD MMM YYYY HH:mm:ss ZZ", //RFC822
+    dateFormat: "ddd, DD MMM YYYY HH:mm:ss ZZ", // RFC822 Pattern
     CSRF: $('meta[name=csrf-token]').attr('content'),
 
     /**
-     * [Booting up front-end core]
-     * @return {[type]} [description]
+     * Booting up front-end core
+     * @return {Function}
      */
     init: function() {
-
       this._momentInit();
+      this._mediumInit();
+      this._tooltipInit();
       this._bootboxInit();
     },
 
     /**
-     * [MomentJS Locale and live update settings]
-     * @return {[function]}
+     * MomentJS Locale and live update settings
+     * @return {Function}
      */
     _momentInit: function() {
       moment.locale(FreakTags.locale);
@@ -37,8 +39,8 @@ $(function(){
     },
 
     /**
-     * [MomentJS Live update on date/time inputs]
-     * @return {[function]}
+     * MomentJS Live update on date/time inputs
+     * @return {Function}
      */
     _momentUpdate: function(){
       $("date, time").each(function(i, e) {
@@ -47,24 +49,66 @@ $(function(){
       });
     },
 
+    /**
+     * Bootbox buttons init
+     * @return {[type]} [description]
+     */
     _bootboxInit: function() {
-      $("a[data-destroy]").on("click", function (e){
-        e.preventDefault();
-        var self = $(this);
-        var message = self.data("destroy-message");
 
+      /* Delete button */
+      $("a[data-destroy]").on("click", function (e){
+        var self = $(this);
+        var link = self.attr('href');
+        var message = self.data("destroy-message");
+        e.preventDefault();
         bootbox.confirm(message, function(result){
           if (result) {
-            $.ajax({
-              url: self.href,
-              method: "DELETE",
-              header: {'X-XSRF-TOKEN': FreakTags.CRSF}
-            }).done(function() {
-              alert("OK")
-            });
+            window.location.href = link;
           }
-        })
-      })
+        });
+      });
+    },
+
+    /**
+     * Medium editor start
+     * @return {Function}
+     */
+    _mediumInit: function() {
+      FreakTags._mediumRailsHiddenInputs('html-editor');
+      FreakTags._mediumRailsHiddenInputs('html-inline-editor');
+    },
+
+    /**
+     * I know its dirty, but until #103 of daviferreira/medium-editor is not solved, there's nothing to do
+     * @return {Function}
+     */
+    _mediumRailsHiddenInputs: function (baseClass){
+      var i = 0;
+      $('input.' + baseClass).each(function(){
+        var editorId = i++;
+        $(this).attr('data-editor-id', editorId);
+        var params = {
+          placeholder: $(this).attr('placeholder'),
+          buttonLabels: 'fontawesome',
+          cleanPastedHTML: false,
+          forcePlainText: false
+        };
+        $(this).after('<div class="' + baseClass + '">' + $(this).val() + '</div>');
+        var editor = new MediumEditor('div.' + baseClass, params);
+        $('div.' + baseClass).each(function(){
+          $(this).on('input', function (){
+            $('input.' + baseClass + '[data-editor-id="' + editorId + '"]').val($(this).html());
+          });
+        });
+      });
+    },
+
+    /**
+     * Bootstrap tooltip ini
+     * @return {function}
+     */
+    _tooltipInit: function() {
+       $("[title]").tooltip();
     }
   };
 

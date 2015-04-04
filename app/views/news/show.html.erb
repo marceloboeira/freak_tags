@@ -1,8 +1,9 @@
 <h1> <%= @news.title %> </h1>
 <div class="btn-group btn-group-sm" role="group" style="  float: right;" aria-label="...">
-  <%= link_to fa("plus", :text => t(:new)), new_news_path, class: "btn btn-success" if can? :create, @news %>
-  <%= link_to fa("wrench", :text => t(:edit)), edit_news_path(@news), class: "btn btn-primary" if can? :update, @news %>
-  <%= destroy_button @news if can? :destroy, @news %>
+  <%= link_to fa("plus", :text => t(:new)), new_news_path, class: "btn btn-default" if can? :create, @news %>
+  <%= link_to fa("wrench", :text => t(:edit)), edit_news_path(@news), class: "btn btn-default" if can? :update, @news %>
+  <%= link_to fa("trash", :text => t(:destroy)), destroy_news_path(@news), class: "btn btn-default", "data-destroy": true, "data-destroy-message": content_tag(:h4, (t(:are_you_sure_destroy, title: content_tag(:u, @news.title)))) if can? :destroy, @news %>
+
 </div>
 <hr>
 <h5><i><%= @news.slug_line %></i></h5>

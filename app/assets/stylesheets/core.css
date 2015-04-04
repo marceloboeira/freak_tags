@@ -2,6 +2,8 @@
  *= require bootstrap
  *= require animate.css
  *= require font-awesome
+ *= require medium-editor
+ *= require medium-editor/themes/default
  *= require_self
  */
 
@@ -9,25 +11,52 @@ content.container {
 
 }
 yield {
-  margin-top: 35px;
+  padding: 0px;
+  top: 30px;
 }
-nav#navbar-top img.logo{
-  height: 100%
+/* TODO: Improve code below */
+yield.col-lg* {
+  left: -40px;
 }
+yield.col-md* {
+  left: -25px;
+}
+yield.col-sm* {
+  left: -15px;
+}
+pre {
+  font-family: 'Menlo', monospace;
+  font-size: 15px;
+  background-color: #f0f0f0;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #666;
+}
+blockquote {
+  display: block;
+  padding-left: 20px;
+  border-left: 6px solid #df0d32;
+  padding-left: 15px;
+  font-style: italic;
+  color: #555;
+}
+h1 {
+  margin-top: 1px;
+}
+div, textarea, input {
+  outline: none;
+}
+/* navbar-top */
 nav#navbar-top a.logo {
   font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-size: 18 px;
+  font-color: #0080B6 !important;
+  color: #0080B6 !important;
 }
-
 nav#navbar-top.navbar > div.container, ul.dropdown-menu, ul.dropdown-menu > *, .navbar{
-  background: #008cd8; /* Old browsers */
-  background: -moz-linear-gradient(top, #008cd8 0%, #0080b6 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#008cd8), color-stop(100%,#0080b6)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #008cd8 0%,#0080b6 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #008cd8 0%,#0080b6 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #008cd8 0%,#0080b6 100%); /* IE10+ */
-  background: linear-gradient(to bottom, #008cd8 0%,#0080b6 100%); /* W3C */
+  background: white;
 }
 nav#navbar-top li.open a.dropdown-toggle{
   background-color:#0080B6 !important;
@@ -42,24 +71,70 @@ nav#navbar-top.navbar a:link,
 nav#navbar-top.navbar a:hover,
 nav#navbar-top.navbar a:visited{
   text-decoration:none;
-  color:white !important;
+  color: 1px solid rgb(244,244,244) !important;
 }
 nav#navbar-top.navbar-default .navbar-toggle .icon-bar{
-  background:white !important;
-}
-nav#navbar-left {
-  height:100%;
-  border-right:1px solid rgb(244,244,244);
-  position:fixed;
-  left: -50px;
-  top: 55px;
-}
-ul#navbar-left-links li  {
-  color: gray;
-}
-#navbar-left-user-img {
-  height: 60px;
-  text-align: center;
-  align: center;
+  background: white !important;
 }
 
+/* navbar-left */
+nav#navbar-left {
+  z-index: 1020;
+  height: 100%;
+  position: fixed;
+  top: 50px;
+  width: 80px;
+  background: white;
+  border-right: 1px solid rgb(244,244,244);
+  padding: 0px;
+}
+nav#navbar-left hr {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+nav#navbar-left p#navbar-left-logo {
+  text-align: center !important;
+  font-size: 40px;
+}
+nav#navbar-left ul#navbar-left-links li  {
+  color: gray;
+}
+nav#navbar-left ul#navbar-left-links li a {
+  font-size: 25px;
+  text-align: center !important;
+}
+nav#navbar-left #navbar-left-user-img {
+  margin-top: 5px;
+  height: 60px;
+  text-align: center;
+}
+
+/* html-editor */
+.html-editor {
+  min-width: 100%;
+  min-height: 400px;
+}
+.html-editor:focus, .html-editor:active {
+  border: none !important;
+}
+.html-inline-editor {
+  min-width: 100%;
+  max-height: 30px;
+}
+
+/* inputs */
+input.input-title {
+  border: 0px;
+  min-width: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  height: 45px;
+  line-height: 40px;
+}
+
+input.input-slugline {
+  border: 0px;
+  min-width: 100%;
+  font-size:14px;
+}
