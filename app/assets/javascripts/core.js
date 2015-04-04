@@ -14,16 +14,18 @@ $(function(){
   var FreakTags = {
     version: $("#freaktags-version").val(),
     locale: $("#freaktags-locale").val(),
-    dateFormat: "ddd, DD MMM YYYY HH:mm:ss ZZ", //RFC822
+    dateFormat: "ddd, DD MMM YYYY HH:mm:ss ZZ", // RFC822 Pattern
+    CSRF: $('meta[name=csrf-token]').attr('content'),
 
     /**
      * Booting up front-end core
      * @return {Function}
      */
     init: function() {
-      this._momentInit()
+      this._momentInit();
       this._mediumInit();
       this._tooltipInit();
+      this._bootboxInit();
     },
 
     /**
@@ -44,6 +46,26 @@ $(function(){
       $("date, time").each(function(i, e) {
         var d = moment.utc($(e).data("source"), FreakTags.dateFormat);
         $(e).html(d.fromNow());
+      });
+    },
+
+    /**
+     * Bootbox buttons init
+     * @return {[type]} [description]
+     */
+    _bootboxInit: function() {
+
+      /* Delete button */
+      $("a[data-destroy]").on("click", function (e){
+        var self = $(this);
+        var link = self.attr('href');
+        var message = self.data("destroy-message");
+        e.preventDefault();
+        bootbox.confirm(message, function(result){
+          if (result) {
+            window.location.href = link;
+          }
+        });
       });
     },
 

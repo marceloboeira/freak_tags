@@ -6,10 +6,9 @@ module ApplicationHelper
   def page_title
     title = t(:freaktags)
     if Rails.env.development?
-      "#{title} (#{FreakTags::Application::VERSION})"
-    else
-      title
+      return "#{title} (#{FreakTags::Application::VERSION})"
     end
+    title
   end
 
   def navbar_logo

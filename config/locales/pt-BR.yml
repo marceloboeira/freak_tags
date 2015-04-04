@@ -23,6 +23,9 @@
   news: "Notícias"
   account: "Conta"
   created: "Criado há"
+  destroy: "Deletar"
+
+  are_you_sure_destroy: "Você tem certeza que quer deletar %{title} ?"
 
   enumerations:
     gender:
