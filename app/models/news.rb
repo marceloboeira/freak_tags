@@ -1,5 +1,7 @@
 class News < ActiveRecord::Base
   include FriendlyId
+  include PublicActivity::Model
+  tracked owner: -> (controller, model) { controller && controller.current_user }
 
   acts_as_paranoid
   friendly_id :title
