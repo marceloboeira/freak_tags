@@ -71,7 +71,7 @@ describe "News", :type => :feature, :js => true  do
     within("form.new_news") do
       first("input#news_title").set("The IceTruck Killer strikes again")
       first("input#news_slug_line").set("Miami police confirm that the IceTruck Killer, AKA ICT, has killed again")
-      first("input#news_content", visible: false).set("<b> Kill'em All </b>")
+      first("#news_content").set("<b> Kill'em All </b>")
       click_on "Create"
     end
     news = News.all.last

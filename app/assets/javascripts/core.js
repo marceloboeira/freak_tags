@@ -74,32 +74,10 @@ $(function(){
      * @return {Function}
      */
     _mediumInit: function() {
-      FreakTags._mediumRailsHiddenInputs('html-editor');
-      FreakTags._mediumRailsHiddenInputs('html-inline-editor');
-    },
-
-    /**
-     * I know its dirty, but until #103 of daviferreira/medium-editor is not solved, there's nothing to do
-     * @return {Function}
-     */
-    _mediumRailsHiddenInputs: function (baseClass){
-      var i = 0;
-      $('input.' + baseClass).each(function(){
-        var editorId = i++;
-        $(this).attr('data-editor-id', editorId);
-        var params = {
-          placeholder: $(this).attr('placeholder'),
-          buttonLabels: 'fontawesome',
-          cleanPastedHTML: false,
-          forcePlainText: false
-        };
-        $(this).after('<div class="' + baseClass + '">' + $(this).val() + '</div>');
-        var editor = new MediumEditor('div.' + baseClass, params);
-        $('div.' + baseClass).each(function(){
-          $(this).on('input', function (){
-            $('input.' + baseClass + '[data-editor-id="' + editorId + '"]').val($(this).html());
-          });
-        });
+      var e = new MediumEditor('.html-editor', {
+        buttonLabels: 'fontawesome',
+        cleanPastedHTML: false,
+        forcePlainText: false
       });
     },
 
