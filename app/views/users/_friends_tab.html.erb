@@ -9,7 +9,7 @@
           <div class="media-body" >
             <div style="margin-left: 10px;">
               <h3 class="media-heading">
-               <%= link_to f.name, profile_path(f.username) %>
+               <%= link_to f.username, profile_path(f.username) %>
               </h3>
               <div class="btn-group" role="group">
                 <%= link_to fa("user-plus"), dashboard_path, title: :add.to_s.titleize, class: "btn btn-default" %>

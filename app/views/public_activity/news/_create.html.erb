@@ -1,6 +1,1 @@
-<activity class="<%= "activity-#{activity.trackable.class.to_s.downcase}" %>">
-  <%= gravatar_for(activity.owner, class: "img-circle") %>
-  <%= link_to activity.owner.username, activity.owner if activity.owner %>
-  published
-  <%= link_to activity.trackable.title, activity.trackable %> <%= datetime_ago activity.trackable.updated_at %>
-</activity>
+published <%= link_to activity.trackable.title.truncate(60), activity.trackable, title: activity.trackable.title %> <%= datetime_ago activity.created_at %>

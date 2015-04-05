@@ -1,7 +1,7 @@
 <h1><%= t :dashboard %></h1>
 <hr>
 <div class="container-fluid">
-  <% @activities.each do |activity| %>
-    <%= render_activity activity %>
-  <% end %>
+  <div class="col-sm-8">
+    <%= render "public_activity/default", activities: @activities %>
+  </div>
 </div>
