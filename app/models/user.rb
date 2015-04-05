@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
     PublicActivity::Activity.where(owner_id: self.id).order("created_at desc")
   end
 
+  def friends_activities
+    PublicActivity::Activity.where(owner_id: self.friends.map(&:id)).order("created_at desc")
+  end
+
   private
 
   def default_values
