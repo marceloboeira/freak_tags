@@ -47,7 +47,7 @@ h1 {
 div, textarea, input {
   outline: none;
 }
-/* navbar-top */
+/* Navbar-Top */
 nav#navbar-top a.logo {
   font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 600;
@@ -77,7 +77,7 @@ nav#navbar-top.navbar-default .navbar-toggle .icon-bar{
   background: white !important;
 }
 
-/* navbar-left */
+/* Navbar-Left */
 nav#navbar-left {
   z-index: 1020;
   height: 100%;
@@ -109,7 +109,7 @@ nav#navbar-left #navbar-left-user-img {
   text-align: center;
 }
 
-/* html-editor */
+/* HTML-Editor */
 .html-editor {
   min-width: 100%;
   min-height: 400px;
@@ -122,7 +122,7 @@ nav#navbar-left #navbar-left-user-img {
   max-height: 30px;
 }
 
-/* inputs */
+/* Inputs */
 input.input-title {
   border: 0px;
   min-width: 100%;
@@ -141,20 +141,22 @@ input.input-slugline {
 
 /* Public Activity */
 activity {
-  padding: 20px 0px 20px 2px;
+  padding: 15px 2px 15px 10px;
   text-align: left;
   vertical-align: center;
   width: 100%;
   border-bottom: 1px solid #eee;
   display: block;
+
 }
 activity img {
-  width: 30px;
+  width: 25px;
 }
 activity i {
-  font-size: 20px !important;
-  color: grey;
+  font-size: 15px !important;
+  color: #C0C0C0;
 }
 activity a {
+
 }
 
