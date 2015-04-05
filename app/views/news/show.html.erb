@@ -5,11 +5,14 @@
   <%= link_to fa("trash", :text => t(:destroy)), destroy_news_path(@news), class: "btn btn-default", "data-destroy": true, "data-destroy-message": content_tag(:h4, (t(:are_you_sure_destroy, title: content_tag(:u, @news.title)))) if can? :destroy, @news %>
 
 </div>
-<hr>
+<hr/>
 <h5><i><%= @news.slug_line %></i></h5>
 <hr>
 <%= fa("calendar") %> <%= datetime_ago @news.created_at %>
+| <%= fa("heart") %> 1000
+| <%= fa("share") %> 350
 <hr>
-<news-content>
+
+<div class="row-fluid">
   <%= @news.content.html_safe %>
-</news-content>
+</div>

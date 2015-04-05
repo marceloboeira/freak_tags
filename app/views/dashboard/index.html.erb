@@ -1,2 +1,7 @@
 <h1><%= t :dashboard %></h1>
 <hr>
+<div class="container-fluid">
+  <div class="col-sm-8">
+    <%= render "public_activity/default", activities: @activities %>
+  </div>
+</div>

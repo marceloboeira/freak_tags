@@ -9,13 +9,15 @@ require "capybara/poltergeist"
 require "shoulda/matchers"
 require "factory_girl_rails"
 require "faker"
-
+require 'public_activity/testing'
 include Warden::Test::Helpers
+
+PublicActivity.enabled = true
 CodeClimate::TestReporter.start if ENV["CODECLIMATE_REPO_TOKEN"].present?
 Warden.test_mode!
-
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
+
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

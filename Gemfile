@@ -17,6 +17,7 @@ gem "friendly_id"
 gem "enumerate_it"
 gem "paranoia"
 gem "pg"
+gem "public_activity"
 
 group :development do
   gem "spring"

@@ -1,5 +1,7 @@
 class News < ActiveRecord::Base
   include FriendlyId
+  include PublicActivity::Model
+  tracked only: [:create], owner: :author
 
   acts_as_paranoid
   friendly_id :title
