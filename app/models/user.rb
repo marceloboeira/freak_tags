@@ -1,8 +1,5 @@
 class User < ActiveRecord::Base
   include Amistad::FriendModel
-  include PublicActivity::Model
-  tracked owner: -> (controller, model) { controller && controller.current_user }
-
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable, :confirmable, authentication_keys: [:login]
@@ -25,6 +22,10 @@ class User < ActiveRecord::Base
 
   def age
     birthday_age
+  end
+
+  def activities
+    PublicActivity::Activity.where(owner_id: self.id).order("created_at desc")
   end
 
   private
