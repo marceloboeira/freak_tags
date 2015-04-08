@@ -5,7 +5,7 @@ describe "MomentJS", :type => :feature, :js => true  do
   let (:news) { create(:news) }
 
   before :each do
-    login_as(piper, :scope => :user, :run_callbacks => false)
+    login_as(piper)
   end
   it "validates a recent date-component" do
     news.created_at = DateTime.now
