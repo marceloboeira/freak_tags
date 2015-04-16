@@ -14,7 +14,6 @@ $(function(){
   var FreakTags = {
     version: $("#freaktags-version").val(),
     locale: $("#freaktags-locale").val(),
-    dateFormat: "ddd, DD MMM YYYY HH:mm:ss ZZ", // RFC822 Pattern
     CSRF: $('meta[name=csrf-token]').attr('content'),
 
     /**
@@ -25,7 +24,6 @@ $(function(){
       this._momentInit();
       this._mediumInit();
       this._tooltipInit();
-      this._bootboxInit();
     },
 
     /**
@@ -44,7 +42,7 @@ $(function(){
      */
     _momentUpdate: function(){
       $("date, time").each(function(i, e) {
-        var d = moment.utc($(e).data("source"), FreakTags.dateFormat);
+        var d = moment.unix($(e).data("source"));
         $(e).html(d.fromNow());
       });
     },
@@ -86,7 +84,7 @@ $(function(){
      * @return {function}
      */
     _tooltipInit: function() {
-       $("[title]").tooltip();
+      $("[title]").tooltip();
     }
   };
 
