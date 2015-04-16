@@ -11,7 +11,7 @@ PublicActivity.with_tracking do
       watson.invite sherlock
       sherlock.approve watson
 
-      # Must create here, dont know why
+      # It must be created here in order to create PublicActivity records, don't know why exactly
       @first_news = create(:news, author: sherlock)
       @second_news = create(:news, author: watson)
       @activities = PublicActivity::Activity.all
