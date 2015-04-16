@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Friendship" do
+describe Follow do
 
   let (:jax) { create(:user, username: "jax") }
   let (:chibs) { create(:user, username: "chibs") }
@@ -10,44 +10,29 @@ describe "Friendship" do
   let (:cley) { create(:user, username: "cley") }
   let (:gemma) { create(:female_user, username: "gemma") }
   let (:tara) { create(:female_user, username: "tara") }
-  let (:friend_list) { [bobby, tig, juice, cley, gemma, tara] }
+  let (:followers_list) { [chibs, bobby, tig, tara, juice, gemma] }
+  let (:follows_list) { [chibs, bobby, tig, tara] }
 
   before :each do
     create(:user)
   end
   describe "validates" do
-    it "friendship request" do
-      jax.invite chibs
-      expect(jax.pending_invited).to include(chibs)
-      expect(chibs.pending_invited_by).to include(jax)
-      expect(jax.friends).to_not include(chibs)
-      expect(chibs.friends).to_not include(jax)
-      expect(jax.friend_with? chibs).to be(false)
-      expect(chibs.friend_with? jax).to be(false)
-    end
-    it "approved friendship" do
-      jax.invite bobby
-      bobby.approve jax
-      expect(jax.friends).to include(bobby)
-      expect(jax.invited).to include(bobby)
-      expect(bobby.friends).to include(jax)
-      expect(bobby.invited_by).to include(jax)
-      expect(jax.friend_with? bobby).to be(true)
-      expect(bobby.friend_with? jax).to be(true)
-    end
-    it "removed friendship" do
-      tig.invite cley
-      cley.approve tig
-      tig.remove_friendship cley
-      expect(tig.friends).to_not include(cley)
-      expect(cley.friends).to_not include(tig)
-    end
-    it "friends list" do
-      friend_list.each do |c|
-        chibs.invite c
-        c.approve chibs
+    it "follows list" do
+      follows_list.each do |user|
+        jax.follow user
       end
-      expect(chibs.friends).to match(friend_list)
+      follows = jax.follows.map(&:followable)
+      expect(follows).to eql(follows_list)
+      expect(follows).to_not include([cley, gemma, juice])
+    end
+    it "followers list" do
+      followers_list.each do |user|
+        user.follow jax
+      end
+      followers = jax.followers
+      expect(followers).to eql(followers_list)
+      expect(followers).to_not include(cley)
     end
   end
+
 end
