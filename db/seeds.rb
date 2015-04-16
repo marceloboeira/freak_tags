@@ -20,8 +20,8 @@ test = User.create(username: 'test',
                    role: UserRole::REGULAR)
 
 # Sample Friendship
-root.invite test
-test.approve root
+root.follow test
+test.follow root
 
 # Sample News
 news_hello = News.create(author: root,
