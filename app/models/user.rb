@@ -26,11 +26,11 @@ class User < ActiveRecord::Base
   end
 
   def activities
-    PublicActivity::Activity.where(owner_id: self.id).order("created_at desc")
+    PublicActivity::Activity.where(owner_id: self.id).order(created_at: :desc)
   end
 
-  def friends_activities
-    PublicActivity::Activity.where(owner_id: self.friends.map(&:id)).order("created_at desc")
+  def follows_activities
+    PublicActivity::Activity.where(owner_id: self.follows.map(&:followable_id)).order(created_at: :desc)
   end
 
   private

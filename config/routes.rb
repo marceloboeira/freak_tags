@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'dashboard', to: 'dashboard#index', as: 'dashboard'
+  get '/@:username', to: 'account#show', as: 'profile'
 
   # Account Devise
   devise_for :users,
@@ -17,8 +18,6 @@ Rails.application.routes.draw do
       confirmation: 'verify',
       edit: 'settings'
     }
-  get '/profile/:username', to: 'users#show', as: 'profile'
-
   resources :news
   get '/news/:id/destroy', to: 'news#destroy', as: 'destroy_news'
 end

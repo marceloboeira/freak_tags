@@ -41,8 +41,8 @@
         </a>
       </li>
       <li>
-        <a href="#tab-user-friends" data-toggle="tab">
-        <%= fa('users', text: 'Friends') %>
+        <a href="#tab-user-followers" data-toggle="tab">
+        <%= fa('users', text: 'Followers') %>
         </a>
       </li>
     </ul>
@@ -51,8 +51,8 @@
       <div class="tab-pane active" id="tab-user-activity">
         <%= render 'public_activity/default', activities: @user.activities  %>
       </div>
-      <div class="tab-pane " id="tab-user-friends">
-        <%= render 'users/friends_tab', friends: @user.friends  %>
+      <div class="tab-pane " id="tab-user-followers">
+        <%= render 'account/followers_tab', followers: @user.followers  %>
       </div>
   </div>
 </div>
