@@ -5,12 +5,13 @@ describe "PublicActivity", :type => :feature, :js => true  do
   let (:vicky) { create(:confirmed_user, username: "vicky") }
 
   before :each do
-    timmy.invite vicky
-    vicky.approve timmy
+    timmy.follow vicky
+    vicky.follow timmy
     @news_vicky = create(:news, author: vicky)
     @news_timmy = create(:news, author: timmy)
     login_as(timmy)
   end
+
   describe "dashboard shows published news" do
     it "from a friend and not himself" do
       visit dashboard_path

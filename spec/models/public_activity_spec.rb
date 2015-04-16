@@ -8,8 +8,8 @@ PublicActivity.with_tracking do
     let (:moriarty) { create(:root_user, username: "james-moriarty") }
 
     before :each do
-      watson.invite sherlock
-      sherlock.approve watson
+      watson.follow sherlock
+      sherlock.follow watson
 
       # It must be created here in order to create PublicActivity records, don't know why exactly
       @first_news = create(:news, author: sherlock)
@@ -32,10 +32,10 @@ PublicActivity.with_tracking do
         expect(watson.activities).to include @activities.last
         expect(watson.activities).to_not include @activities.first
       end
-      it "friends activities" do
-        expect(sherlock.friends_activities).to include @activities.last
-        expect(watson.friends_activities).to include @activities.first
-        expect(moriarty.friends_activities).to_not include @activities
+      it "follows activities" do
+        expect(sherlock.follows_activities).to include @activities.last
+        expect(watson.follows_activities).to include @activities.first
+        expect(moriarty.follows_activities).to_not include @activities
       end
     end
   end
