@@ -7,11 +7,11 @@ class AccountController < ApplicationController
 
   private
 
-    def set_user
-      @user = User.find_by_username(params[:username])
-    end
+  def set_user
+    @user = User.find_by_username(params[:username])
+  end
 
-    def user_params
-      params.require(:user).permit(:username, :email)
-    end
+  def user_params
+    params.require(:user).permit(:username, :email)
+  end
 end

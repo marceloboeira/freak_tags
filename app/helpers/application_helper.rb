@@ -1,6 +1,6 @@
 module ApplicationHelper
   include FontAwesomeHelper
-  include UsersHelper
+  include AccountHelper
 
   # TODO: Make it get a controller translated name
   def page_title

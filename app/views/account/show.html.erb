@@ -4,7 +4,7 @@
     <div style="margin-left: 100px; margin-bottom: 20px;">
       <h2 ><%= @user.username %></h2>
       <div class="btn-group" role="group">
-        <%= link_to fa("user-plus"), dashboard_path, title: :add.to_s.titleize, class: "btn btn-default" %>
+        <%= follow_button_for @user, class: "btn btn-default" %>
         <%= link_to fa("comment-o"), dashboard_path, title: :message.to_s.titleize, class: "btn btn-default" %>
       </div>
     </div>
@@ -30,6 +30,14 @@
           <strong><%= t('Username') %></strong>
         </span>
         <%= @user.username %>
+      </li>
+      <li class="list-group-item text-right">
+        <span class="pull-left">
+          <strong><%= t('Followers') %></strong>
+        </span>
+        <div class="followers-count">
+          <%= @user.followers_count %>
+        </div>
       </li>
     </ul>
   </div>

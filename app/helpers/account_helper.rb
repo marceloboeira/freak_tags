@@ -1,4 +1,4 @@
-module UsersHelper
+module AccountHelper
 
   ## While paperclip isn't ready, let get it from gravatar
   def gravatar_for(user, options = {})
@@ -13,5 +13,29 @@ module UsersHelper
 
   def user_path user
     profile_path user.username
+  end
+
+  def follow_path user
+    "#{user_path user}/follow"
+  end
+
+  def unfollow_path user
+    "#{user_path user}/unfollow"
+  end
+
+  def follow_button_for(user, options = {})
+    classes = " "
+    classes << options.delete(:class) if options.key? :class
+    classes << " "
+    link_to "{{}}",
+            "/",
+            "data-follow-button": true,
+            "data-following": current_user.following?(user),
+            "data-follow-content": CGI::escapeHTML(fa("user-plus", title: "Follow")),
+            "data-unfollow-content": CGI::escapeHTML(fa("user-times", title: "Unfollow")),
+            "data-follow-url": follow_path(user),
+            "data-unfollow-url": unfollow_path(user),
+            class: classes.to_s
+
   end
 end
