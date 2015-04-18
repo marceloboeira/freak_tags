@@ -1,9 +1,12 @@
+//= require underscore
 //= require jquery/jquery
 //= require bootstrap/bootstrap
 //= require bootbox/bootbox
 //= require moment/moment
 //= require moment/locale/pt-br
 //= require medium-editor
+//
+//= require .
 //= require_self
 
 $(function(){
@@ -24,6 +27,7 @@ $(function(){
       this._momentInit();
       this._mediumInit();
       this._tooltipInit();
+      FollowButton.init();
     },
 
     /**
@@ -74,8 +78,10 @@ $(function(){
     _mediumInit: function() {
       var e = new MediumEditor('.html-editor', {
         buttonLabels: 'fontawesome',
-        cleanPastedHTML: false,
-        forcePlainText: false
+        paste: {
+          cleanPastedHTML: false,
+          forcePlainText: false
+        }
       });
     },
 
@@ -90,5 +96,10 @@ $(function(){
 
   // Booting up core
   FreakTags.init();
+
+  FollowButton.init();
 });
+
+
+
 
