@@ -6,7 +6,7 @@
 //= require moment/locale/pt-br
 //= require medium-editor
 //
-//= require .
+//= require follow_button
 //= require_self
 
 $(function(){
