@@ -24,7 +24,7 @@ module AccountHelper
   end
 
   def follow_button_for(followable, options = {})
-    if current_user != user
+    if current_user != followable
       classes = " "
       classes << options.delete(:class) if options.key? :class
       classes << " "
