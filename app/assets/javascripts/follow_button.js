@@ -1,37 +1,40 @@
-
+/**
+ * Follow button class
+ * @type {FollowButton}
+ */
 var FollowButton = {
-  selector: '[data-follow-button]',
+  selector: "[data-follow-button]",
+  target: "[data-follow-count-id=?]",
 
   init: function() {
     $(this.selector).each(function() {
       var self = $(this);
 
-      FollowButton.padronize(self);
-
-      self.on('click', function(event){
+      FollowButton._padronize(self);
+      self.on("click", function(event){
         event.preventDefault();
         var self = $(this),
-            url = self.attr('href'),
-            isFollowing = self.data('following') == true;
+            url = self.attr("href"),
+            isFollowing = self.data("following") == true;
 
-        self.data('following', !isFollowing);
-
-        $.get(url, function(a) {
-          FollowButton.padronize(self);
+        self.data("following", !isFollowing);
+        $.get(url, function(followers) {
+          FollowButton._padronize(self);
+          FollowButton._updateTarget(self, followers)
         });
       });
     });
   },
 
-  padronize: function(self) {
-    var isFollowing = self.data('following') == true;
-    if (isFollowing) {
-      self.html(_.unescape(self.data('unfollow-content')))
-      self.attr('href',self.data('unfollow-url'));
-    }
-    else {
-      self.html(_.unescape(self.data('follow-content')));
-      self.attr('href',self.data('follow-url'));
-    }
+  _updateTarget: function(self, value) {
+    var target = $(this.target.replace("?", self.data("followable-id")));
+    target.html(value);
+  },
+
+  _padronize: function(self) {
+    var isFollowing = self.data("following") == true;
+    self.html(_.unescape(self.data(isFollowing ? "unfollow-content" : "follow-content")));
+    self.attr("href",self.data(isFollowing ? "unfollow-url" : "follow-url"));
   }
+
 };

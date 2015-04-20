@@ -17,7 +17,7 @@ $(function(){
   var FreakTags = {
     version: $("#freaktags-version").val(),
     locale: $("#freaktags-locale").val(),
-    CSRF: $('meta[name=csrf-token]').attr('content'),
+    CSRF: $("meta[name=csrf-token]").attr("content"),
 
     /**
      * Booting up front-end core
@@ -60,7 +60,7 @@ $(function(){
       /* Delete button */
       $("a[data-destroy]").on("click", function (e){
         var self = $(this);
-        var link = self.attr('href');
+        var link = self.attr("href");
         var message = self.data("destroy-message");
         e.preventDefault();
         bootbox.confirm(message, function(result){
@@ -76,8 +76,8 @@ $(function(){
      * @return {Function}
      */
     _mediumInit: function() {
-      var e = new MediumEditor('.html-editor', {
-        buttonLabels: 'fontawesome',
+      var e = new MediumEditor(".html-editor", {
+        buttonLabels: "fontawesome",
         paste: {
           cleanPastedHTML: false,
           forcePlainText: false
@@ -90,6 +90,14 @@ $(function(){
      * @return {function}
      */
     _tooltipInit: function() {
+      $("[title]").tooltip();
+    },
+
+    /**
+     * Bootstrap tooltip refresh
+     * @return {function}
+     */
+    _tooltipRefresh: function() {
       $("[title]").tooltip();
     }
   };
