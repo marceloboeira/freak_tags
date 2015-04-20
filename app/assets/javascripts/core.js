@@ -96,8 +96,6 @@ $(function(){
 
   // Booting up core
   FreakTags.init();
-
-  FollowButton.init();
 });
 
 
