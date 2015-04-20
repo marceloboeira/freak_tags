@@ -12,7 +12,7 @@
                <%= link_to f.username, f %>
               </h3>
               <div class="btn-group" role="group">
-                <%= link_to fa("user-plus"), dashboard_path, title: :add.to_s.titleize, class: "btn btn-default" %>
+                <%= follow_button_for f, class: "btn btn-default" %>
                 <%= link_to fa("comment-o"), dashboard_path, title: :message.to_s.titleize, class: "btn btn-default" %>
               </div>
             </div>

@@ -20,7 +20,7 @@ var FollowButton = {
         self.data("following", !isFollowing);
         $.get(url, function(followers) {
           FollowButton._padronize(self);
-          FollowButton._updateTarget(self, followers)
+          FollowButton._updateTarget(self, followers);
         });
       });
     });

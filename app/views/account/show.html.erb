@@ -3,7 +3,7 @@
     <%= gravatar_for(@user, class: "img-circle img-responsive pull-left") %>
     <div style="margin-left: 100px; margin-bottom: 20px;">
       <h2 ><%= @user.username %></h2>
-      <div class="btn-group" role="group">
+      <div id="profile-action-buttons" class="btn-group" role="group">
         <%= follow_button_for @user, class: "btn btn-default" %>
         <%= link_to fa("comment-o"), dashboard_path, title: :message.to_s.titleize, class: "btn btn-default" %>
       </div>
