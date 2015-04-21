@@ -108,3 +108,7 @@ Check out the environment params you can set:
     * [Heroku](http://heroku.com) - Our Application server
   * Monitoring
     * [NewRelic](http://newrelic.com) - Really awesome app monitoring system
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/FreakTags/core/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
