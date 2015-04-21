@@ -19,7 +19,7 @@ describe "PublicActivity", :type => :feature, :js => true  do
         expect(page).to have_content(vicky.username)
         expect(page).to have_content(@news_vicky.title.truncate(60))
         expect(page).to have_content("published") # TODO: Use I18n instead
-        expect(page).to_not have_content(timmy.username)
+        expect(page).to have_content(timmy.username)
         expect(page).to_not have_content(@news_timmy.title.truncate(60))
       end
     end
@@ -31,7 +31,7 @@ describe "PublicActivity", :type => :feature, :js => true  do
         expect(page).to have_content(timmy.username)
         expect(page).to have_content(@news_timmy.title.truncate(60))
         expect(page).to have_content("published") # TODO: Use I18n instead
-        expect(page).to_not have_content(vicky.username)
+        expect(page).to have_content(vicky.username)
         expect(page).to_not have_content(@news_vicky.title.truncate(60))
       end
     end
