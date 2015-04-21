@@ -21,13 +21,13 @@ describe "PublicActivity::Activity" do
       expect(@activities.first.trackable.followable).to eq watson
       expect(@activities.second.trackable.followable).to eq sherlock
       # News
-      [@activities.third, @activities.last].each do |activity|
+      [@activities.third, @activities.fourth].each do |activity|
         expect(activity.trackable.class).to be News
       end
       expect(@activities.third.owner).to eq(sherlock)
       expect(@activities.third.trackable).to eq(@first_news)
-      expect(@activities.last.owner).to eq(watson)
-      expect(@activities.last.trackable).to eq(@second_news)
+      expect(@activities.fourth.owner).to eq(watson)
+      expect(@activities.fourth.trackable).to eq(@second_news)
       @activities.each do |activity|
         expect(activity.created_at).to be_between(5.seconds.ago, DateTime.now)
       end
@@ -37,7 +37,7 @@ describe "PublicActivity::Activity" do
         expect(sherlock.activities).to include activity
         expect(watson.activities).to_not include activity
       end
-      [@activities.second, @activities.last].each do |activity|
+      [@activities.second, @activities.fourth].each do |activity|
         expect(watson.activities).to include activity
         expect(sherlock.activities).to_not include activity
       end
@@ -48,7 +48,7 @@ describe "PublicActivity::Activity" do
         expect(sherlock.follows_activities).to_not include activity
         expect(watson.follows_activities).to include activity
       end
-      [@activities.second, @activities.last].each do |activity|
+      [@activities.second, @activities.fourth].each do |activity|
         expect(watson.follows_activities).to_not include activity
         expect(sherlock.follows_activities).to include activity
       end
