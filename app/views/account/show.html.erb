@@ -3,8 +3,8 @@
     <%= gravatar_for(@user, class: "img-circle img-responsive pull-left") %>
     <div style="margin-left: 100px; margin-bottom: 20px;">
       <h2 ><%= @user.username %></h2>
-      <div class="btn-group" role="group">
-        <%= link_to fa("user-plus"), dashboard_path, title: :add.to_s.titleize, class: "btn btn-default" %>
+      <div id="profile-action-buttons" class="btn-group" role="group">
+        <%= follow_button_for @user, class: "btn btn-default" %>
         <%= link_to fa("comment-o"), dashboard_path, title: :message.to_s.titleize, class: "btn btn-default" %>
       </div>
     </div>
@@ -23,13 +23,25 @@
         <span class="pull-left">
           <strong><%= t('Last Seen') %></strong>
         </span>
-        <%= datetime_ago @user.current_sign_in_at %>
+        <% if @user.current_sign_in_at? %>
+          <%= datetime_ago @user.current_sign_in_at  %>
+        <% else %>
+          <%= t :never %>
+        <% end %>
       </li>
       <li class="list-group-item text-right">
         <span class="pull-left">
           <strong><%= t('Username') %></strong>
         </span>
         <%= @user.username %>
+      </li>
+      <li class="list-group-item text-right">
+        <span class="pull-left">
+          <strong><%= t('Followers') %></strong>
+        </span>
+        <div class="followers-count" data-follow-count-id="<%= @user.id %>">
+          <%= @user.followers_count %>
+        </div>
       </li>
     </ul>
   </div>
@@ -41,8 +53,8 @@
         </a>
       </li>
       <li>
-        <a href="#tab-user-friends" data-toggle="tab">
-        <%= fa('users', text: 'Friends') %>
+        <a href="#tab-user-followers" data-toggle="tab">
+        <%= fa('users', text: 'Followers') %>
         </a>
       </li>
     </ul>
@@ -51,8 +63,8 @@
       <div class="tab-pane active" id="tab-user-activity">
         <%= render 'public_activity/default', activities: @user.activities  %>
       </div>
-      <div class="tab-pane " id="tab-user-friends">
-        <%= render 'users/friends_tab', friends: @user.friends  %>
+      <div class="tab-pane " id="tab-user-followers">
+        <%= render 'account/followers_tab', followers: @user.followers  %>
       </div>
   </div>
 </div>

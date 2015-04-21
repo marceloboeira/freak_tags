@@ -5,6 +5,7 @@ class Ability
     user ||= User.new
     can :read, User
     can :read, News
+    can :manage, Follow
 
     can :create, News if user.contributor?
     can :manage, News if user.moderator?

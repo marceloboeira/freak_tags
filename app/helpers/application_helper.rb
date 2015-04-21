@@ -1,6 +1,6 @@
 module ApplicationHelper
   include FontAwesomeHelper
-  include UsersHelper
+  include AccountHelper
 
   # TODO: Make it get a controller translated name
   def page_title
@@ -19,7 +19,9 @@ module ApplicationHelper
     link_to (fa "tags"), dashboard_path
   end
 
-  def datetime_ago date
-    content_tag :date, nil, title: date.to_s(:long), "data-source": date.to_time.to_i
+  def datetime_ago(date)
+    if !date.nil?
+      content_tag :date, nil, title: date.to_s(:long), "data-source": date.to_time.to_i
+    end
   end
 end

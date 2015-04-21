@@ -9,7 +9,7 @@ gem "birthday", "~> 0.3.0"
 gem "validates_existence", ">= 0.9.2"
 gem "email_validator"
 gem "date_validator"
-gem "amistad"
+gem "acts_as_follower"
 gem "cancancan", "~> 1.10"
 gem "therubyracer"
 gem "devise"
@@ -51,6 +51,7 @@ group :production, :beta do
 end
 
 source "https://rails-assets.org" do
+  gem "rails-assets-underscore"
   gem "rails-assets-jquery"
   gem "rails-assets-bootstrap"
   gem "rails-assets-font-awesome"

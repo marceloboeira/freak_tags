@@ -81,7 +81,9 @@ Check out the environment params you can set:
   * Authorizatoin
     * [CanCanCan](https://github.com/CanCanCommunity/cancancan) - Authorization gem for RoR
   * Social
-    * [Amistad](https://github.com/raw1z/amistad) - Adds friendships management into a rails application
+    * [PublicActivity](https://github.com/pokonski/public_activity) - Easy activity tracking for models - similar to Github's Public Activity.
+    * [ActsAsFollower](https://github.com/tcocca/acts_as_follower) - A Gem to add Follow functionality for models
+
   * Tests
     * [Rspec](https://github.com/rspec/rspec) - RSpec meta-gem that depends on the other components
     * [Faker](https://github.com/stympy/faker) - A library for generating fake data such as names, addresses, and phone numbers

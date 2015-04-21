@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'dashboard', to: 'dashboard#index', as: 'dashboard'
+  get '/@:username', to: 'account#show', as: 'profile'
+  get '/@:username/follow', to: 'follows#follow', as: 'follow'
+  get '/@:username/unfollow', to: 'follows#unfollow', as: 'unfollow'
 
   # Account Devise
   devise_for :users,
     path: 'account',
     controllers: {
-      registrations: "account/registrations",
+      registrations: 'account/registrations',
       sessions: "account/sessions"
     },
     path_names: {
@@ -17,8 +20,6 @@ Rails.application.routes.draw do
       confirmation: 'verify',
       edit: 'settings'
     }
-  get '/profile/:username', to: 'users#show', as: 'profile'
-
   resources :news
   get '/news/:id/destroy', to: 'news#destroy', as: 'destroy_news'
 end
