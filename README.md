@@ -10,6 +10,11 @@ FreakTags is a simple *media-tracker* for you to keep up with all your favorite 
 [![Stories in Roadmap](https://badge.waffle.io/freaktags/core.png?label=roadmap&title=Roadmap)](https://waffle.io/freaktags/core)
 [![$$](http://img.shields.io/gratipay/marceloboeira.svg?style=flat)](https://gratipay.com/marceloboeira/)
 [![Dependency Status](https://gemnasium.com/freaktags/core.svg)](https://gemnasium.com/freaktags/core)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/FreakTags/core/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
+[![IssueStats](http://issuestats.com/github/freaktags/core/badge/pr?style=flat)](http://issuestats.com/github/freaktags/core "IssueStats")
+[![IssueStats](http://issuestats.com/github/freaktags/core/badge/issue?style=flat)](http://issuestats.com/github/freaktags/core "IssueStats")
+
 
 [![Throughput Graph](https://graphs.waffle.io/freaktags/core/throughput.svg)](https://waffle.io/freaktags/core/metrics)
 
@@ -108,7 +113,3 @@ Check out the environment params you can set:
     * [Heroku](http://heroku.com) - Our Application server
   * Monitoring
     * [NewRelic](http://newrelic.com) - Really awesome app monitoring system
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/FreakTags/core/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
