@@ -18,6 +18,8 @@ en:
   current_password: "Current password"
   password_confirmation: "Password confirmation"
   update: "Update"
+  sign_up_btn: "Join to freaktags"
+  sign_in_btn: "Sign In"
   leave_blank_if_dont_want_to_change: "Leave blank if you don't want to change it"
   are_you_sure_destroy: "Are you sure you want to delete %{title} ?"
 

@@ -18,6 +18,8 @@
   current_password: "Senha atual"
   password_confirmation: "Confirmação de senha"
   update: "Atualizar"
+  sign_up_btn: "Entrar para o freaktags"
+  sign_in_btn: "Entrar"
 
   dashboard: "Painel"
   news: "Notícias"
