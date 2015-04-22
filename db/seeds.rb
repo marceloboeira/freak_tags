@@ -28,3 +28,7 @@ news_hello = News.create(author: root,
                          title: 'Hello FreakTags News',
                          slug_line: 'This is just a news example to populate FreakTags Database',
                          content: '<h3>Hello Freaktaggers</h3> <br> Lets have some fun!')
+
+news_hello.tag_list.add("cool","freak","awesome","nice","LoL")
+root.tag(news_hello, with: "buzz", on: :tags)
+test.tag(news_hello, with: "c00l", on: :tags)

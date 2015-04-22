@@ -4,6 +4,7 @@ class News < ActiveRecord::Base
   tracked only: [:create], owner: :author
 
   acts_as_paranoid
+  acts_as_taggable
   friendly_id :title
 
   belongs_to :author, class_name: "User"

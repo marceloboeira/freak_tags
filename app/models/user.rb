@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   acts_as_birthday :birthday
   acts_as_followable
   acts_as_follower
+  acts_as_tagger
 
   has_enumeration_for :gender, with: Gender, create_helpers: true
   has_enumeration_for :role, with: UserRole, create_helpers: true, create_scopes: true
