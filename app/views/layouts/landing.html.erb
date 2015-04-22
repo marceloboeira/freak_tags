@@ -5,46 +5,131 @@
   <%= stylesheet_link_tag 'core', media: 'all' %>
   <%= stylesheet_link_tag 'landing', media: 'all' %>
   <%= javascript_include_tag 'core' %>
+  <%= javascript_include_tag 'landing' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="intro-header">
-    <div class="container">
+  <div class="col-xs-12 land_body">
+    <a class="signin_btn" href="/account/sign-in"><button class="btn btn-primary btn-md hidden-xs hidden-sm"><%= fa "sign-in"%> <%= t :sign_in_btn %></button></a>
+    <div class="col-sm-12 col-xs-12 col-md-6 col-lg-4 navbar_left_landing">
+      <div class="row logo_landing">
+        <h1><%= fa "tags"%> <%= t :freaktags %></h1>
+        <h5><%= t :slug_line %></h5><br />
+      </div>
       <div class="row">
-        <div class="col-lg-12">
-          <div class="intro-message">
-            <h1><%= fa "tags" %> <%= t :freaktags %></h1>
-            <h3><%= t :slug_line %></h3>
-            <hr class="intro-divider">
-            <ul class="list-inline intro-social-buttons">
-              <li>
-                <a href="https://twitter.com/freaktags" class="btn btn-default">
-                  <%= fa "twitter" %>
-                  <span class="network-name">Twitter</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://fb.com/freaktags" class="btn btn-default">
-                  <%= fa "facebook" %>
-                  <span class="network-name">Facebook</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/freaktags" class="btn btn-default">
-                  <%= fa "github" %>
-                  <span class="network-name">GitHub</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <button class="btn btn-primary btn-lg col-xs-10 col-xs-offset-1"><%= fa "sign-in"%> <%= t :sign_up_btn %></button>
       </div>
     </div>
   </div>
+  <div class="col-xs-12 land_foot">
 
 
 
 
 
+    <div class="col-xs-12">
+      <div class="container">
+        <div class="col-xs-12 col-sm-4 item_tags">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <%= fa "book"%>
+                </td>
+                <td>
+                  <p> Compartilhe os livros que você já leu e encontre pessoas que também leram!</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-xs-12 col-sm-4 item_tags">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <%= fa "desktop"%>
+                </td>
+                <td>
+                  <p> Navegue pelas suas séries favoritas e descubra quando sai aquele episódio novo!</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-xs-12 col-sm-4 item_tags ">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <%= fa "film"%>
+                </td>
+                <td>
+                  <p> Veja quantas horas você já passou em frente a telinha!</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row hr"></div>
+        <div class="col-xs-12 col-sm-4">
+          <h4><%= fa "globe"%> Language</h4>
+          <label for="eng"><input type="radio" name="lang" value="eng" id="eng" checked/> English</label><br />
+          <label for="pt_br"><input type="radio" name="lang" value="pt_br" id="pt_br"/> Brazil Portuguese </label>
+          <div class="row hr hidden-sm hidden-md hidden-lg"></div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <h4><%= fa "check"%> Follow us!</h4>
+          <ul>
+            <li>
+              <a href="http://twitter.com/freaktags" target="_blank">
+              <%= fa "twitter"%> Twitter
+              </a>
+            </li>
+            <li>
+              <a href="http://facebook.com/freaktags" target="_blank">
+              <%= fa "facebook-official"%> Facebook
+              </a>
+            </li>
+            <li>
+              <a href="http://github.com/freaktags" target="_blank">
+              <%= fa "github"%> Fork on Github
+              </a>
+            </li>
+          </ul>
+          <div class="row hr hidden-sm hidden-md hidden-lg"></div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <h4><%= fa "info-circle"%> Help</h4>
+          <ul>
+            <li>
+              <a href="#">
+              <%= fa "bug"%> Bug tracker
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <%= fa "question"%> FAQ
+              </a>
+            </li>
+          </ul>
+          <div class="row hr hidden-sm hidden-md hidden-lg"></div><br /><br /><br /><br />
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 bottom_terms">
+      <p>O uso do serviço FreakTags™ constitui a aceitação dos nossos <a href="#">Termos</a> de uso e da <a href="#">Política de privacidade</a>.
+Sobre cookies e publicidade na Internet © 2012-2015 FreakTags™</p>
+    </div>
+
+
+
+
+
+
+
+  </div>
 </body>
+<div class="fade-landing"></div>
+<div class="landing"></div>
 </html>
