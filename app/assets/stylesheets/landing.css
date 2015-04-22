@@ -4,13 +4,80 @@ html {
   height: 100%;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.landing{
+  position:absolute;
+  top:0px; left:0px;
+  width:100%;
+  height:110%;
+  z-index:-1;
+  background: url('/assets/images/background/landing/dexter.jpg') no-repeat 100px center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.fade-landing{
+  position:absolute;
+  top:0px; left:0px;
+  width:100%;
+  height:110%;
+  z-index:1;
+  background: url('/assets/images/background/landing/fade.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body *{
+  z-index:2;
+}
+.signin_btn{
+  position:absolute;
+  top:-30px;
+  right:20px;
+}
+.item_tags i{
+  font-size:50px;
+}
+.item_tags{
+  padding:20px;
+}
+.item_tags tr td:first-child{
+  width:70px;
+}
+.logo_landing i{
+  font-size:50px;
+}
+.logo_landing h1{
+  font-size:50px;
+}
+.logo_landing{
+  text-align: center;
+}
+.navbar_left_landing{
+  padding:20px;
+  padding-top:80px;
+  border: 10px solid rgba(41, 127, 184, 0.1);
+  margin-bottom:150px;
+}
+.navbar_left_landing .btn{
+  padding:20px;
+  font-size: 25px;
+}
+.land_foot{
+  min-height:400px;
+  background: rgb(0,0,0);
+  z-index:2;
+}
+.land_foot *{
+  color:#707070;
+}
+body{
+  color: #f8f8f8;
+  background:rgb(10,10,10);
+  padding-top:50px;
+}
+.logo_landing h1{
   font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 700;
 }
@@ -20,20 +87,6 @@ h6 {
   font-weight: 400;
 }
 
-.intro-header {
-  padding-top: 50px;
-  padding-bottom: 200px;
-  text-align: center;
-  color: #f8f8f8;
-  background-size: cover;
-  background: #0080B6;
-}
-
-.intro-message {
-  position: relative;
-  padding-top: 20%;
-  padding-bottom: 20%;
-}
 
 .intro-message > h1 {
   margin: 0;
@@ -47,3 +100,42 @@ h6 {
 }
 
 
+
+@media screen and (max-width: 650px) {
+  .landing{
+    position:absolute;
+    top:0px; left:0px;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    background: url('/assets/images/background/landing/dexter.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .logo_landing i{
+    font-size:30px;
+  }
+  .logo_landing h1{
+    font-size:30px;
+  }
+}
+
+.hr{
+  border-bottom: 1px solid #707070;
+}
+ul{
+  list-style: none;
+  margin: 0px;
+  padding:0px;
+}
+
+label, [type="radio"]{
+  cursor: pointer;
+}
+.bottom_terms{
+  bottom:0px;
+  position:absolute;
+  font-size:9px;
+}
