@@ -1,45 +1,4 @@
-<h1> <%= t :account_settings %></h1>
-<hr>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-
-  <div class="field">
-    <%= f.label t(:name) %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label t(:username) %><br />
-    <%= f.text_field :username %>
-  </div>
-
-  <div class="field">
-    <%= f.label t(:email) %><br />
-    <%= f.email_field :email %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= t(:"devise.confirmations.waiting", :email => resource.unconfirmed_email) %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label t(:password) %> <i><small><%= t :"devise.passwords.leave_blank" %></small></i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label t(:password_confirmation) %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label t(:current_password) %> <i> <small><%= t :"devise.passwords.current_confirmation" %></small></i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t(:update) %>
-  </div>
-<% end %>
+<div class="col-xs-12 col-md-6 col-md-offset-6">
+<%= render "devise/registrations/edit" %>
+<%= render "devise/shared/links" %>
+</div>
