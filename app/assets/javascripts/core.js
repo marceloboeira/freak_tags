@@ -4,9 +4,9 @@
 //= require bootbox/bootbox
 //= require moment/moment
 //= require moment/locale/pt-br
-//= require medium-editor
 //
 //= require follow_button
+//= require html_editor
 //= require_self
 
 $(function(){
@@ -25,9 +25,10 @@ $(function(){
      */
     init: function() {
       this._momentInit();
-      this._mediumInit();
       this._tooltipInit();
+
       FollowButton.init();
+      HtmlEditor.init();
     },
 
     /**
@@ -72,32 +73,10 @@ $(function(){
     },
 
     /**
-     * Medium editor start
-     * @return {Function}
-     */
-    _mediumInit: function() {
-      var e = new MediumEditor(".html-editor", {
-        buttonLabels: "fontawesome",
-        paste: {
-          cleanPastedHTML: false,
-          forcePlainText: false
-        }
-      });
-    },
-
-    /**
      * Bootstrap tooltip ini
      * @return {function}
      */
     _tooltipInit: function() {
-      $("[title]").tooltip();
-    },
-
-    /**
-     * Bootstrap tooltip refresh
-     * @return {function}
-     */
-    _tooltipRefresh: function() {
       $("[title]").tooltip();
     }
   };
