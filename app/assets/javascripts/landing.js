@@ -3,6 +3,7 @@ var urls = [
 '/assets/images/background/landing/dexter.jpg',
 '/assets/images/background/landing/soa.jpg',
 '/assets/images/background/landing/bb_got.jpg',
+'/assets/images/background/landing/sw.jpg',
 ],
 count = 0;
 
