@@ -1,4 +1,4 @@
-module DateTimeAgoHelper
+module DatetimeAgoHelper
 
   def datetime_ago(date)
     if !date.nil?
