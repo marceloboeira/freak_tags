@@ -12,20 +12,29 @@
  * @type {Object}
  */
 var FreakTags = {
-  version: $("#freaktags-version").value,
-  locale: $("#freaktags-locale").value,
-  CSRF: $("meta[name=csrf-token]").attr("content"),
 
   /**
    * Booting up front-end core
    * @return {Function}
    */
   init: function() {
+    this.loadBackendData();
+
     $("[title]").tooltip();
+
+    // Components init
     DateTimeAgo.init(this.locale);
     FollowButton.init();
     Modal.init();
     HtmlEditor.init();
     TagInput.init();
+  },
+
+  loadBackendData: function(){
+    _.extend(this, {
+      version: $("#freaktags-version").val(),
+      locale: $("#freaktags-locale").val(),
+      CSRF: $("meta[name=csrf-token]").attr("content")
+    });
   }
 };
