@@ -11,8 +11,8 @@
  * @type {Object}
  */
 var FreakTags = {
-  version: document.getElementById("freaktags-version").value,
-  locale: document.getElementById("freaktags-locale").value,
+  version: $("#freaktags-version").value,
+  locale: $("#freaktags-locale").value,
   CSRF: $("meta[name=csrf-token]").attr("content"),
 
   /**
