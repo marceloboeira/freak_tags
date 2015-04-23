@@ -5,6 +5,7 @@
 //= require follow_button
 //= require modal
 //= require html_editor
+//= require tag_input
 
 /**
  * FreakTags Front-end Core
@@ -25,5 +26,6 @@ var FreakTags = {
     FollowButton.init();
     Modal.init();
     HtmlEditor.init();
+    TagInput.init();
   }
 };
