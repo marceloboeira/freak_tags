@@ -1,4 +1,5 @@
 <% if signed_in? %>
+<!--
   <nav id="navbar-left" class="col-lg-1 col-md-1 col-xs-1" >
     <center><%= link_to gravatar_for(current_user, class: "img-circle", id: "navbar-left-user-img"), current_user, title: current_user.username, "data-placement": "right" %></center>
     <hr/>
@@ -13,5 +14,6 @@
       <li><%= link_to fa("sign-out"), destroy_session_path(:user), title: :"sign-out".to_s.titleize, "data-placement": "right" %></li>
     </ul>
   </nav>
+  -->
 <% end %>
 
