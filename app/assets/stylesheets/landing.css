@@ -51,7 +51,6 @@ body *{
 .navbar_left_landing{
   padding:20px;
   padding-top:80px;
-  border: 10px solid rgba(41, 127, 184, 0.1);
   margin-bottom:200px;
 }
 .navbar_left_landing .btn{
