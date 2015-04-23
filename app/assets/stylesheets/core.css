@@ -47,35 +47,7 @@ h1 {
 div, textarea, input {
   outline: none;
 }
-/* Navbar-Top */
-nav#navbar-top a.logo {
-  font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: 600;
-  font-size: 18 px;
-  font-color: #0080B6 !important;
-  color: #0080B6 !important;
-}
-nav#navbar-top.navbar > div.container, ul.dropdown-menu, ul.dropdown-menu > *, .navbar{
-  background: white;
-}
-nav#navbar-top li.open a.dropdown-toggle{
-  background-color:#0080B6 !important;
-}
-nav#navbar-top li.open a:hover, .navbar-toggle{
-  background-color:#0080B6 !important;
-  border: none;
-}
-nav#navbar-top.navbar *,
-nav#navbar-top.navbar a,
-nav#navbar-top.navbar a:link,
-nav#navbar-top.navbar a:hover,
-nav#navbar-top.navbar a:visited{
-  text-decoration:none;
-  color: 1px solid rgb(244,244,244) !important;
-}
-nav#navbar-top.navbar-default .navbar-toggle .icon-bar{
-  background: white !important;
-}
+
 
 /* Navbar-Left */
 nav#navbar-left {
@@ -160,3 +132,60 @@ activity a {
 
 }
 
+.navbar_top_fade{
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:80px;
+  z-index:1;
+  background-image: url('/assets/images/background/landing/fade_top_strong.png');
+  background-repeat: repeat-x;
+}
+.navbar_top_fade h2{
+  color:white;
+  margin-left:30px;
+  margin-top:10px;
+}
+#navbar-top{
+  background: none;
+  border:none;
+}
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:link,
+.navbar-default .navbar-brand:visited,
+#navbar-top .navbar-nav > li > a,
+#navbar-top .navbar-nav > li > a:hover,
+#navbar-top .navbar-nav > li > a:link,
+#navbar-top .navbar-nav > li > a:visited{
+  text-decoration: none;
+  color:#4c84b5;
+}
+.navbar-default .navbar-brand,{
+  color:#4c84b5;
+}
+#navbar-top .active a,
+#navbar-top li.open a.dropdown-toggle
+{
+  background-color: rgba(40, 145, 237, 0.1);
+}
+
+#navbar-top .navbar-nav > li:hover
+{
+  background-color: rgba(40, 145, 237, 0.1);
+}
+.dropdown-menu,
+.dropdown-menu a,
+{
+  text-decoration: none;
+  color:#000 !important;
+}
+.navbar_user{
+  width:26px;
+  margin:-9px;
+  margin-right:4px;
+}
+body{
+  background: rgb(234,234,234);
+}
