@@ -69,4 +69,5 @@ source "https://rails-assets.org" do
   gem "rails-assets-moment"
   gem "rails-assets-bootbox"
   gem "rails-assets-medium-editor"
+  gem "rails-assets-bootstrap-tagsinput"
 end

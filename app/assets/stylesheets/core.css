@@ -4,6 +4,7 @@
  *= require font-awesome
  *= require medium-editor
  *= require medium-editor/themes/default
+ *= require bootstrap-tagsinput
  *= require_self
  */
 
