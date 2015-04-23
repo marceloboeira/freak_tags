@@ -18,7 +18,7 @@ var DateTimeAgo = {
    * @return {Function}
    */
   init: function(locale, refreshRate) {
-    moment.locale(locale);
+    moment.locale(locale || "en");
     this.refresh();
     setInterval(this.refresh, refreshRate || this.refreshRate);
   },
