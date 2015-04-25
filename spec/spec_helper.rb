@@ -9,7 +9,7 @@ require "capybara/poltergeist"
 require "shoulda/matchers"
 require "factory_girl_rails"
 require "faker"
-require 'public_activity/testing'
+require "public_activity/testing"
 include Warden::Test::Helpers
 
 PublicActivity.enabled = true
