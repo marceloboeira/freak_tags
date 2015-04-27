@@ -11,6 +11,11 @@
 <%= fa("calendar") %> <%= datetime_ago @news.created_at %>
 | <%= fa("heart") %> 1000
 | <%= fa("share") %> 350
+| <%= fa("tags") %>
+  <% @news.tag_list.split(",") do |tag| %>
+
+  <span style="margin-left:1px;" class="tag label label-primary"> <%= tag %> </span>
+  <% end %>
 <hr>
 
 <div class="row-fluid">

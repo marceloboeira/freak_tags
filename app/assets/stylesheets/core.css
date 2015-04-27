@@ -4,6 +4,7 @@
  *= require font-awesome
  *= require medium-editor
  *= require medium-editor/themes/default
+ *= require bootstrap-tagsinput
  *= require_self
  */
 
@@ -137,6 +138,12 @@ input.input-slugline {
   border: 0px;
   min-width: 100%;
   font-size:14px;
+}
+
+input.input-tags, .bootstrap-tagsinput {
+  border: 0px;
+  min-width: 100%;
+  box-shadow: none;
 }
 
 /* Public Activity */

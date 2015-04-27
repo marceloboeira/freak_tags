@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "MomentJS", :type => :feature, :js => true  do
+describe "DateTimeAgo", :type => :feature, :js => true  do
   let (:piper) { create(:confirmed_user, username: "piper") }
   let (:news) { create(:news) }
 
