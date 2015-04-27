@@ -140,6 +140,12 @@ input.input-slugline {
   font-size:14px;
 }
 
+input.input-tags, .bootstrap-tagsinput {
+  border: 0px;
+  min-width: 100%;
+  box-shadow: none;
+}
+
 /* Public Activity */
 activity {
   padding: 15px 2px 15px 10px;

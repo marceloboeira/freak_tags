@@ -14,11 +14,11 @@
   </div>
   <hr/>
   <div class="field">
-    <%= f.text_field :tag_list, class: 'input-tags tags', value: @news.tag_list.sort.join(",")  %>
+    <%= f.text_field :slug_line, class: 'input-slugline', placeholder: :"Slug-line"  %>
   </div>
   <hr/>
   <div class="field">
-    <%= f.text_field :slug_line, class: 'input-slugline', placeholder: :"Slug-line"  %>
+    <%= f.text_field :tag_list, class: 'input-tags tags', value: @news.tag_list.sort.join(",")  %>
   </div>
   <hr/>
   <div class="field">
