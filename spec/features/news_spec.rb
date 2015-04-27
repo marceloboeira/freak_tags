@@ -62,7 +62,21 @@ describe "News", :type => :feature, :js => true  do
       end
     end
   end
-
+  describe "acts-as-taggable" do
+    before :each do
+      login_as(dexter)
+    end
+    it "updates tag list" do
+      new_tag_list = "breaking,mistery,icetruck"
+      visit edit_news_path(killer_news)
+      within("form.edit_news") do
+        first("input#news_tag_list").set(new_tag_list)
+        click_on "Update"
+      end
+      killer_news.reload
+      expect(killer_news.tag_list).to eq(new_tag_list.split(","))
+    end
+  end
 
   private
 
@@ -71,13 +85,15 @@ describe "News", :type => :feature, :js => true  do
     within("form.new_news") do
       first("input#news_title").set("The IceTruck Killer strikes again")
       first("input#news_slug_line").set("Miami police confirm that the IceTruck Killer, AKA ICT, has killed again")
-      first("#news_content").set("<b> Kill'em All </b>")
+      first("input#news_tag_list").set("bloody, blood, killer, cool")
+      first("textarea#news_content").set("<b> Kill'em All </b>")
       click_on "Create"
     end
     news = News.all.last
     expect(news.created_at).to be_between(5.seconds.ago, DateTime.now)
     expect(news.slug).to eq("the-icetruck-killer-strikes-again")
     expect(news.title).to have_content("IceTruck Killer")
+    expect(news.tag_list).to eq ["bloody", "blood", "killer", "cool"]
     expect(news.author).to eq(user)
     expect(current_path).to eq(news_path(news))
   end
