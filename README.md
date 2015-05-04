@@ -35,7 +35,7 @@ FreakTags is a simple *media-tracker* for you to keep up with all your favorite 
 * Install rvm, Ruby(2.2), Rails(4.2), PostgreSQL
 * Get inside the project folder and run:
   * `bundle`
-  * `rake db:create db:migrate rake db:seed`
+  * `rake db:create db:migrate db:seed`
 
 Problems? see our [FAQ.md](https://github.com/freaktags/core/blob/master/FAQ.md)
 
