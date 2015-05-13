@@ -1,5 +1,8 @@
 //= require bootbox/bootbox
-
+/**
+ * Modal
+ * @type {Object}
+ */
 var Modal = {
   selectors: {
     destroyConfirmation: "a[data-destroy]"

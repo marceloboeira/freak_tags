@@ -1,6 +1,5 @@
 //= require moment/moment
 //= require moment/locale/pt-br
-
 /**
  * DateTimeAgo class, to setup dynamic data-sources
  *
