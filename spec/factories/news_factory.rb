@@ -1,4 +1,3 @@
-
 FactoryGirl.define do
   factory :news do |n|
     n.title { Faker::Lorem.sentence(3, true, 6)  }
