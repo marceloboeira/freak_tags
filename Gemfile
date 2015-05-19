@@ -9,7 +9,6 @@ gem "therubyracer"
 
 # Validators / Enumeration
 gem "validates_existence", ">= 0.9.2"
-gem "email_validator"
 gem "date_validator"
 gem "enumerate_it"
 
