@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :name, length: { maximum: 50 }, full_name: true, allow_blank: true
   validates :username, presence: true, uniqueness: { case_sensitive: false }, username: true, length: { in: 2..50 }
   validates :password, presence: true, on: :update, allow_blank: true
-  validates :email, presence: true, uniqueness: { case_sensitive: false }, email: true, length: { in: 5..50 }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, length: { in: 5..50 }
   validates :gender, presence: true
   validates :role, presence: true
   validates :birthday, allow_blank: true, date: { after: 100.years.ago, before: 01.years.ago }

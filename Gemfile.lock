@@ -81,8 +81,6 @@ GEM
     dotenv (2.0.1)
     dotenv-rails (2.0.1)
       dotenv (= 2.0.1)
-    email_validator (1.6.0)
-      activemodel
     enumerate_it (1.2.6)
       activesupport (>= 3.0.0)
     erubis (2.7.0)
@@ -318,7 +316,6 @@ DEPENDENCIES
   date_validator
   devise
   dotenv-rails
-  email_validator
   enumerate_it
   factory_girl_rails
   faker
