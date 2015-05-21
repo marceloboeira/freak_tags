@@ -22,4 +22,7 @@ Rails.application.routes.draw do
     }
   resources :news
   get '/news/:id/destroy', to: 'news#destroy', as: 'destroy_news'
+
+
+  resources :tags
 end

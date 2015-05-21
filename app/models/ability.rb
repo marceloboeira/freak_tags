@@ -3,12 +3,23 @@ class Ability
 
   def initialize(user)
     user ||= User.new
+
     can :read, User
     can :read, News
+    can :read, Tag
     can :manage, Follow
 
-    can :create, News if user.contributor?
-    can :manage, News if user.moderator?
-    can :manage, :all if user.root?
+    if user.contributor?
+      can :create, News
+      can :create, Tag
+    end
+
+    if user.moderator?
+      can :manage, Tag
+    end
+
+    if user.root?
+      can :manage, :all
+    end
   end
 end
