@@ -5,8 +5,8 @@
     <ul id="navbar-left-links"class="nav nav-stacked">
       <li><%= link_to fa("dashboard"), dashboard_path, title: :dashboard.to_s.titleize, "data-placement": "right" %></li>
       <li><%= link_to fa("newspaper-o"), news_index_path, title: :news.to_s.titleize, "data-placement": "right" %></li>
+      <li><%= link_to fa("tags"), tags_path, title: :my_tags.to_s.titleize, "data-placement": "right" %></li>
       <% if Rails.env.development? %>
-        <li><%= link_to fa("tags"), news_index_path, title: :my_tags.to_s.titleize, "data-placement": "right" %></li>
         <li><%= link_to fa("list"), news_index_path, title: :lists.to_s.titleize, "data-placement": "right" %></li>
       <% end %>
       <li><%= link_to fa("wrench"), edit_registration_path(:user), title: :account.to_s.titleize, "data-placement": "right" %></li>

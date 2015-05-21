@@ -12,9 +12,9 @@
 | <%= fa("heart") %> 1000
 | <%= fa("share") %> 350
 | <%= fa("tags") %>
-  <% @news.tag_list.split(",") do |tag| %>
 
-  <span style="margin-left:1px;" class="tag label label-primary"> <%= tag %> </span>
+  <% @news.tags.each do |tag| %>
+    <%= link_tag(tag) %>
   <% end %>
 <hr>
 

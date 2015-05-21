@@ -1,0 +1,8 @@
+<h1><%= fa("tag") %> <%= @tag.name %></h1>
+<hr/>
+
+<h3><%= t(:related) %></h3>
+<hr/>
+<% @tag.taggings.each do |tagging| %>
+  <li> <%= link_to tagging.taggable.try(:title), polymorphic_path(tagging.taggable) %></li>
+<% end %>
