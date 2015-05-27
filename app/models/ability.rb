@@ -15,6 +15,7 @@ class Ability
     end
 
     if user.moderator?
+      can :manage, News
       can :manage, Tag
     end
 
