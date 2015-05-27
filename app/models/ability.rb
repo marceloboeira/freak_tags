@@ -16,6 +16,7 @@ class Ability
 
     if user.moderator?
       can :manage, Tag
+      can :manage, News
     end
 
     if user.root?
