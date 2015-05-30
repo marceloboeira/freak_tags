@@ -32,6 +32,7 @@ group :development do
   gem "spring"
   gem "bullet"
   gem "letter_opener"
+  gem "web-console", "~> 2.0"
   gem "rubocop", require: false
 end
 
