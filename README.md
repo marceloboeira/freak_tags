@@ -68,7 +68,7 @@ Check out the environment params you can set:
 * `FT_MAIL_AUTH` - Default mail authentication style. Ex.: `text`, `login`
 * `FT_MAIL_DOMAIN` - Default mail domain. Ex.: `beta.yourhost.com`, `yourhost.com`
 * `FT_DATABSE_URL` - Database URL to connect with your DB.
-$ `FT_GA_ID` - Google Analytics Tracking ID.
+* `FT_GA_ID` - Google Analytics Tracking ID.
 
 
 ## Open source stack
