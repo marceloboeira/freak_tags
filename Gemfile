@@ -46,7 +46,6 @@ group :test do
   gem "shoulda-matchers"
   gem "factory_girl_rails"
   gem "rspec-rails"
-  gem "rspec-expectations"
 end
 
 group :development, :test do
@@ -56,7 +55,6 @@ end
 group :production, :beta do
   gem "newrelic_rpm"
   gem "puma"
-  gem "sidekiq"
   gem "rails_12factor"
 end
 
